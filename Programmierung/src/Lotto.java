@@ -2,7 +2,7 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Lotto{
+public class Lotto {
 
     public static void main(String[] args) {
 
