@@ -1,12 +1,12 @@
 import java.util.Random;
 import java.util.Scanner;
 
-public class Zahlensuchen extends CS {
+public class Zahlensuchen {
 
     public static void main(String[] args) {
 
-        Scanner sc = new Scanner(System.in);
-        Random rd = new Random();
+        Scanner scanner = new Scanner(System.in);
+        Random random = new Random();
 
         int typ, spalte, zeile, suche, mal = 0;
         boolean spiel = true, runde = true;
@@ -17,25 +17,25 @@ public class Zahlensuchen extends CS {
             System.out.println("Was fuer Array wollen Sie erstellen?: ");
             System.out.print(CS.PURPLE_BRIGHT);
             System.out.print("(1 - 1D, 2 - 2D): ");
-            typ = sc.nextInt();
+            typ = scanner.nextInt();
 
             if (typ == 1) {
                 System.out.print(CS.GREEN_BRIGHT);
                 System.out.println("Sie haben sich fuer 1D Array entschieden");
                 System.out.println();
                 System.out.print("Wiel lang soll Array sein? : ");
-                spalte = sc.nextInt();
+                spalte = scanner.nextInt();
                 System.out.println();
 
                 int arr[] = new int[spalte];
 
                 for (int i = 0; i < spalte; i++) {
 
-                    arr[i] = rd.nextInt(0, 100);
+                    arr[i] = random.nextInt(0, 100);
                 }
                 System.out.print(CS.YELLOW_BRIGHT);
                 System.out.print("Welche Zahl suchen Sie?(1-100): ");
-                suche = sc.nextInt();
+                suche = scanner.nextInt();
                 System.out.println();
                 for (int i = 0; i < spalte; i++) {
                     if (suche == arr[i]) {
@@ -65,7 +65,7 @@ public class Zahlensuchen extends CS {
                 do {
                     System.out.print(CS.GREEN_BRIGHT);
                     System.out.print("Spielen wir noch mal?(ja/nein): ");
-                    antwort = sc.next();
+                    antwort = scanner.next();
                     if (antwort.equalsIgnoreCase("Ja")) {
 
                         System.out.println("Dann spielen wir noch eine Runde");
@@ -92,9 +92,9 @@ public class Zahlensuchen extends CS {
                 System.out.println("Bitte geben Sie Spalte und Zeile ein.");
                 System.out.print(CS.PURPLE_BRIGHT);
                 System.out.print("Spalte: ");
-                spalte = sc.nextInt();
+                spalte = scanner.nextInt();
                 System.out.print("Zeile: ");
-                zeile = sc.nextInt();
+                zeile = scanner.nextInt();
                 System.out.println();
 
                 int arr2[][] = new int[zeile][spalte];
@@ -103,12 +103,12 @@ public class Zahlensuchen extends CS {
 
                     for (int j = 0; j < spalte; j++) {
 
-                        arr2[i][j] = rd.nextInt(0, 100);
+                        arr2[i][j] = random.nextInt(0, 100);
                     }
                 }
                 System.out.print(CS.YELLOW_BRIGHT);
                 System.out.print("Welche Zahl suchen Sie?(1-100): ");
-                suche = sc.nextInt();
+                suche = scanner.nextInt();
                 System.out.println();
 
                 for (int i = 0; i < zeile; i++) {
@@ -141,7 +141,7 @@ public class Zahlensuchen extends CS {
                 do {
                     System.out.print(CS.GREEN_BRIGHT);
                     System.out.print("Spielen wir noch mal?(ja/nein): ");
-                    antwort = sc.next();
+                    antwort = scanner.next();
                     if (antwort.equalsIgnoreCase("Ja")) {
 
                         System.out.println("Dann spielen wir noch eine Runde");
@@ -167,6 +167,6 @@ public class Zahlensuchen extends CS {
 
 
         } while (spiel);
-        sc.close();
+        scanner.close();
     }
 }
