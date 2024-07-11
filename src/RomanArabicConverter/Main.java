@@ -114,7 +114,7 @@ public class Main {
         };
         return retVal;
     }
-    // Fuer zukinftige Pruefungen
+    //
     private static String pruefeZahl(String zahl) {
         zahl = zahl.toUpperCase();
         String retVal = zahl;
@@ -125,15 +125,16 @@ public class Main {
             retVal = "";
         } else {
             for (int i = 0; i < zahl.length() - 1; i++) {
-                String zeichen = zahl.valueOf(zahl.charAt(i)).toUpperCase();
+                String zeichen = String.valueOf(zahl.charAt(i)).toUpperCase();
                 // Prüfe V,L und D
+                String ziffer = String.valueOf(zahl.charAt(i + 1));
                 if (zeichen.equals("V") || zeichen.equals("L")
                         || zeichen.equalsIgnoreCase("D")) {
                     int wert = zahlenWert(zeichen);
                     // V,L und D dürfen nicht mehrfach hintereinander geschrieben werden
                     // und die Nachfolger dürfen nicht größer sein
-                    if (wert == zahlenWert(zahl.valueOf(zahl.charAt(i + 1)))
-                            || wert < zahlenWert(zahl.valueOf(zahl.charAt(i + 1)))) {
+                    if (wert == zahlenWert(ziffer)
+                            || wert < zahlenWert(ziffer)) {
                         retVal = "";
                         break;
                     }
@@ -142,30 +143,29 @@ public class Main {
                 else if (zeichen.equals("I"))// Reihenfolge für I
                 {
                     int wert = zahlenWert(zeichen);
-                    if (zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != wert
-                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 5
-                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 10) {
+                    if (zahlenWert(ziffer) != wert
+                            && zahlenWert(ziffer) != 5
+                            && zahlenWert(ziffer) != 10) {
                         retVal = "";
                         break;
                     }
                 } else if (zeichen.equals("X")) // Reihenfolge für X
                 {
                     int wert = zahlenWert(zeichen);
-                    if (zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != wert
-                            && ! (zahlenWert(zahl.valueOf(zahl.charAt(i + 1)))<wert)
-                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 50
-                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 100 ) {
+                    if (zahlenWert(ziffer) != wert
+                            && !(zahlenWert(ziffer) < wert)
+                            && zahlenWert(ziffer) != 50
+                            && zahlenWert(ziffer) != 100) {
                         retVal = "";
                         break;
                     }
                 } else if (zeichen.equals("C")) // Reihenfolge für X
                 {
                     int wert = zahlenWert(zeichen);
-
-                    if (zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != wert
-                            && ! (zahlenWert(zahl.valueOf(zahl.charAt(i + 1)))<wert)
-                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 500
-                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 1000) {
+                    if (zahlenWert(ziffer) != wert
+                            && !(zahlenWert(ziffer) < wert)
+                            && zahlenWert(ziffer) != 500
+                            && zahlenWert(ziffer) != 1000) {
                         retVal = "";
                         break;
                     }
