@@ -115,8 +115,63 @@ public class Main {
         return retVal;
     }
     // Fuer zukinftige Pruefungen
-    private static String pruefeZahl(String zahl){
-        String retVal = zahl.toUpperCase();
+    private static String pruefeZahl(String zahl) {
+        zahl = zahl.toUpperCase();
+        String retVal = zahl;
+        // Überprüfung ob die Zahl gültig ist
+        // Maximal drei gleiche Zeichen für M,C,X und I.
+        if (zahl.contains("MMMM") || zahl.contains("CCCC")
+                || zahl.contains("XXXX") || zahl.contains("IIII")) {
+            retVal = "";
+        } else {
+            for (int i = 0; i < zahl.length() - 1; i++) {
+                String zeichen = zahl.valueOf(zahl.charAt(i)).toUpperCase();
+                // Prüfe V,L und D
+                if (zeichen.equals("V") || zeichen.equals("L")
+                        || zeichen.equalsIgnoreCase("D")) {
+                    int wert = zahlenWert(zeichen);
+                    // V,L und D dürfen nicht mehrfach hintereinander geschrieben werden
+                    // und die Nachfolger dürfen nicht größer sein
+                    if (wert == zahlenWert(zahl.valueOf(zahl.charAt(i + 1)))
+                            || wert < zahlenWert(zahl.valueOf(zahl.charAt(i + 1)))) {
+                        retVal = "";
+                        break;
+                    }
+                }
+                // Reihenfolge bei Subtraktion
+                else if (zeichen.equals("I"))// Reihenfolge für I
+                {
+                    int wert = zahlenWert(zeichen);
+                    if (zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != wert
+                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 5
+                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 10) {
+                        retVal = "";
+                        break;
+                    }
+                } else if (zeichen.equals("X")) // Reihenfolge für X
+                {
+                    int wert = zahlenWert(zeichen);
+                    if (zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != wert
+                            && ! (zahlenWert(zahl.valueOf(zahl.charAt(i + 1)))<wert)
+                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 50
+                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 100 ) {
+                        retVal = "";
+                        break;
+                    }
+                } else if (zeichen.equals("C")) // Reihenfolge für X
+                {
+                    int wert = zahlenWert(zeichen);
+
+                    if (zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != wert
+                            && ! (zahlenWert(zahl.valueOf(zahl.charAt(i + 1)))<wert)
+                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 500
+                            && zahlenWert(zahl.valueOf(zahl.charAt(i + 1))) != 1000) {
+                        retVal = "";
+                        break;
+                    }
+                }
+            }
+        }
         return retVal;
     }
 }
