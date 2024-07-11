@@ -114,7 +114,7 @@ public class Main {
         };
         return retVal;
     }
-
+    // Fuer zukinftige Pruefungen
     private static String pruefeZahl(String zahl){
         String retVal = zahl.toUpperCase();
         return retVal;
