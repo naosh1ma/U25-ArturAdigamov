@@ -16,6 +16,7 @@ public class Main {
             System.out.println("Arabische eingeben  (a)");
             System.out.println("Programm beenden    (x)");
             wahl = scanner.nextLine();
+            // Befehlausfuerung
             System.out.print("Eingabe: ");
             switch(wahl){
                 case "r": zahl = scanner.nextLine();
@@ -29,6 +30,11 @@ public class Main {
         while (!wahl.equals("x"));
     }
 
+    /**
+     * Die Methode arabRoem liefert fuer den uebergebenen Dezimalwert die entsprechende roemische Zahl
+     * @param zahl Umzuwndelte Dezimalzahl
+     * @return  Raoemische Zahl
+     */
     public static String arabRoem(String zahl) {
         StringBuilder roemzahl = new StringBuilder();
         String ziffer = "";
@@ -37,15 +43,18 @@ public class Main {
         String[] f_zehner = {"", "X", "XX", "XXX", "XL", "L", "LX", "LXX", "LXXX", "XC"};
         String[] f_hunderter = {"", "C", "CC", "CCC", "CD", "D", "DC", "DCC", "DCCC", "CM"};
         String[] f_tausender = {"", "M", "MM", "MMM"};
+        // Ueberprufung auf maximalen Zahl
         if (zahl.length() > 4) {
             return "Zahl zu lang!";
         } else {
-            zahl = "000" + zahl;
-            zahl = zahl.substring(zahl.length() - 4);
+            zahl = "000" + zahl;                                    // Fuerende Nullen einfuegen
+            zahl = zahl.substring(zahl.length() - 4);   // Zahl wieder auf die letzten 4 Zeichen kuerzen
         }
+        // Erzeugung der roemischen Zahl
         for (int i = zahl.length(); i > 0; i--) {
-            ziffer = zahl.substring(i - 1, i);
-            index = Integer.parseInt(ziffer);
+            ziffer = zahl.substring(i - 1, i);    // Zahl in Ziffern zerlegen und mit kleinster Stelle beginnen
+            index = Integer.parseInt(ziffer);     // Ziffer in Integerwert konvertieren
+            // Bestimmung der roemischen Zahlzeichen
             if (index != 0) {
                 switch (i) {
                     case 1:
@@ -66,6 +75,11 @@ public class Main {
         return roemzahl.toString();
     }
 
+    /**
+     * Die Methode raoemArab rechnet die uebergebene roemische Zahl in einen dezimalen Wert ein.
+     * @param zahl Roemische Zahl
+     * @return Dezimales Ergebnis
+     */
     public static String roemArab(String zahl) {
         String zeichen = "";
         int wert = 0, summe = 0, i;
@@ -83,7 +97,6 @@ public class Main {
         } else {
             return "Fehler: Falsche Zahl";
         }
-
         return "" + summe;
     }
 
