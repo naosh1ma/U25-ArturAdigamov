@@ -1,3 +1,5 @@
+package ArrayManipulations;
+
 import java.util.Scanner;
 
 public class ArrayUmtausch {

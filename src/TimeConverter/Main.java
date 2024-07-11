@@ -1,4 +1,6 @@
-public class Zeitconverter {
+package TimeConverter;
+
+public class Main {
     public static void main(String[] args) {
 
         int jahr, mont, woch, tag, std, rest;

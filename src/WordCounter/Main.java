@@ -1,4 +1,7 @@
+package WordCounter;
+
 import java.util.Scanner;
+import ConsoleColors.CS;
 
 public class Main {
     public static void main(String[] args) {

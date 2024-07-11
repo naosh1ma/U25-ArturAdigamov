@@ -1,3 +1,7 @@
+package ArrayManipulations;
+
+import ConsoleColors.CS;
+
 import java.util.Random;
 import java.util.Scanner;
 

@@ -1,7 +1,11 @@
+package ArrayNumberSearch;
+
+import ConsoleColors.CS;
+
 import java.util.Random;
 import java.util.Scanner;
 
-public class Zahlensuchen {
+public class Main {
 
     public static void main(String[] args) {
 
@@ -47,7 +51,6 @@ public class Zahlensuchen {
                         System.out.print(CS.RED_BRIGHT);
                         System.out.print(arr[i] + " ");
                     }
-
                 }
                 System.out.println();
 
@@ -113,7 +116,6 @@ public class Zahlensuchen {
 
                 for (int i = 0; i < zeile; i++) {
                     for (int j = 0; j < spalte; j++) {
-
 
                         if (suche == arr2[i][j]) {
                             position = position + "[" + i + " , " + j + "] ";

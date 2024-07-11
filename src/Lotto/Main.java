@@ -1,8 +1,11 @@
+package Lotto;
+
+import ConsoleColors.CS;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class Lotto {
+public class Main {
 
     public static void main(String[] args) {
 
