@@ -1,4 +1,4 @@
-package RomanToArabicConverter;
+package RomanArabicConverter;
 
 import java.util.Scanner;
 
