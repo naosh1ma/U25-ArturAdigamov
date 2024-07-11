@@ -3,7 +3,6 @@ package RomanArabicConverter;
 import java.util.Scanner;
 
 public class Main {
-
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
@@ -18,13 +17,11 @@ public class Main {
             wahl = scanner.nextLine();
             // Befehlausfuerung
             System.out.print("Eingabe: ");
-            switch (wahl) {
-                case "r":
-                    zahl = scanner.nextLine();
+            switch(wahl){
+                case "r": zahl = scanner.nextLine();
                     System.out.println(zahl + ": " + roemArab(zahl));
                     break;
-                case "a":
-                    zahl = scanner.nextLine();
+                case "a": zahl = scanner.nextLine();
                     System.out.println(zahl + ": " + arabRoem(zahl));
                     break;
             }
@@ -34,9 +31,8 @@ public class Main {
 
     /**
      * Die Methode arabRoem liefert fuer den uebergebenen Dezimalwert die entsprechende roemische Zahl
-     *
-     * @param zahl Umzuwandelnde Dezimalzahl
-     * @return Raoemische Zahl
+     * @param zahl Umzuwndelte Dezimalzahl
+     * @return  Raoemische Zahl
      */
     public static String arabRoem(String zahl) {
         StringBuilder roemzahl = new StringBuilder();
@@ -51,12 +47,12 @@ public class Main {
             return "Zahl zu lang!";
         } else {
             zahl = "000" + zahl;                                    // Fuerende Nullen einfuegen
-            zahl = zahl.substring(zahl.length() - 4);   // Zahl wieder auf die letzten 4 Zeichen kuerzen
+            zahl = zahl.substring(zahl.length() - 4);    // Zahl wieder auf die letzten 4 Zeichen kuerzen
         }
         // Erzeugung der roemischen Zahl
         for (int i = zahl.length(); i > 0; i--) {
-            ziffer = zahl.substring(i - 1, i);    // Zahl in Ziffern zerlegen und mit kleinster Stelle beginnen
-            index = Integer.parseInt(ziffer);     // Ziffer in Integerwert konvertieren
+            ziffer = zahl.substring(i - 1, i);      // Zahl in Ziffern zerlegen und mit kleinster Stelle beginnen
+            index = Integer.parseInt(ziffer);       // Ziffer in Integerwert konvertieren
             // Bestimmung der roemischen Zahlzeichen
             if (index != 0) {
                 switch (i) {
@@ -80,26 +76,30 @@ public class Main {
 
     /**
      * Die Methode raoemArab rechnet die uebergebene roemische Zahl in einen dezimalen Wert ein.
-     *
      * @param zahl Roemische Zahl
      * @return Dezimales Ergebnis
      */
     public static String roemArab(String zahl) {
         String zeichen = "";
         int wert = 0, summe = 0, i;
-        for (i = 0; i < zahl.length() - 1; i++) {
-            zeichen = String.valueOf(zahl.charAt(i));
-            wert = zahlenWert(zeichen);
-            if (wert < zahlenWert(String.valueOf(zahl.charAt(i + 1)))) {
-                wert = wert * -1;
+        zahl = pruefeZahl(zahl);
+        if (!zahl.isEmpty()) {
+            for (i = 0; i < zahl.length() - 1; i++) {
+                zeichen = String.valueOf(zahl.charAt(i));
+                wert = zahlenWert(zeichen);
+                if (wert < zahlenWert(String.valueOf(zahl.charAt(i + 1)))) {
+                    wert = wert * -1;
+                }
+                summe = summe + wert;
             }
-            summe = summe + wert;
+            summe = summe + zahlenWert(String.valueOf(zahl.charAt(i)));
+        } else {
+            return "Fehler: Falsche Zahl";
         }
-        summe = summe + zahlenWert(String.valueOf(zahl.charAt(i)));
         return "" + summe;
     }
 
-    public static int zahlenWert(String ziffer) {
+    private static int zahlenWert(String ziffer) {
         int retVal = 0;
         ziffer = ziffer.toUpperCase();
         retVal = switch (ziffer) {
@@ -115,4 +115,8 @@ public class Main {
         return retVal;
     }
 
+    private static String pruefeZahl(String zahl){
+        String retVal = zahl.toUpperCase();
+        return retVal;
+    }
 }
