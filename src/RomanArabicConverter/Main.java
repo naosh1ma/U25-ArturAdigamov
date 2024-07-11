@@ -17,11 +17,13 @@ public class Main {
             wahl = scanner.nextLine();
             // Befehlausfuerung
             System.out.print("Eingabe: ");
-            switch(wahl){
-                case "r": zahl = scanner.nextLine();
+            switch (wahl) {
+                case "r":
+                    zahl = scanner.nextLine();
                     System.out.println(zahl + ": " + roemArab(zahl));
                     break;
-                case "a": zahl = scanner.nextLine();
+                case "a":
+                    zahl = scanner.nextLine();
                     System.out.println(zahl + ": " + arabRoem(zahl));
                     break;
             }
@@ -31,8 +33,9 @@ public class Main {
 
     /**
      * Die Methode arabRoem liefert fuer den uebergebenen Dezimalwert die entsprechende roemische Zahl
+     *
      * @param zahl Umzuwndelte Dezimalzahl
-     * @return  Raoemische Zahl
+     * @return Raoemische Zahl
      */
     public static String arabRoem(String zahl) {
         StringBuilder roemzahl = new StringBuilder();
@@ -76,6 +79,7 @@ public class Main {
 
     /**
      * Die Methode raoemArab rechnet die uebergebene roemische Zahl in einen dezimalen Wert ein.
+     *
      * @param zahl Roemische Zahl
      * @return Dezimales Ergebnis
      */
@@ -114,7 +118,13 @@ public class Main {
         };
         return retVal;
     }
-    //
+
+    /**
+     *
+     *
+     * @param zahl Roemische Zahl
+     * @return Gepruefte roemische Zahl
+     */
     private static String pruefeZahl(String zahl) {
         zahl = zahl.toUpperCase();
         String retVal = zahl;
@@ -140,8 +150,7 @@ public class Main {
                     }
                 }
                 // Reihenfolge bei Subtraktion
-                else if (zeichen.equals("I"))// Reihenfolge für I
-                {
+                else if (zeichen.equals("I")) { // Reihenfolge für I
                     int wert = zahlenWert(zeichen);
                     if (zahlenWert(ziffer) != wert
                             && zahlenWert(ziffer) != 5
@@ -149,8 +158,7 @@ public class Main {
                         retVal = "";
                         break;
                     }
-                } else if (zeichen.equals("X")) // Reihenfolge für X
-                {
+                } else if (zeichen.equals("X")) { // Reihenfolge für X
                     int wert = zahlenWert(zeichen);
                     if (zahlenWert(ziffer) != wert
                             && !(zahlenWert(ziffer) < wert)
@@ -159,8 +167,7 @@ public class Main {
                         retVal = "";
                         break;
                     }
-                } else if (zeichen.equals("C")) // Reihenfolge für X
-                {
+                } else if (zeichen.equals("C")) { // Reihenfolge für X
                     int wert = zahlenWert(zeichen);
                     if (zahlenWert(ziffer) != wert
                             && !(zahlenWert(ziffer) < wert)
