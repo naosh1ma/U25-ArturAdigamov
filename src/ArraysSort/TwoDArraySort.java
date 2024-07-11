@@ -1,11 +1,11 @@
-package ArrayManipulations;
+package ArraysSort;
 
 import ConsoleColors.CS;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class ArraySort {
+public class TwoDArraySort {
     public static void main(String[] args) {
 
         Scanner scanner = new Scanner(System.in);
