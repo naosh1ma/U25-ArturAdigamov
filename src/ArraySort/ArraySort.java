@@ -1,4 +1,4 @@
-package ArraysSort;
+package ArraySort;
 
 import java.util.Random;
 import java.util.Scanner;

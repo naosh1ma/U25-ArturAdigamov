@@ -1,4 +1,4 @@
-package ArraysSort;
+package ArraySort;
 
 import ConsoleColors.CS;
 
