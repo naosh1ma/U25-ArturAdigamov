@@ -5,8 +5,8 @@ import java.util.Scanner;
 
 public class Zahlenraten {
     // Variablen
-    private Random random = null; // Zufallzahlen Generator
-    private Scanner scanner = null;
+    private final Random random; // Zufallzahlen Generator
+    private final Scanner scanner;
     private int randomZahl;               // Zufallzahl
     private int minZahl, maxZahl;
     private int zahl;
@@ -50,6 +50,11 @@ public class Zahlenraten {
     }
 
     // Sonstige Methoden
+
+
+    /**
+     *
+     */
     public void start() {
         System.out.print("Bitte kleinste Zahl eingeben: ");
         this.minZahl = this.scanner.nextInt();
@@ -59,6 +64,12 @@ public class Zahlenraten {
         sortiere_aufsteigend(this.minZahl, this.maxZahl);
     }
 
+    /**
+     *
+     *
+     * @param min
+     * @param max
+     */
     public void sortiere_aufsteigend(int min, int max) {
         int minZ, maxZ;
         boolean fortsetzen = true;
@@ -82,6 +93,7 @@ public class Zahlenraten {
             }
             while (!gefunden);
 
+            System.out.println("Sie haben gewonnen!");
             System.out.println("Die Zaufallzahl war: " + getZahl() + "\n");
             System.out.println("Wollen Sie wieter spielen (j/n)?: ");
             if (this.scanner.next().equals("n")) {
