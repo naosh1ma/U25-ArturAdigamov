@@ -20,7 +20,6 @@ public class Zahlenraten {
         this();
         this.minZahl = min;
         this.maxZahl = max;
-        sortiere_aufsteigend(min, max);
     }
 
     // Schnittstellen-Methoden
@@ -50,34 +49,23 @@ public class Zahlenraten {
     }
 
     // Sonstige Methoden
-
-
-    /**
-     *
-     */
     public void start() {
-        System.out.print("Bitte kleinste Zahl eingeben: ");
-        this.minZahl = this.scanner.nextInt();
-        System.out.print("Bitte groesste Zahl eingeben: ");
-        this.maxZahl = this.scanner.nextInt();
+        System.out.print("Bitte untere Intervalgrenze eingeben: ");
+        setMinZahl(this.scanner.nextInt());
+        System.out.print("Bitte oberste Intervalgrenze eingeben: ");
+        setMaxZahl(this.scanner.nextInt());
 
-        sortiere_aufsteigend(this.minZahl, this.maxZahl);
-    }
-
-    /**
-     *
-     *
-     * @param min
-     * @param max
-     */
-    public void sortiere_aufsteigend(int min, int max) {
         int minZ, maxZ;
         boolean fortsetzen = true;
         boolean gefunden = false;
+
+        sortiere_aufsteigend();
+
         do {
-            this.randomZahl = this.random.nextInt(min, max); // zu erratende Zahl erzeugen und speichern
-            minZ = min;
-            maxZ = max;
+            // zu erratende Zahl erzeugen und speichern
+            this.randomZahl = this.random.nextInt(getMinZahl(), getMaxZahl());
+            minZ = getMinZahl();
+            maxZ = getMaxZahl();
             do {
                 System.out.println("Raten Sie Zahl zwischen " + minZ + " und " + maxZ + "!");
                 setZahl(this.scanner.nextInt());
@@ -96,11 +84,24 @@ public class Zahlenraten {
             System.out.println("Sie haben gewonnen!");
             System.out.println("Die Zaufallzahl war: " + getZahl() + "\n");
             System.out.println("Wollen Sie wieter spielen (j/n)?: ");
-            if (this.scanner.next().equals("n")) {
+            if (this.scanner.next().equalsIgnoreCase("n")) {
                 fortsetzen = false;
             } else {
                 gefunden = false;
             }
         } while (fortsetzen);
+    }
+
+    /**
+     * Die Methode sortiert zwei Zahlen unter Verwendung des Swap-Algorithmus in aufsteigender Reihenfolge
+     *
+     */
+    public void sortiere_aufsteigend() {
+        int temp;
+        if (getMaxZahl() < getMinZahl()) {
+            temp = getMaxZahl();
+            setMaxZahl(getMinZahl());
+            setMinZahl(temp);
+        }
     }
 }
