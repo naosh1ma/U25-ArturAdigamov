@@ -22,183 +22,183 @@ public class MyJFrame extends JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">
     private void initComponents() {
 
-        jTextMinZahl = new javax.swing.JTextField();
-        jTextMaxZahl = new javax.swing.JTextField();
-        jLabelMinZahl = new javax.swing.JLabel();
-        jLabelMaxZahl = new javax.swing.JLabel();
-        jButtonUnit = new javax.swing.JButton();
-        jTextField1 = new javax.swing.JTextField();
-        jButtonGame = new javax.swing.JButton();
-        jButtonEnd = new javax.swing.JButton();
+        panel = new javax.swing.JPanel();
+        labelMinZahl = new javax.swing.JLabel();
+        labelMaxZahl = new javax.swing.JLabel();
+        textMinZahl = new javax.swing.JTextField();
+        textMaxZahl = new javax.swing.JTextField();
+        buttonUnit = new javax.swing.JButton();
+        textConsole = new javax.swing.JTextField();
+        textZahl = new javax.swing.JTextField();
+        buttonGame = new javax.swing.JButton();
+        buttonEndGame = new javax.swing.JButton();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        setPreferredSize(new java.awt.Dimension(400, 400));
 
-        jTextMinZahl.addActionListener(new java.awt.event.ActionListener() {
+        panel.setPreferredSize(new java.awt.Dimension(400, 400));
+
+        labelMinZahl.setText("untere Intervalgrenze");
+
+        labelMaxZahl.setText("obere Intervalgrenze");
+
+        textMinZahl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextMinZahlActionPerformed(evt);
+                textMinZahlActionPerformed(evt);
             }
         });
 
-        jTextMaxZahl.addActionListener(new java.awt.event.ActionListener() {
+        textMaxZahl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextMaxZahlActionPerformed(evt);
+                textMaxZahlActionPerformed(evt);
             }
         });
 
-        jLabelMinZahl.setText("Untere Intervalgrenze");
-
-        jLabelMaxZahl.setText("Oberste Intervalgrenze");
-
-        jButtonUnit.setText("Unit");
-        jButtonUnit.addActionListener(new java.awt.event.ActionListener() {
+        buttonUnit.setText("Unit");
+        buttonUnit.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonUnitActionPerformed(evt);
+                buttonUnitActionPerformed(evt);
             }
         });
 
-        jTextField1.addActionListener(new java.awt.event.ActionListener() {
+        textConsole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jTextField1ActionPerformed(evt);
+                textConsoleActionPerformed(evt);
             }
         });
 
-        jButtonGame.setText("Spielen");
-        jButtonGame.addActionListener(new java.awt.event.ActionListener() {
+        textZahl.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonGameActionPerformed(evt);
+                textZahlActionPerformed(evt);
             }
         });
 
-        jButtonEnd.setText("Beenden");
-        jButtonEnd.addActionListener(new java.awt.event.ActionListener() {
+        buttonGame.setText("Spielen");
+        buttonGame.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
-                jButtonEndActionPerformed(evt);
+                buttonGameActionPerformed(evt);
             }
         });
+
+        buttonEndGame.setText("Beenden");
+        buttonEndGame.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                buttonEndGameActionPerformed(evt);
+            }
+        });
+
+        javax.swing.GroupLayout panelLayout = new javax.swing.GroupLayout(panel);
+        panel.setLayout(panelLayout);
+        panelLayout.setHorizontalGroup(
+                panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                                .addGap(52, 52, 52)
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
+                                        .addComponent(textConsole)
+                                        .addComponent(textZahl)
+                                        .addGroup(panelLayout.createSequentialGroup()
+                                                .addComponent(buttonGame)
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                                .addComponent(buttonEndGame))
+                                        .addGroup(panelLayout.createSequentialGroup()
+                                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(labelMinZahl)
+                                                        .addComponent(labelMaxZahl))
+                                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 28, Short.MAX_VALUE)
+                                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                                        .addComponent(textMinZahl, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                                        .addComponent(textMaxZahl, javax.swing.GroupLayout.PREFERRED_SIZE, 104, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                                .addGap(43, 43, 43)))
+                                .addGap(62, 62, 62))
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
+                                .addComponent(buttonUnit)
+                                .addGap(120, 120, 120))
+        );
+        panelLayout.setVerticalGroup(
+                panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, panelLayout.createSequentialGroup()
+                                .addGap(46, 46, 46)
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
+                                        .addComponent(textMinZahl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelMinZahl))
+                                .addGap(27, 27, 27)
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(textMaxZahl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                        .addComponent(labelMaxZahl))
+                                .addGap(18, 18, 18)
+                                .addComponent(buttonUnit)
+                                .addGap(32, 32, 32)
+                                .addComponent(textConsole, javax.swing.GroupLayout.DEFAULT_SIZE, 104, Short.MAX_VALUE)
+                                .addGap(18, 18, 18)
+                                .addComponent(textZahl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                                .addGap(18, 18, 18)
+                                .addGroup(panelLayout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
+                                        .addComponent(buttonGame)
+                                        .addComponent(buttonEndGame))
+                                .addGap(25, 25, 25))
+        );
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
         layout.setHorizontalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
-                                .addContainerGap(javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonUnit)
-                                .addGap(55, 55, 55))
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(29, 29, 29)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                        .addComponent(jTextField1)
-                                        .addGroup(layout.createSequentialGroup()
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                                                        .addComponent(jLabelMinZahl)
-                                                        .addComponent(jLabelMaxZahl))
-                                                .addGap(102, 102, 102)
-                                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
-                                                        .addComponent(jTextMinZahl, javax.swing.GroupLayout.DEFAULT_SIZE, 121, Short.MAX_VALUE)
-                                                        .addComponent(jTextMaxZahl))))
-                                .addContainerGap(30, Short.MAX_VALUE))
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(62, 62, 62)
-                                .addComponent(jButtonGame)
-                                .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(jButtonEnd)
-                                .addGap(59, 59, 59))
+                        .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
         layout.setVerticalGroup(
                 layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-                        .addGroup(layout.createSequentialGroup()
-                                .addGap(43, 43, 43)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextMinZahl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabelMinZahl))
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jTextMaxZahl, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                        .addComponent(jLabelMaxZahl))
-                                .addGap(29, 29, 29)
-                                .addComponent(jButtonUnit)
-                                .addGap(26, 26, 26)
-                                .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE)
-                                .addGap(18, 18, 18)
-                                .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                                        .addComponent(jButtonGame)
-                                        .addComponent(jButtonEnd))
-                                .addContainerGap(14, Short.MAX_VALUE))
+                        .addComponent(panel, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
         );
 
         pack();
     }// </editor-fold>
 
-    private void jTextMinZahlActionPerformed(java.awt.event.ActionEvent evt) {
+    private void textMinZahlActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void jTextMaxZahlActionPerformed(java.awt.event.ActionEvent evt) {
+    private void textMaxZahlActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void jButtonUnitActionPerformed(java.awt.event.ActionEvent evt) {
+    private void buttonUnitActionPerformed(java.awt.event.ActionEvent evt) {
         int min = 0;
         int max = 10;
-        min = Integer.parseInt(jTextMinZahl.getText());
-        max = Integer.parseInt(jTextMaxZahl.getText());
+        min = Integer.parseInt(textMinZahl.getText());
+        max = Integer.parseInt(textMaxZahl.getText());
         game.setMinZahl(min);
         game.setMaxZahl(max);
     }
 
-    private void jTextField1ActionPerformed(java.awt.event.ActionEvent evt) {
+    private void textConsoleActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void jButtonEndActionPerformed(java.awt.event.ActionEvent evt) {
+    private void textZahlActionPerformed(java.awt.event.ActionEvent evt) {
         // TODO add your handling code here:
     }
 
-    private void jButtonGameActionPerformed(java.awt.event.ActionEvent evt) {
+    private void buttonGameActionPerformed(java.awt.event.ActionEvent evt) {
         if(game != null){
             game.start();
         }
     }
-/*
-    /**
-     * @param args the command line arguments
-     */
-//    public static void main(String args[]) {
-//        /* Set the Nimbus look and feel */
-//        //<editor-fold defaultstate="collapsed" desc=" Look and feel setting code (optional) ">
-//        /* If Nimbus (introduced in Java SE 6) is not available, stay with the default look and feel.
-//         * For details see http://download.oracle.com/javase/tutorial/uiswing/lookandfeel/plaf.html
-//         */
-//        try {
-//            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-//                if ("Nimbus".equals(info.getName())) {
-//                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-//                    break;
-//                }
-//            }
-//        } catch (ClassNotFoundException ex) {
-//            java.util.logging.Logger.getLogger(MyJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (InstantiationException ex) {
-//            java.util.logging.Logger.getLogger(MyJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (IllegalAccessException ex) {
-//            java.util.logging.Logger.getLogger(MyJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-//            java.util.logging.Logger.getLogger(MyJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-//        }
-//        //</editor-fold>
-//
-//        /* Create and display the form */
-//        java.awt.EventQueue.invokeLater(() -> new MyJFrame().setVisible(true));
-//    }
+
+    private void buttonEndGameActionPerformed(java.awt.event.ActionEvent evt) {
+        // TODO add your handling code here:
+    }
+
 
     // Variables declaration - do not modify
-    private javax.swing.JButton jButtonEnd;
-    private javax.swing.JButton jButtonGame;
-    private javax.swing.JButton jButtonUnit;
-    private javax.swing.JLabel jLabelMaxZahl;
-    private javax.swing.JLabel jLabelMinZahl;
-    private javax.swing.JTextField jTextField1;
-    private javax.swing.JTextField jTextMaxZahl;
-    private javax.swing.JTextField jTextMinZahl;
+    private javax.swing.JButton buttonEndGame;
+    private javax.swing.JButton buttonGame;
+    private javax.swing.JButton buttonUnit;
+    private javax.swing.JLabel labelMaxZahl;
+    private javax.swing.JLabel labelMinZahl;
+    private javax.swing.JPanel panel;
+    private javax.swing.JTextField textConsole;
+    private javax.swing.JTextField textMaxZahl;
+    private javax.swing.JTextField textMinZahl;
+    private javax.swing.JTextField textZahl;
     // End of variables declaration
 }
