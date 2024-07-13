@@ -11,14 +11,11 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
 
         int besetztePlaetze = scanner.nextInt();
-
         boolean[][] platzKunde = new boolean[16][16];
 
         while (besetztePlaetze > 0) {
-
             int randomRow = random.nextInt(platzKunde.length);
             int randomCol = random.nextInt(platzKunde[0].length);
-
             // Überprüfe, ob der Wert an dieser Stelle bereits true ist
             if (!platzKunde[randomRow][randomCol]) {
                 platzKunde[randomRow][randomCol] = true;
@@ -26,9 +23,7 @@ public class Main {
             }
         }
         System.out.println();
-
         for (int i = 0; i < platzKunde.length; i++) {
-
             if (i > 0) {
                 if (i > 9) {
                     System.out.print(i);
@@ -37,7 +32,6 @@ public class Main {
                 }
             }
             for (int j = 0; j < platzKunde[i].length; j++) {
-
                 if (i == 0) {
                     if (j > 9) {
                         System.out.print(j + " ");
@@ -46,7 +40,6 @@ public class Main {
                     }
                 }
                 if (i > 0) {
-
                     if (platzKunde[i][j]) {
                         System.out.print(CS.RED + " ▰" + CS.RESET);
                     } else {
@@ -57,6 +50,4 @@ public class Main {
             System.out.println();
         }
     }
-
-
 }
