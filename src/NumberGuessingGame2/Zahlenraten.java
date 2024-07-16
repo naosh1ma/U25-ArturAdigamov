@@ -5,15 +5,19 @@ import java.util.Scanner;
 
 public class Zahlenraten {
     // Variablen
-    private final Random random; // Zufallzahlen Generator
-    private final Scanner scanner;
-    private int randomZahl;               // Zufallzahl
-    private int minZahl, maxZahl;
-    private int zahl;
+    private final Random random;   // Zufallzahlen Generator
+    private final Scanner scanner; // Eingabe Objekt
+    private View output;           // Ausgabe auf Console
+    private int randomZahl;        // Zufallzahl
+    private int minZahl, maxZahl;  // Intervalgrenzen
+    private int zahl;              // Tippzahl
+    private int minZ, maxZ;        // Hilfsvariablen
 
+    // Konstruktoren
     public Zahlenraten() {
         this.random = new Random();
         this.scanner = new Scanner(System.in);
+        this.output = new View(View.CONSOLE);
     }
 
     public Zahlenraten(int min, int max) {
@@ -23,6 +27,12 @@ public class Zahlenraten {
     }
 
     // Schnittstellen-Methoden
+    public View getOutput() {
+        return output;
+    }
+    public void setOutput(View output) {
+        this.output = output;
+    }
     public int getMinZahl() {
         return minZahl;
     }
@@ -50,37 +60,18 @@ public class Zahlenraten {
 
     // Sonstige Methoden
     public void start() {
-        System.out.print("Bitte untere Intervalgrenze eingeben: ");
-        setMinZahl(this.scanner.nextInt());
-        System.out.print("Bitte oberste Intervalgrenze eingeben: ");
-        setMaxZahl(this.scanner.nextInt());
-
-        int minZ, maxZ;
         boolean fortsetzen = true;
         boolean gefunden = false;
-
         sortiere_aufsteigend();
-
         do {
             // zu erratende Zahl erzeugen und speichern
-            this.randomZahl = this.random.nextInt(getMinZahl(), getMaxZahl());
-            minZ = getMinZahl();
-            maxZ = getMaxZahl();
+            initGame();
             do {
-                System.out.println("Raten Sie Zahl zwischen " + minZ + " und " + maxZ + "!");
+                this.output.writeLn(info());
                 setZahl(this.scanner.nextInt());
-                if (getRandomZahl() == getZahl()) {
-                    gefunden = true;
-                } else {
-                    if (getZahl() > getRandomZahl()) {
-                        maxZ = getZahl();
-                    } else {
-                        minZ = getZahl();
-                    }
-                }
+                gefunden = testZahl();
             }
             while (!gefunden);
-
             System.out.println("Sie haben gewonnen!");
             System.out.println("Die Zaufallzahl war: " + getZahl() + "\n");
             System.out.println("Wollen Sie wieter spielen (j/n)?: ");
@@ -91,6 +82,32 @@ public class Zahlenraten {
             }
         } while (fortsetzen);
     }
+
+    // Daten Interface Zahlraten (API)
+    public String info() {
+        return "Raten Sie Zahl zwischen " + minZ + " und " + maxZ + "!";
+    }
+
+    public boolean testZahl() {
+        boolean found = false;
+        if (getRandomZahl() == getZahl()) {
+            found = true;
+        } else {
+            if (getZahl() > getRandomZahl()) {
+                maxZ = getZahl();
+            } else {
+                minZ = getZahl();
+            }
+        }
+        return found;
+    }
+
+    public void initGame() {
+        this.randomZahl = this.random.nextInt(getMaxZahl() - getMinZahl() + 1) + getMinZahl();
+        minZ = getMinZahl();
+        maxZ = getMaxZahl();
+    }
+    // API Ende
 
     /**
      * Die Methode sortiert zwei Zahlen unter Verwendung des Swap-Algorithmus in aufsteigender Reihenfolge

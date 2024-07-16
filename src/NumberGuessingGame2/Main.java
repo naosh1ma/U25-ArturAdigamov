@@ -1,33 +1,42 @@
 package NumberGuessingGame2;
 
+import java.util.Scanner;
+
 public class Main {
     public static void main(String[] args) {
-        //Zahlenraten spiel = new Zahlenraten();
-        //spiel.start();
-
-
-        try {
-            for (javax.swing.UIManager.LookAndFeelInfo info : javax.swing.UIManager.getInstalledLookAndFeels()) {
-                if ("Nimbus".equals(info.getName())) {
-                    javax.swing.UIManager.setLookAndFeel(info.getClassName());
-                    break;
-                }
+        if(args.length==0){
+            System.out.println("Bitte einen Startparameter angeben!");
+            System.out.println("  /C : Konsolenausgabe");
+            System.out.println("  /G : GUI Ausgabe");
+        } else {
+            String p = args[0].toUpperCase();
+            switch(p){
+                case "/C" : useCui(); break;
+                case "/G" : useGui(); break;
+                default: System.out.println("Falscher Parameter '"+p+"' !");
             }
-        } catch (ClassNotFoundException ex) {
-            java.util.logging.Logger.getLogger(MyJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (InstantiationException ex) {
-            java.util.logging.Logger.getLogger(MyJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (IllegalAccessException ex) {
-            java.util.logging.Logger.getLogger(MyJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
-        } catch (javax.swing.UnsupportedLookAndFeelException ex) {
-            java.util.logging.Logger.getLogger(MyJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
-        //</editor-fold>
+    }
 
+    private static void useCui(){
+        Zahlenraten game = new Zahlenraten();
+        Scanner scanner = new Scanner(System.in);
+        game.setOutput(new View(View.CONSOLE));
+        // Eingabe der Intervallgrenzen
+        System.out.println("Bitte untere Intervalgrenze eingeben: ");
+        game.setMinZahl(scanner.nextInt());
+        System.out.print("Bitte oberste Intervalgrenze eingeben: ");
+        game.setMaxZahl(scanner.nextInt());
+        // Spiel starten
+        game.start();
+    }
+    private static void useGui() {
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-                new MyJFrame().setVisible(true);
+                MyJFrame gui = new MyJFrame();
+                gui.setLocationRelativeTo(null);
+                gui.setVisible(true);
             }
         });
     }
