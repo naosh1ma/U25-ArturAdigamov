@@ -38,5 +38,8 @@ public class Main {
         }
         frame.getTextCode().setText(output);
     }
+    public void decrypt(MyFrame frame) {
+
+    }
 }
 
