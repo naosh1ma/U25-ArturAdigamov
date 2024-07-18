@@ -1,6 +1,5 @@
 package CryptographySkytala;
 
-
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
@@ -24,7 +23,6 @@ import javax.swing.DefaultComboBoxModel;
 
 public class MyFrame extends JFrame {
 
-    private static final long serialVersionUID = 1L;
     private JPanel contentPane;
 
     private Main main = null;
@@ -45,25 +43,6 @@ public class MyFrame extends JFrame {
         return textOrig;
     }
 
-    /**
-     * Launch the application.
-     */
-//	public static void main(String[] args) {
-//		EventQueue.invokeLater(new Runnable() {
-//			public void run() {
-//				try {
-//					MyFrame frame = new MyFrame();
-//					frame.setVisible(true);
-//				} catch (Exception e) {
-//					e.printStackTrace();
-//				}
-//			}
-//		});
-//	}
-
-    /**
-     * Create the frame.
-     */
     public MyFrame() {
         main = new Main();
         frame = this;
@@ -79,17 +58,13 @@ public class MyFrame extends JFrame {
         paneOrig.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         paneOrig.setBounds(20, 60, 380, 120);
         contentPane.add(paneOrig);
-
         textOrig = new JTextArea();
         paneOrig.setViewportView(textOrig);
-
-
 
         JScrollPane paneCode = new JScrollPane();
         paneCode.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
         paneCode.setBounds(20, 240, 380, 120);
         contentPane.add(paneCode);
-
         textCode = new JTextArea();
         paneCode.setViewportView(textCode);
 
@@ -124,12 +99,12 @@ public class MyFrame extends JFrame {
         buttonLoad = new JButton("Laden...");
         buttonLoad.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                JFileChooser fileChooser = new JFileChooser("C:\\Users\\ArturAdigamov\\Downloads");
+                JFileChooser fileChooser = new JFileChooser();
                 FileNameExtensionFilter restrict = new FileNameExtensionFilter("Only .txt files", "txt");
                 fileChooser.setAcceptAllFileFilterUsed(false);
                 fileChooser.addChoosableFileFilter(restrict);
                 fileChooser.showOpenDialog(null);
-                File file = new File (fileChooser.getSelectedFile().getAbsolutePath());
+                File file = new File(fileChooser.getSelectedFile().getAbsolutePath());
                 try {
                     Scanner scan = new Scanner(file);
                     StringBuilder temp = new StringBuilder();
@@ -182,9 +157,8 @@ public class MyFrame extends JFrame {
             }
         });
         comboBox.setFont(new Font("Times New Roman", Font.PLAIN, 12));
-        comboBox.setModel(new DefaultComboBoxModel(new String[] {"2", "3", "4", "5", "6", "7", "8", "9", "10"}));
+        comboBox.setModel(new DefaultComboBoxModel(new String[]{"2", "3", "4", "5", "6", "7", "8", "9", "10"}));
         comboBox.setSelectedIndex(0);
-
         comboBox.setBounds(355, 25, 45, 25);
         contentPane.add(comboBox);
 
