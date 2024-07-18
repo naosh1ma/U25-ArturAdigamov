@@ -5,21 +5,8 @@ import java.io.File;
 public class Main {
 
     MyFrame frame = null;
-    private int u, z;
-    private File file;
+    private int z;
 
-    public File getFile() {
-        return file;
-    }
-    public void setFile(File file) {
-        this.file = file;
-    }
-    public int getU() {
-        return u;
-    }
-    public void setU(int u) {
-        this.u = u;
-    }
     public int getZ() {
         return z;
     }

@@ -41,7 +41,6 @@ public class MyFrame extends JFrame {
     public JTextArea getTextCode() {
         return textCode;
     }
-
     public JTextArea getTextOrig() {
         return textOrig;
     }
@@ -131,12 +130,11 @@ public class MyFrame extends JFrame {
                 fileChooser.addChoosableFileFilter(restrict);
                 fileChooser.showOpenDialog(null);
                 File file = new File (fileChooser.getSelectedFile().getAbsolutePath());
-                main.setFile(file);
                 try {
                     Scanner scan = new Scanner(file);
-                    List<String> temp = new ArrayList<>();
+                    StringBuilder temp = new StringBuilder();
                     while (scan.hasNext()) {
-                        temp.add(scan.nextLine());
+                        temp.append(scan.nextLine());
                     }
                     textOrig.setText(temp.toString());
                 } catch (FileNotFoundException ex) {
