@@ -113,6 +113,7 @@ public class MyFrame extends JFrame {
                         temp.append(scan.nextLine());
                         temp.append("\n");
                     }
+                    temp.replace(temp.length()-1,temp.length(),"");
                     textOrig.setText(temp.toString());
                     scan.close();
                 } catch (FileNotFoundException ex) {

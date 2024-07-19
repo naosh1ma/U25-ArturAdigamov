@@ -1,5 +1,8 @@
 package CryptographySkytala;
 
+import javax.swing.*;
+import java.awt.*;
+
 public class Main {
 
     private MyFrame frame = null;
@@ -59,8 +62,15 @@ public class Main {
         }
         frame.getTextCode().setText(output);
     }
-    public void bruteForce(MyFrame frame) {
 
+    public void bruteForce(MyFrame frame) {
+        for (int i = 2; i <= 10; i++) {
+            setZ(i);
+            decrypt(frame);
+            if (JOptionPane.showConfirmDialog(null, "Richtig?") == 0) {
+                break;
+            }
+        }
     }
 }
 
