@@ -11,6 +11,7 @@ public class Main {
     public int getZ() {
         return z;
     }
+
     public void setZ(int z) {
         this.z = z;
     }
@@ -24,7 +25,7 @@ public class Main {
         char[] textfield = null, codefield = null;
         String output = "";
         int lines = z;
-        if (!frame.getTextOrig().getText().equals("")) {
+        if (!frame.getTextOrig().getText().isEmpty()) {
             textfield = frame.getTextOrig().getText().toCharArray();
             codefield = new char[textfield.length];
             int i = 0;
@@ -45,7 +46,7 @@ public class Main {
         char[] textfield = null, codefield = null;
         String output = "";
         int lines = z;
-        if (!frame.getTextOrig().getText().equals("")) {
+        if (!frame.getTextOrig().getText().isEmpty()) {
             codefield = frame.getTextOrig().getText().toCharArray();
             textfield = new char[codefield.length];
             int i = 0;
@@ -66,7 +67,8 @@ public class Main {
         for (int i = 2; i <= 10; i++) {
             setZ(i);
             decrypt(frame);
-            if (JOptionPane.showConfirmDialog(null, "Richtig?") == 0) {
+            int obj = JOptionPane.showConfirmDialog(null, "Richtig?");
+            if (obj == 0 || obj == 2) {
                 break;
             }
         }
