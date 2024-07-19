@@ -8,6 +8,7 @@ public class Main {
     public int getZ() {
         return z;
     }
+
     public void setZ(int z) {
         this.z = z;
     }
@@ -22,8 +23,7 @@ public class Main {
         String output = "";
         int lines = z;
         if (!frame.getTextOrig().getText().equals("")) {
-            String temp = frame.getTextOrig().getText();
-            textfield = temp.toCharArray();
+            textfield = frame.getTextOrig().getText().toCharArray();
             codefield = new char[textfield.length];
             int i = 0;
             for (int z = 0; z < lines; z++) {
@@ -38,7 +38,28 @@ public class Main {
         }
         frame.getTextCode().setText(output);
     }
+
     public void decrypt(MyFrame frame) {
+        char[] textfield = null, codefield = null;
+        String output = "";
+        int lines = z;
+        if (!frame.getTextOrig().getText().equals("")) {
+            codefield = frame.getTextOrig().getText().toCharArray();
+            textfield = new char[codefield.length];
+            int i = 0;
+            for (int z = 0; z < lines; z++) {
+                for (int s = z; s < textfield.length; s = s + lines) {
+                    textfield[s] = codefield[i];
+                    i++;
+                }
+            }
+        }
+        for (int c = 0; c < codefield.length; c++) {
+            output = output + "" + textfield[c];
+        }
+        frame.getTextCode().setText(output);
+    }
+    public void bruteForce(MyFrame frame) {
 
     }
 }

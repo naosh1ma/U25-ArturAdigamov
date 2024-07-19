@@ -5,31 +5,28 @@ import javax.swing.JPanel;
 import javax.swing.border.EmptyBorder;
 import javax.swing.filechooser.FileNameExtensionFilter;
 import javax.swing.JButton;
-import java.awt.event.ActionListener;
-import java.io.*;
-import java.awt.event.ActionEvent;
 import javax.swing.JScrollPane;
 import javax.swing.JTextArea;
 import javax.swing.ScrollPaneConstants;
 import javax.swing.JComboBox;
 import javax.swing.JFileChooser;
 import javax.swing.JLabel;
-import java.awt.Font;
-import java.util.ArrayList;
-import java.util.List;
-import java.util.Scanner;
 import javax.swing.SwingConstants;
 import javax.swing.DefaultComboBoxModel;
+import java.io.*;
+import java.awt.event.ActionListener;
+import java.awt.event.ActionEvent;
+import java.awt.Font;
+import java.util.Scanner;
 
 public class MyFrame extends JFrame {
-
-    private JPanel contentPane;
-
     private Main main = null;
     private MyFrame frame = null;
+
+    private JPanel contentPane;
     private JButton buttonCode;
     private JButton buttonDecode;
-    private JButton buttonCrush;
+    private JButton bruteForce;
     private JButton buttonLoad;
     private JButton buttonSave;
     private JButton buttonClose;
@@ -46,11 +43,11 @@ public class MyFrame extends JFrame {
     public MyFrame() {
         main = new Main();
         frame = this;
+
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 550, 420);
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
         setContentPane(contentPane);
         contentPane.setLayout(null);
 //------Text Area "Original Text"-----------------------------------------------------------
@@ -88,14 +85,15 @@ public class MyFrame extends JFrame {
         });
         contentPane.add(buttonDecode);
 //------Taste "Brechen"----------------------------------------------------------------------
-        buttonCrush = new JButton("Brechen");
-        buttonCrush.setFont(new Font("Times New Roman", Font.BOLD, 12));
-        buttonCrush.setBounds(410, 120, 100, 25);
-        buttonCrush.addActionListener(new ActionListener() {
+        bruteForce = new JButton("Brechen");
+        bruteForce.setFont(new Font("Times New Roman", Font.BOLD, 12));
+        bruteForce.setBounds(410, 120, 100, 25);
+        bruteForce.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                main.bruteForce(frame);
             }
         });
-        contentPane.add(buttonCrush);
+        contentPane.add(bruteForce);
 //------Taste "Laden"------------------------------------------------------------------------
         buttonLoad = new JButton("Laden...");
         buttonLoad.setFont(new Font("Times New Roman", Font.BOLD, 12));
@@ -113,14 +111,15 @@ public class MyFrame extends JFrame {
                     StringBuilder temp = new StringBuilder();
                     while (scan.hasNext()) {
                         temp.append(scan.nextLine());
+                        temp.append("\n");
                     }
                     textOrig.setText(temp.toString());
+                    scan.close();
                 } catch (FileNotFoundException ex) {
                     throw new RuntimeException(ex);
                 }
             }
         });
-
         contentPane.add(buttonLoad);
 //------Taste "Speichern"------------------------------------------------------------------------
         buttonSave = new JButton("Speichern...");
@@ -155,27 +154,28 @@ public class MyFrame extends JFrame {
         comboBox.setModel(new DefaultComboBoxModel(new String[]{"2", "3", "4", "5", "6", "7", "8", "9", "10"}));
         comboBox.setSelectedIndex(0);
         comboBox.setBounds(355, 25, 45, 25);
-        comboBox.setMaximumRowCount(9);
+        comboBox.setMaximumRowCount(10);
+        main.setZ(comboBox.getSelectedIndex() + 2);
         comboBox.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                int z = Integer.parseInt((String) comboBox.getSelectedItem());
+                int z = comboBox.getSelectedIndex() + 2;
                 main.setZ(z);
             }
         });
         contentPane.add(comboBox);
-//------------------------------------------------------------------------------
+//--------------------------------------------------------------------------------------------
         JLabel labelOrig = new JLabel("Original Text:");
         labelOrig.setVerticalAlignment(SwingConstants.BOTTOM);
         labelOrig.setFont(new Font("Times New Roman", Font.BOLD, 14));
         labelOrig.setBounds(20, 23, 100, 25);
         contentPane.add(labelOrig);
-
+//---------------------------------------------------------------------------------------------
         JLabel labelCode = new JLabel("Kodierter Text:");
         labelCode.setVerticalAlignment(SwingConstants.BOTTOM);
         labelCode.setFont(new Font("Times New Roman", Font.BOLD, 14));
         labelCode.setBounds(20, 205, 100, 25);
         contentPane.add(labelCode);
-
+//----------------------------------------------------------------------------------------------
         JLabel labelRow = new JLabel("Zeilen:");
         labelRow.setVerticalAlignment(SwingConstants.BOTTOM);
         labelRow.setFont(new Font("Times New Roman", Font.BOLD, 14));
