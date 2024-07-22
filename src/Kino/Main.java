@@ -27,7 +27,7 @@ public class Main {
             }
             for (int j = 0; j < platzKunde[i].length; j++) {
 
-                if()
+                //if()
                 if (platzKunde[i][j]) {
                     System.out.print(CS.RED + " ▰ " + CS.RESET);
                 } else {
