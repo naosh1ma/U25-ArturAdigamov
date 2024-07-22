@@ -18,14 +18,14 @@ public class Main {
         istBesetzt(platzKunde);
         System.out.print("Wie viele Personen sind Sie?: ");
 
-        int kaufen = 1;
+        int anzahlKunden = 1;
         for (int i = 0; i < platzKunde.length; i++) {
             if (i > 8) {
                 System.out.print((i + 1) + " ");
             } else {
                 System.out.print(" " + (i + 1) + " ");
             }
-            for (int j = 0; j < platzKunde[i].length; j++) {
+            for (int j = 0; j < platzKunde[i].length - anzahlKunden; j++) {
 
                 //if()
                 if (platzKunde[i][j]) {
