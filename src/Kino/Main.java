@@ -16,7 +16,28 @@ public class Main {
         besetzung(besetztePlaetze, platzKunde);
         System.out.println();
         istBesetzt(platzKunde);
-        System.out.println();
+        System.out.print("Wie viele Personen sind Sie?: ");
+
+        int kaufen = 1;
+        for (int i = 0; i < platzKunde.length; i++) {
+            if (i > 8) {
+                System.out.print((i + 1) + " ");
+            } else {
+                System.out.print(" " + (i + 1) + " ");
+            }
+            for (int j = 0; j < platzKunde[i].length; j++) {
+
+                if()
+                if (platzKunde[i][j]) {
+                    System.out.print(CS.RED + " ▰ " + CS.RESET);
+                } else {
+                    System.out.print(CS.GREEN + " ▰ " + CS.RESET);
+                }
+            }
+            System.out.println();
+        }
+
+
     }
 
     private static void istBesetzt(boolean[][] platzKunde) {
