@@ -19,13 +19,15 @@ public class Main {
         System.out.print("Wie viele Personen sind Sie?: ");
         int anzahlKunden = scanner.nextInt();
         System.out.println();
+
+
         for (int i = 0; i < platzKunde.length; i++) {
             if (i > 8) {
                 System.out.print((i + 1) + " ");
             } else {
                 System.out.print(" " + (i + 1) + " ");
             }
-            for (int j = 0; j < platzKunde[i].length - anzahlKunden; j++) {
+            for (int j = 0; j < platzKunde[i].length; j++) {
                 if (platzKunde[i][j]) {
                     if (passen(platzKunde, anzahlKunden, i, j)) {
                         System.out.print(CS.CYAN + " ▰ " + CS.RESET);
