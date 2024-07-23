@@ -17,8 +17,8 @@ public class Main {
         System.out.println();
         istBesetzt(platzKunde);
         System.out.print("Wie viele Personen sind Sie?: ");
-
-        int anzahlKunden = 1;
+        int anzahlKunden = scanner.nextInt();
+        System.out.println();
         for (int i = 0; i < platzKunde.length; i++) {
             if (i > 8) {
                 System.out.print((i + 1) + " ");
@@ -27,17 +27,28 @@ public class Main {
             }
             for (int j = 0; j < platzKunde[i].length - anzahlKunden; j++) {
 
-                //if()
                 if (platzKunde[i][j]) {
-                    System.out.print(CS.RED + " ▰ " + CS.RESET);
+                    if (passen(platzKunde, anzahlKunden, i, j)) {
+                        System.out.print(CS.CYAN + " ▰ " + CS.RESET);
+                    } else {
+                        System.out.print(CS.RED + " ▰ " + CS.RESET);
+                    }
                 } else {
                     System.out.print(CS.GREEN + " ▰ " + CS.RESET);
                 }
             }
             System.out.println();
         }
+    }
 
-
+    private static boolean passen(boolean[][] platzKunde, int anzahl, int row, int column) {
+        int temp = 0;
+        for (int i = 0; i < anzahl; i++ ){
+            if (platzKunde[row][column + i]){
+                temp ++;
+            }
+        }
+        return (temp == anzahl) ? true : false;
     }
 
     private static void istBesetzt(boolean[][] platzKunde) {
