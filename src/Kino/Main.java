@@ -26,7 +26,6 @@ public class Main {
                 System.out.print(" " + (i + 1) + " ");
             }
             for (int j = 0; j < platzKunde[i].length - anzahlKunden; j++) {
-
                 if (platzKunde[i][j]) {
                     if (passen(platzKunde, anzahlKunden, i, j)) {
                         System.out.print(CS.CYAN + " ▰ " + CS.RESET);
@@ -43,9 +42,9 @@ public class Main {
 
     private static boolean passen(boolean[][] platzKunde, int anzahl, int row, int column) {
         int temp = 0;
-        for (int i = 0; i < anzahl; i++ ){
-            if (platzKunde[row][column + i]){
-                temp ++;
+        for (int i = 0; i < anzahl; i++) {
+            if (platzKunde[row][column + i]) {
+                temp++;
             }
         }
         return (temp == anzahl) ? true : false;
