@@ -1,20 +1,22 @@
 package Memory;
 
+import SnakeGame.GamePanel;
+
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import javax.swing.JFrame;
-import javax.swing.JPanel;
-import javax.swing.SwingConstants;
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import javax.swing.*;
 import javax.swing.border.EmptyBorder;
-import javax.swing.JLabel;
-import javax.swing.JButton;
 
 
 public class GameView extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
+    private GamePanel model;
     private JPanel contentPane;
 
     //=====Welcome Attributen==================
@@ -53,6 +55,7 @@ public class GameView extends JFrame {
 
 
     public GameView(GameModel model) {
+
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 650, 450);
@@ -148,11 +151,14 @@ public class GameView extends JFrame {
         panelGameEasyField.setLayout(new GridLayout(ROW_SIZE, COLUMN_SIZE));
         panelGameEasy.add(panelGameEasyField);
         buttonsGameEasy = new JButton[ROW_SIZE][COLUMN_SIZE];
-
+        int index = 0;
+        GameModel model = new GameModel();
         for (int i = 0; i < ROW_SIZE; i++) {
             for (int j = 0; j < COLUMN_SIZE; j++) {
                 buttonsGameEasy[i][j] = new JButton();
+                buttonsGameEasy[i][j].setIcon(model.getIcon(1,index));
                 panelGameEasyField.add(buttonsGameEasy[i][j]);
+                index++;
             }
         }
 
@@ -262,4 +268,5 @@ public class GameView extends JFrame {
         btnGameHardNewStart.setBounds(389, 362, 105, 35);
         panelGameHard.add(btnGameHardNewStart);
     }
+
 }

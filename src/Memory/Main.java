@@ -8,7 +8,7 @@ public class Main {
 
         GameModel model = new GameModel();
         GameView view = new GameView(model);
-        GameController controller = new GameController(model,view);
+        //GameController controller = new GameController(model,view);
 
         EventQueue.invokeLater(new Runnable() {
             public void run() {
