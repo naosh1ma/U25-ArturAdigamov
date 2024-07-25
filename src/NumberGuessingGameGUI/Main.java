@@ -30,7 +30,7 @@ public class Main {
     private static void useCui(){
         Zahlenraten game = new Zahlenraten();
         Scanner scanner = new Scanner(System.in);
-        game.setOutput(new View(View.CONSOLE));
+        game.setOutput(new Output(Output.CONSOLE));
         // Eingabe der Intervallgrenzen
         System.out.println("Bitte untere Intervalgrenze eingeben: ");
         game.setMinZahl(scanner.nextInt());

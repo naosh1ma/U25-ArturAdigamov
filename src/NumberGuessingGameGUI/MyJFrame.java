@@ -12,7 +12,7 @@ public class MyJFrame extends JFrame {
     public MyJFrame() {
         initComponents();
         game = new Zahlenraten();
-        game.setOutput(new View(View.TEXTAREA));     // TextArea als Ausgabe verwenden
+        game.setOutput(new Output(Output.TEXTAREA));     // TextArea als Ausgabe verwenden
         game.getOutput().setOutputDevice(textAreaAusgabe); // TextArea Objekt der Gui uebergeben
     }
     /**

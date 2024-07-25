@@ -7,7 +7,7 @@ public class Zahlenraten {
     // Variablen
     private final Random random;   // Zufallzahlen Generator
     private final Scanner scanner; // Eingabe Objekt
-    private View output;           // Ausgabe auf Console
+    private Output output;           // Ausgabe auf Console
     private int randomZahl;        // Zufallzahl
     private int minZahl, maxZahl;  // Intervalgrenzen
     private int zahl;              // Tippzahl
@@ -17,7 +17,7 @@ public class Zahlenraten {
     public Zahlenraten() {
         this.random = new Random();
         this.scanner = new Scanner(System.in);
-        this.output = new View(View.CONSOLE);
+        this.output = new Output(Output.CONSOLE);
     }
 
     public Zahlenraten(int min, int max) {
@@ -27,10 +27,10 @@ public class Zahlenraten {
     }
 
     // Schnittstellen-Methoden
-    public View getOutput() {
+    public Output getOutput() {
         return output;
     }
-    public void setOutput(View output) {
+    public void setOutput(Output output) {
         this.output = output;
     }
     public int getMinZahl() {

@@ -2,7 +2,7 @@ package NumberGuessingGameGUI;
 
 import javax.swing.*;
 
-public class View {
+public class Output {
 
     // Klassen Konstanten
     public static final int CONSOLE = 1;
@@ -17,7 +17,7 @@ public class View {
     private JLabel out4 = null;
 
     // Konstruktor
-    public View(int output) {
+    public Output(int output) {
         this.output = output;
     }
 
