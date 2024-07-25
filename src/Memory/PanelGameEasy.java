@@ -23,7 +23,6 @@ public class PanelGameEasy extends JPanel {
         for (int i = 0; i < ROW_SIZE; i++) {
             for (int j = 0; j < COLUMN_SIZE; j++) {
                 buttons[i][j] = new JButton();
-                //buttons[i][j].addActionListener();
                 panelGameEasy.add(buttons[i][j]);
             }
         }
