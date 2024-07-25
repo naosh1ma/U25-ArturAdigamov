@@ -6,14 +6,14 @@ public class Main {
 
     public static void main(String[] args) {
 
-        Model model = new Model();
-        memory.View view = new memory.View(model);
-        Controller controller = new Controller(model,view);
+        GameModel model = new GameModel();
+        GameView view = new GameView(model);
+        GameController controller = new GameController(model,view);
 
         EventQueue.invokeLater(new Runnable() {
             public void run() {
                 try {
-                    memory.View frame = new memory.View(model);
+                    GameView frame = new GameView(model);
                     frame.setVisible(true);
                 } catch (Exception e) {
                     e.printStackTrace();
