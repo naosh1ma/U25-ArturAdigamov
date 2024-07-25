@@ -1,6 +1,8 @@
 package memory;
 
 
+import Memory.Model;
+
 import java.awt.EventQueue;
 import java.awt.Font;
 
@@ -20,26 +22,11 @@ public class View extends JFrame {
 	private JPanel panelGameHard;
 
 
-	/**
-	 * Launch the application.
-	 */
-	public static void main(String[] args) {
-		EventQueue.invokeLater(new Runnable() {
-			public void run() {
-				try {
-					View frame = new View();
-					frame.setVisible(true);
-				} catch (Exception e) {
-					e.printStackTrace();
-				}
-			}
-		});
-	}
 
 	/**
 	 * Create the frame.
 	 */
-	public View() {
+	public View(Model model) {
 		setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		setBounds(100, 100, 650, 450);
 		contentPane = new JPanel();
