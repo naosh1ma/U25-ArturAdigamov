@@ -3,9 +3,9 @@ package memory;
 
 import Memory.Model;
 
-import java.awt.EventQueue;
-import java.awt.Font;
-
+import java.awt.*;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
 import javax.swing.JFrame;
 import javax.swing.JPanel;
 import javax.swing.SwingConstants;
@@ -19,6 +19,7 @@ public class View extends JFrame {
 	private static final long serialVersionUID = 1L;
 	private JPanel contentPane;
 	private JPanel panelWelcome;
+	private JPanel panelGameEasy;
 	private JPanel panelGameHard;
 
 
@@ -31,10 +32,9 @@ public class View extends JFrame {
 		setBounds(100, 100, 650, 450);
 		contentPane = new JPanel();
 		contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-
 		setContentPane(contentPane);
 		contentPane.setLayout(null);
-		
+		//=========================Welcome===================================
 		panelWelcome = new JPanel();
 		panelWelcome.setBounds(0, 0, 634, 411);
 		panelWelcome.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -50,6 +50,14 @@ public class View extends JFrame {
 		JButton btnGameEasy = new JButton("4 x 5");
 		btnGameEasy.setFont(new Font("Arial", Font.PLAIN, 15));
 		btnGameEasy.setBounds(50, 220, 95, 45);
+		btnGameEasy.addActionListener(new ActionListener() {
+			public void actionPerformed(ActionEvent e) {
+				panelGameEasy = new memory.PanelGameEasy();
+				panelGameEasy.setLayout(new GridLayout(4, 5));
+				contentPane.add(panelGameEasy,0);
+				panelGameEasy.setLayout(null);
+			}
+		});
 		panelWelcome.add(btnGameEasy);
 		
 		JButton btnGameNorm = new JButton("6 x 6");
