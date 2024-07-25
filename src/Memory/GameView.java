@@ -61,6 +61,7 @@ public class GameView extends JFrame {
         setContentPane(contentPane);
         contentPane.setLayout(null);
         welcome();
+        contentPane.add(panelWelcome);
 
     }
 
@@ -68,7 +69,6 @@ public class GameView extends JFrame {
         panelWelcome = new JPanel();
         panelWelcome.setBounds(0, 0, 634, 411);
         panelWelcome.setBorder(new EmptyBorder(5, 5, 5, 5));
-        contentPane.add(panelWelcome);
         panelWelcome.setLayout(null);
 
         lblWelcome = new JLabel("Willkommen zur Memory");
@@ -159,6 +159,11 @@ public class GameView extends JFrame {
         btnGameEasyEnd = new JButton("Beenden");
         btnGameEasyEnd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                welcome();
+                getContentPane().removeAll();
+                getContentPane().add(panelWelcome);
+                getContentPane().revalidate();
+                getContentPane().repaint();
             }
         });
         btnGameEasyEnd.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -195,6 +200,11 @@ public class GameView extends JFrame {
         btnGameNormEnd = new JButton("Beenden");
         btnGameNormEnd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                welcome();
+                getContentPane().removeAll();
+                getContentPane().add(panelWelcome);
+                getContentPane().revalidate();
+                getContentPane().repaint();
             }
         });
         btnGameNormEnd.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -231,6 +241,11 @@ public class GameView extends JFrame {
         btnGameHardEnd = new JButton("Beenden");
         btnGameHardEnd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+                welcome();
+                getContentPane().removeAll();
+                getContentPane().add(panelWelcome);
+                getContentPane().revalidate();
+                getContentPane().repaint();
             }
         });
         btnGameHardEnd.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -240,6 +255,7 @@ public class GameView extends JFrame {
         btnGameHardNewStart = new JButton("Neustarten");
         btnGameHardNewStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
+
             }
         });
         btnGameHardNewStart.setFont(new Font("Arial", Font.PLAIN, 15));
