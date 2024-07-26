@@ -7,29 +7,28 @@ import java.util.Collections;
 
 public class GameModel {
 
-    private int diff;
+    private int diff = 0;
     private int openCount = 0;
     private int pairsFound = 0;
     private int[] openedCards = {-1, -1};
     private ArrayList<ImageIcon> icons;
 
+    public GameModel() {
+        createIcons();
+    }
+
     public void createIcons() {
         icons = new ArrayList<>();
-        for (int i = 0; i < getDiff() / 2; i++) {
+        for (int i = 0; i < 32; i++) {
             ImageIcon icon = new ImageIcon(new ImageIcon("icons\\sport" + (i + 1) + ".png").getImage().getScaledInstance(getSize(), getSize(), Image.SCALE_SMOOTH));
             icons.add(icon);
             icons.add(icon);
         }
+        Collections.shuffle(icons);
     }
 
     public void initGame(int row, int col) {
         setDiff(row * col);
-        createIcons();
-        iconsShuffle();
-    }
-
-    public void iconsShuffle() {
-        Collections.shuffle(icons);
     }
 
     public ImageIcon getIcon(int index) {
@@ -50,6 +49,8 @@ public class GameModel {
 
     public int getDiff() {return diff;}
     public void setDiff(int diff) {this.diff = diff;}
+
+
     //==========================================================
     public void setOpenCard(int index) {
         if (openCount < 2) {

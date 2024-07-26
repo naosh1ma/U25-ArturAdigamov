@@ -3,6 +3,7 @@ package Memory;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -27,7 +28,7 @@ public class GameView extends JFrame {
     //=====Game Attributen=================
     private JPanel panelGame;
     private JPanel panelGameField;
-    private JButton[][] buttonsGame;
+    private ArrayList<JButton> buttonsGame;
     private JButton btnGameNewStart;
     private JButton btnGameEnd;
     private JLabel lblScore;
@@ -48,10 +49,10 @@ public class GameView extends JFrame {
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
         contentPane.setLayout(null);
-        welcome();
+        welcome(model);
     }
 
-    private void welcome() {
+    private void welcome(GameModel model) {
 
         panelWelcome = new JPanel();
         panelWelcome.setBounds(0, 0, 734, 561);
@@ -67,7 +68,7 @@ public class GameView extends JFrame {
         btnGameEasy = new JButton("4 x 5");
         btnGameEasy.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                startGame(4, 5);
+                startGame(4, 5, model);
             }
         });
         btnGameEasy.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -77,7 +78,7 @@ public class GameView extends JFrame {
         btnGameNorm = new JButton("6 x 6");
         btnGameNorm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                startGame(6, 6);
+                startGame(6, 6, model);
             }
         });
         btnGameNorm.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -87,7 +88,7 @@ public class GameView extends JFrame {
         btnGameHard = new JButton("8 x 8");
         btnGameHard.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                startGame(8, 8);
+                startGame(8, 8, model);
             }
         });
         btnGameHard.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -115,8 +116,9 @@ public class GameView extends JFrame {
         updatePanel(panelWelcome);
     }
 
-    private void startGame(int row_size, int col_size) {
-        model = new GameModel();
+    private void startGame(int row_size, int col_size, GameModel model) {
+        //model = new GameModel();
+        model.setDiff(row_size * col_size);
         panelGame = new JPanel();
         panelGameField = new JPanel();
         panelGame.setBounds(0, 0, 734, 561);
@@ -124,25 +126,22 @@ public class GameView extends JFrame {
         panelGame.setLayout(null);
         panelGameField.setLayout(new GridLayout(row_size, col_size));
         panelGame.add(panelGameField);
-        buttonsGame = new JButton[row_size][col_size];
-        model.initGame(row_size, col_size);
+        buttonsGame = new ArrayList<>();
 
-        int index = 0;
-        for (int i = 0; i < row_size; i++) {
-            for (int j = 0; j < col_size; j++) {
-                buttonsGame[i][j] = new JButton();
-                buttonsGame[i][j].setIcon(model.getIcon(index));
-                buttonsGame[i][j].setBackground(new Color(205, 255, 255));
-                buttonsGame[i][j].addActionListener(listener);
-                panelGameField.add(buttonsGame[i][j]);
-                index++;
-            }
+
+        for (int i = 0; i < row_size * col_size; i++) {
+            JButton button = new JButton();
+            //button.setIcon(model.getIcon(i));
+            button.setBackground(new Color(205, 255, 255));
+            button.addActionListener(listener);
+            buttonsGame.add(button);
+            panelGameField.add(buttonsGame.get(i));
         }
 
         btnGameEnd = new JButton("Beenden");
         btnGameEnd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                welcome();
+                welcome(model);
             }
         });
         btnGameEnd.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -152,7 +151,7 @@ public class GameView extends JFrame {
         btnGameNewStart = new JButton("Neustarten");
         btnGameNewStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                startGame(row_size, col_size);
+                startGame(row_size, col_size, model);
             }
         });
         btnGameNewStart.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -177,9 +176,30 @@ public class GameView extends JFrame {
         getContentPane().revalidate();
         getContentPane().repaint();
     }
+
     //=====================================================================
     public void addButtonListener(ActionListener listener) {
         this.listener = listener;
+    }
+
+    public JButton getButton(int index) {
+        return buttonsGame.get(index);
+    }
+
+    public int getButtonIndex(JButton button) {
+        return buttonsGame.indexOf(button);
+    }
+
+    public void disableButton(int index) {
+        buttonsGame.get(index).setEnabled(false);
+    }
+
+    public void resetButtonIcon(int index) {
+        buttonsGame.get(index).setIcon(null);
+    }
+
+    public void setButtonIcon(int index, ImageIcon icon) {
+        buttonsGame.get(index).setIcon(icon);
     }
 
     public void showGameOverMessage() {

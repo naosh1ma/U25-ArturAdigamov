@@ -15,8 +15,11 @@ public class GameController implements ActionListener {
 
     @Override
     public void actionPerformed(ActionEvent e) {
+        JButton button = (JButton) e.getSource();
+        int index = view.getButtonIndex(button);
 
     }
+
 //    if (icon1.getDescription().equals(icon2.getDescription())) {
 //        System.out.println("Icons sind gleich");
 //    } else {
