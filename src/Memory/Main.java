@@ -8,18 +8,10 @@ public class Main {
 
         GameModel model = new GameModel();
         GameView view = new GameView(model);
-        //GameController controller = new GameController(model,view);
+        GameController controller = new GameController(model,view);
+        view.addButtonListener(controller);
+        view.setVisible(true);
 
-        EventQueue.invokeLater(new Runnable() {
-            public void run() {
-                try {
-                    GameView frame = new GameView(model);
-                    frame.setVisible(true);
-                } catch (Exception e) {
-                    e.printStackTrace();
-                }
-            }
-        });
     }
 
 }

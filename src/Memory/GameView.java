@@ -1,13 +1,8 @@
 package Memory;
 
-import SnakeGame.GamePanel;
-
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 
@@ -16,7 +11,8 @@ public class GameView extends JFrame {
 
     private static final long serialVersionUID = 1L;
 
-    private GamePanel model;
+    ActionListener listener;
+    private GameModel model;
     private JPanel contentPane;
 
     //=====Welcome Attributen==================
@@ -28,42 +24,26 @@ public class GameView extends JFrame {
     private JButton btnThemes;
     private JButton btnRangList;
 
-    //=====GameEasy Attributen=================
-    private JPanel panelGameEasy;
-    private JPanel panelGameEasyField;
-    private JButton[][] buttonsGameEasy;
-    private JButton btnGameEasyNewStart;
-    private JButton btnGameEasyEnd;
-    final int ROW_SIZE = 4;
-    final int COLUMN_SIZE = 5;
-
-    //=====GameNorm Attributen=================
-    private JPanel panelGameNorm;
-    private JPanel panelGameNormField;
-    private JButton[][] buttonsGameNorm;
-    private JButton btnGameNormNewStart;
-    private JButton btnGameNormEnd;
-    final int NORM_SIZE = 6;
-
-
-    private JPanel panelGameHard;
-    private JPanel panelGameHardField;
-    private JButton[][] buttonsGameHard;
-    private JButton btnGameHardNewStart;
-    private JButton btnGameHardEnd;
-    final int HARD_SIZE = 8;
+    //=====Game Attributen=================
+    private JPanel panelGame;
+    private JPanel panelGameField;
+    private JButton[][] buttonsGame;
+    private JButton btnGameNewStart;
+    private JButton btnGameEnd;
+    private JLabel lblScore;
+    private JLabel lblTry;
 
 
     public GameView(GameModel model) {
 
         /*
-
         add(panelWelcome);
         contentPane.setVisability();
         */
 
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 750, 600);
+        setTitle("Memory Game");
         contentPane = new JPanel();
         contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
         setContentPane(contentPane);
@@ -72,6 +52,7 @@ public class GameView extends JFrame {
     }
 
     private void welcome() {
+
         panelWelcome = new JPanel();
         panelWelcome.setBounds(0, 0, 734, 561);
         panelWelcome.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -86,7 +67,7 @@ public class GameView extends JFrame {
         btnGameEasy = new JButton("4 x 5");
         btnGameEasy.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                startEasy();
+                startGame(4, 5);
             }
         });
         btnGameEasy.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -96,7 +77,7 @@ public class GameView extends JFrame {
         btnGameNorm = new JButton("6 x 6");
         btnGameNorm.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                startNorm();
+                startGame(6, 6);
             }
         });
         btnGameNorm.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -106,7 +87,7 @@ public class GameView extends JFrame {
         btnGameHard = new JButton("8 x 8");
         btnGameHard.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                startHard();
+                startGame(8, 8);
             }
         });
         btnGameHard.setFont(new Font("Arial", Font.PLAIN, 15));
@@ -131,159 +112,78 @@ public class GameView extends JFrame {
         btnRangList.setFont(new Font("Arial", Font.PLAIN, 15));
         btnRangList.setBounds(243, 332, 95, 45);
         panelWelcome.add(btnRangList);
-
-        getContentPane().removeAll();
-        getContentPane().add(panelWelcome);
-        getContentPane().revalidate();
-        getContentPane().repaint();
+        updatePanel(panelWelcome);
     }
 
-    private void startEasy() {
-        panelGameEasy = new JPanel();
-        panelGameEasyField = new JPanel();
-        panelGameEasy.setBounds(0, 0, 734, 561);
-        panelGameEasyField.setBounds(0, 1, 734, 503);
-        panelGameEasy.setLayout(null);
-        panelGameEasyField.setLayout(new GridLayout(ROW_SIZE, COLUMN_SIZE));
-        panelGameEasy.add(panelGameEasyField);
-        buttonsGameEasy = new JButton[ROW_SIZE][COLUMN_SIZE];
+    private void startGame(int row_size, int col_size) {
+        model = new GameModel();
+        panelGame = new JPanel();
+        panelGameField = new JPanel();
+        panelGame.setBounds(0, 0, 734, 561);
+        panelGameField.setBounds(0, 1, 734, 503);
+        panelGame.setLayout(null);
+        panelGameField.setLayout(new GridLayout(row_size, col_size));
+        panelGame.add(panelGameField);
+        buttonsGame = new JButton[row_size][col_size];
+        model.initGame(row_size, col_size);
+
         int index = 0;
-        GameModel model = new GameModel();
-        model.setDiff(1);
-        model.createIcons();
-        model.iconsShuffle();
-        for (int i = 0; i < ROW_SIZE; i++) {
-            for (int j = 0; j < COLUMN_SIZE; j++) {
-                buttonsGameEasy[i][j] = new JButton();
-                buttonsGameEasy[i][j].setIcon(model.getIcon(index));
-                panelGameEasyField.add(buttonsGameEasy[i][j]);
+        for (int i = 0; i < row_size; i++) {
+            for (int j = 0; j < col_size; j++) {
+                buttonsGame[i][j] = new JButton();
+                buttonsGame[i][j].setIcon(model.getIcon(index));
+                buttonsGame[i][j].setBackground(new Color(205, 255, 255));
+                buttonsGame[i][j].addActionListener(listener);
+                panelGameField.add(buttonsGame[i][j]);
                 index++;
             }
         }
 
-        btnGameEasyEnd = new JButton("Beenden");
-        btnGameEasyEnd.addActionListener(new ActionListener() {
+        btnGameEnd = new JButton("Beenden");
+        btnGameEnd.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
                 welcome();
             }
         });
-        btnGameEasyEnd.setFont(new Font("Arial", Font.PLAIN, 15));
-        btnGameEasyEnd.setBounds(607, 515, 105, 35);
-        panelGameEasy.add(btnGameEasyEnd);
+        btnGameEnd.setFont(new Font("Arial", Font.PLAIN, 15));
+        btnGameEnd.setBounds(607, 515, 105, 35);
+        panelGame.add(btnGameEnd);
 
-        btnGameEasyNewStart = new JButton("Neustarten");
-        btnGameEasyNewStart.addActionListener(new ActionListener() {
+        btnGameNewStart = new JButton("Neustarten");
+        btnGameNewStart.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) {
-                startEasy();
+                startGame(row_size, col_size);
             }
         });
-        btnGameEasyNewStart.setFont(new Font("Arial", Font.PLAIN, 15));
-        btnGameEasyNewStart.setBounds(479, 515, 105, 35);
-        panelGameEasy.add(btnGameEasyNewStart);
+        btnGameNewStart.setFont(new Font("Arial", Font.PLAIN, 15));
+        btnGameNewStart.setBounds(479, 515, 105, 35);
+        panelGame.add(btnGameNewStart);
 
+        lblScore = new JLabel("Score: ");
+        lblScore.setFont(new Font("Arial", Font.PLAIN, 15));
+        lblScore.setBounds(25, 520, 105, 25);
+        panelGame.add(lblScore);
+
+        lblTry = new JLabel("Try: ");
+        lblTry.setFont(new Font("Arial", Font.PLAIN, 15));
+        lblTry.setBounds(180, 520, 105, 25);
+        panelGame.add(lblTry);
+        updatePanel(panelGame);
+    }
+
+    private void updatePanel(JPanel panelGame) {
         getContentPane().removeAll();
-        getContentPane().add(panelGameEasy);
+        getContentPane().add(panelGame);
         getContentPane().revalidate();
         getContentPane().repaint();
     }
-
-    private void startNorm() {
-        panelGameNorm = new JPanel();
-        panelGameNormField = new JPanel();
-        panelGameNorm.setBounds(0, 0, 734, 561);
-        panelGameNormField.setBounds(0, 1, 734, 503);
-        panelGameNorm.setLayout(null);
-        panelGameNormField.setLayout(new GridLayout(NORM_SIZE, NORM_SIZE));
-        panelGameNorm.add(panelGameNormField);
-        buttonsGameNorm = new JButton[NORM_SIZE][NORM_SIZE];
-        int index = 0;
-        GameModel model = new GameModel();
-        model.setDiff(2);
-        model.createIcons();
-        model.iconsShuffle();
-
-        for (int i = 0; i < NORM_SIZE; i++) {
-            for (int j = 0; j < NORM_SIZE; j++) {
-                buttonsGameNorm[i][j] = new JButton();
-                buttonsGameNorm[i][j].setIcon(model.getIcon(index));
-                panelGameNormField.add(buttonsGameNorm[i][j]);
-                index++;
-            }
-        }
-
-        btnGameNormEnd = new JButton("Beenden");
-        btnGameNormEnd.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                welcome();
-            }
-        });
-        btnGameNormEnd.setFont(new Font("Arial", Font.PLAIN, 15));
-        btnGameNormEnd.setBounds(607, 515, 105, 35);
-        panelGameNorm.add(btnGameNormEnd);
-
-        btnGameNormNewStart = new JButton("Neustarten");
-        btnGameNormNewStart.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                startNorm();
-            }
-        });
-        btnGameNormNewStart.setFont(new Font("Arial", Font.PLAIN, 15));
-        btnGameNormNewStart.setBounds(479, 515, 105, 35);
-        panelGameNorm.add(btnGameNormNewStart);
-
-        getContentPane().removeAll();
-        getContentPane().add(panelGameNorm);
-        getContentPane().revalidate();
-        getContentPane().repaint();
+    //=====================================================================
+    public void addButtonListener(ActionListener listener) {
+        this.listener = listener;
     }
 
-    private void startHard() {
-        panelGameHard = new JPanel();
-        panelGameHardField = new JPanel();
-        panelGameHard.setBounds(0, 0, 734, 561);
-        panelGameHardField.setBounds(0, 1, 734, 503);
-        panelGameHard.setLayout(null);
-        panelGameHardField.setLayout(new GridLayout(HARD_SIZE, HARD_SIZE));
-        panelGameHard.add(panelGameHardField);
-        buttonsGameHard = new JButton[HARD_SIZE][HARD_SIZE];
-        int index = 0;
-        GameModel model = new GameModel();
-        model.setDiff(3);
-        model.createIcons();
-        model.iconsShuffle();
-        for (int i = 0; i < HARD_SIZE; i++) {
-            for (int j = 0; j < HARD_SIZE; j++) {
-                buttonsGameHard[i][j] = new JButton();
-                buttonsGameHard[i][j].setIcon(model.getIcon(index));
-                panelGameHardField.add(buttonsGameHard[i][j]);
-                index++;
-            }
-        }
-
-        btnGameHardEnd = new JButton("Beenden");
-        btnGameHardEnd.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                welcome();
-            }
-        });
-        btnGameHardEnd.setFont(new Font("Arial", Font.PLAIN, 15));
-        btnGameHardEnd.setBounds(607, 515, 105, 35);
-        panelGameHard.add(btnGameHardEnd);
-
-        btnGameHardNewStart = new JButton("Neustarten");
-        btnGameHardNewStart.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                startHard();
-            }
-        });
-        btnGameHardNewStart.setFont(new Font("Arial", Font.PLAIN, 15));
-        btnGameHardNewStart.setBounds(479, 515, 105, 35);
-        panelGameHard.add(btnGameHardNewStart);
-
-        getContentPane().removeAll();
-        getContentPane().add(panelGameHard);
-        getContentPane().revalidate();
-        getContentPane().repaint();
+    public void showGameOverMessage() {
+        JOptionPane.showMessageDialog(this, "You found all pairs!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
     }
 
 }
