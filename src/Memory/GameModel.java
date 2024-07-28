@@ -6,52 +6,50 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class GameModel {
-
-    private int diff = 0;
+    private int rows = 0, cols = 0, diff = 0;
+    private int score = 0;
+    private int[] openedCards = {-1, -1};
     private int openCount = 0;
     private int pairsFound = 0;
-    private int[] openedCards = {-1, -1};
-    private ArrayList<ImageIcon> icons;
+
+    private ImageIcon cardBack;
+    private ArrayList<ImageIcon> cards;
 
     public GameModel() {
-        createIcons();
+        loadIcons();
     }
 
-    public void createIcons() {
-        icons = new ArrayList<>();
+    public void loadIcons() {
+        cards = new ArrayList<>();
+
+        //cardBack = new ImageIcon(getClass().getResource("icons/back.png"));
+        cardBack = new ImageIcon("icons/back.png");
+        //cardBack = new ImageIcon(new ImageIcon("icons/back2.png").getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
+        //cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
         for (int i = 0; i < 32; i++) {
-            ImageIcon icon = new ImageIcon(new ImageIcon("icons\\sport" + (i + 1) + ".png").getImage().getScaledInstance(getSize(), getSize(), Image.SCALE_SMOOTH));
-            icons.add(icon);
-            icons.add(icon);
+            //ImageIcon image = new ImageIcon(new ImageIcon("icons/sport" + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
+            ImageIcon image = new ImageIcon("icons/cars" + (i+1) + ".png");
+            cards.add(image);
+            cards.add(image);
         }
-        Collections.shuffle(icons);
     }
-
-    public void initGame(int row, int col) {
-        setDiff(row * col);
+    public void initGame(int rows, int cols){
+        this.rows = rows;
+        this.cols = cols;
+        this.diff = rows * cols;
+        loadIcons();
+        cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
+        for(ImageIcon card : cards){
+            card = new ImageIcon(card.getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
+        }
+        cards.subList(0,getDiff());
+        Collections.shuffle(cards);
     }
 
     public ImageIcon getIcon(int index) {
-        return icons.get(index);
+        return cards.get(index);
     }
 
-    public int getSize() {
-        int size = 0;
-        if (getDiff() == 20) {
-            size = 100;
-        } else if (getDiff() == 36) {
-            size = 80;
-        } else if (getDiff() == 64) {
-            size = 60;
-        }
-        return size;
-    }
-
-    public int getDiff() {return diff;}
-    public void setDiff(int diff) {this.diff = diff;}
-
-
-    //==========================================================
     public void setOpenCard(int index) {
         if (openCount < 2) {
             openedCards[openCount] = index;
@@ -60,16 +58,18 @@ public class GameModel {
     }
 
     public boolean checkMatch() {
-        return icons.get(openedCards[0]).equals(icons.get(openedCards[1]));
+        return cards.get(openedCards[0]).equals(cards.get(openedCards[1]));
     }
+
     public void resetOpenedCards() {
         openedCards[0] = -1;
         openedCards[1] = -1;
         openCount = 0;
     }
+
     public boolean isPairFound() {
         pairsFound++;
-        return pairsFound == icons.size() / 2;
+        return pairsFound == cards.size() / 2;
     }
 
     public boolean areBothCardsOpen() {
@@ -79,6 +79,38 @@ public class GameModel {
     public int[] getOpenedCards() {
         return openedCards;
     }
-    //==========================================================
+
+    public ImageIcon getCardBack() {
+        return cardBack;
+    }
+
+    public int getDiff(){
+        return diff;
+    }
+
+    public int getFrontSize() {
+        int size = 0;
+        if (this.diff == 20) {
+            size = 100;
+        } else if (this.diff == 36) {
+            size = 80;
+        } else if (this.diff == 64) {
+            size = 60;
+        }
+        return size;
+    }
+
+    public int getBackSize() {
+        int size = 0;
+        if (this.diff == 20) {
+            size = 120;
+        } else if (this.diff == 36) {
+            size = 90;
+        } else if (this.diff == 64) {
+            size = 70;
+        }
+        return size;
+    }
+
 }
 
