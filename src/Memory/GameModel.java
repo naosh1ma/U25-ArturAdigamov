@@ -48,7 +48,7 @@ public class GameModel {
         int i = 0;
         for (ImageIcon image : images) {
             //card = new ImageIcon(card.getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
-            image = new ImageIcon(new ImageIcon("icons/" + themes[theme] + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
+            image = new ImageIcon(image.getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
             i++;
         }
         cards = images.subList(0, getDiff());

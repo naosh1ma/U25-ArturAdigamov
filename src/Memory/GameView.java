@@ -36,27 +36,22 @@ public class GameView extends JFrame {
 
 
     public GameView(GameModel model, ActionListener listener) {
-        /*
-        add(panelWelcome);
-        contentPane.setVisability();
-        */
+
         this.model = model;
         buttonsGame = new ArrayList<>();
-
         for (int i = 0; i < 64; i++) {
             JButton button = new JButton();
             button.setBackground(new Color(205, 255, 255));
             button.addActionListener(listener);
             buttonsGame.add(button);
         }
-
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 750, 600);
         setTitle("Memory Game");
-        contentPane = new JPanel();
-        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
-        contentPane.setLayout(null);
-        setContentPane(contentPane);
+//        contentPane = new JPanel();
+//        contentPane.setBorder(new EmptyBorder(5, 5, 5, 5));
+//        contentPane.setLayout(null);
+//        setContentPane(contentPane);
         welcomePanel();
         setVisible(true);
     }
@@ -99,7 +94,6 @@ public class GameView extends JFrame {
             public void actionPerformed(ActionEvent e) {
                 int z = comboBoxThemes.getSelectedIndex();
                 model.setTheme(z);
-
             }
         });
 
@@ -140,7 +134,7 @@ public class GameView extends JFrame {
     }
 
     private void gamePanel(int row_size, int col_size) {
-        //model.initGame(row_size, col_size);
+        model.initGame(row_size, col_size);
         panelGame = new JPanel();
         panelGame.setLayout(null);
         panelGameField = new JPanel();
@@ -186,14 +180,9 @@ public class GameView extends JFrame {
 
     private void addButtons(int row_size, int col_size) {
         for (int i = 0; i < row_size * col_size; i++) {
-//            JButton button = new JButton();
-//            button.setBackground(new Color(205, 255, 255));
-//            button.addActionListener(listener);
-//            buttonsGame.add(button);
             panelGameField.add(buttonsGame.get(i));
         }
     }
-
 
     private void updatePanel(JPanel panel) {
         getContentPane().removeAll();
@@ -201,8 +190,6 @@ public class GameView extends JFrame {
         getContentPane().revalidate();
         getContentPane().repaint();
     }
-
-    //=====================================================================
 
     public void setActionListener(ActionListener listener) {
         for (JButton button : buttonsGame) {
