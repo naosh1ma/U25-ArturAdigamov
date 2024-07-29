@@ -99955,7 +99955,7 @@ Memme
 memmenhaft
 Memmingen
 Memminger
-Memo
+MemoPrtyp
 Memoire
 Memoiren
 Memorandum

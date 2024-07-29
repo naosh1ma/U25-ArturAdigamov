@@ -1,4 +1,4 @@
-package Memory;
+package MemoPrtyp;
 
 import javax.swing.*;
 import java.awt.*;
@@ -17,40 +17,44 @@ public class GameModel {
     private ImageIcon cardBack;
     private ArrayList<ImageIcon> cards;
 
-    public GameModel() {
+    public GameModel(int rows, int cols) {
+        this.rows = rows;
+        this.cols = cols;
+        this.diff = rows * cols;
         loadIcons();
     }
 
     public void loadIcons() {
         cards = new ArrayList<>();
-
         //cardBack = new ImageIcon(getClass().getResource("icons/back.png"));
-        cardBack = new ImageIcon("icons/back.png");
-        //cardBack = new ImageIcon(new ImageIcon("icons/back2.png").getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
+        //cardBack = new ImageIcon("icons/back.png");
+        //cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize() + (getBackSize() * 0.2)), getBackSize(), Image.SCALE_SMOOTH));
+        cardBack = new ImageIcon(new ImageIcon("icons/back.png").getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
         //cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
-        for (int i = 0; i < 32; i++) {
-            //ImageIcon image = new ImageIcon(new ImageIcon("icons/sport" + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
-            ImageIcon image = new ImageIcon("icons/"+ themes[theme] + (i + 1) + ".png");
+        for (int i = 0; i < getDiff()/2; i++) {
+            ImageIcon image = new ImageIcon(new ImageIcon("icons/"+ themes[theme] + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
+            //ImageIcon image = new ImageIcon("icons/"+ themes[theme] + (i + 1) + ".png");
             cards.add(image);
             cards.add(image);
         }
-    }
-
-    public void initGame(int rows, int cols) {
-        this.rows = rows;
-        this.cols = cols;
-        this.diff = rows * cols;
-        loadIcons();
-        cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize() + (getBackSize() * 0.2)), getBackSize(), Image.SCALE_SMOOTH));
-        int i = 0;
-        for (ImageIcon card : cards) {
-            //card = new ImageIcon(card.getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
-            card = new ImageIcon(new ImageIcon("icons/" + themes[theme] + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
-            i++;
-        }
-        cards.subList(0, getDiff());
         Collections.shuffle(cards);
     }
+
+//    public void initGame(int rows, int cols) {
+//        this.rows = rows;
+//        this.cols = cols;
+//        this.diff = rows * cols;
+//        loadIcons();
+//        cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize() + (getBackSize() * 0.2)), getBackSize(), Image.SCALE_SMOOTH));
+//        int i = 0;
+//        for (ImageIcon card : cards) {
+//            //card = new ImageIcon(card.getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
+//            card = new ImageIcon(new ImageIcon("icons/" + themes[theme] + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
+//            i++;
+//        }
+//        cards.subList(0, getDiff());
+//        Collections.shuffle(cards);
+//    }
 
     public ImageIcon getIcon(int index) {
         return cards.get(index);
@@ -121,6 +125,4 @@ public class GameModel {
         }
         return size;
     }
-
 }
-
