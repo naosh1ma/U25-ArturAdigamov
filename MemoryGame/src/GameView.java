@@ -60,7 +60,7 @@ public class GameView extends JFrame {
         panelWelcome.setBorder(new EmptyBorder(5, 5, 5, 5));
         panelWelcome.setLayout(null);
 
-        lblWelcome = new JLabel("Willkommen zur Memory");
+        lblWelcome = new JLabel("Willkommen zu Memory");
         lblThemes = new JLabel("Themen:");
         btnGameEasy = new JButton("4 x 5");
         btnGameNorm = new JButton("6 x 6");
