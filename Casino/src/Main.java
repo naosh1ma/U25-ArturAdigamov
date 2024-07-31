@@ -12,7 +12,7 @@ public class Main {
         int alter, ein, rad, mal;
         String name, spiel;
 
-        System.out.print("Wie ist dein Name? ");
+        System.out.print("Wie hei\u00DFen Du? ");
         name = scanner.next();
         System.out.print("Herzlich Willkommen, " + name + ". Wie alt bist du? ");
         alter = scanner.nextInt();
