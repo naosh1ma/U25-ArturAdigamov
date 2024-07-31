@@ -1,6 +1,6 @@
 # Memory Game
 
-A simple memory game on Java with Swing.
+A simple memory game in Java with Swing.
 
 ### Features
 
