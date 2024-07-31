@@ -5,7 +5,7 @@ import java.util.ArrayList;
 import java.util.Collections;
 
 public class GameModel {
-    private int rows = 0, cols = 0, diff = 0;
+    private int rows = 6, cols = 6, diff = 36;
     private int score = 0;
     private int[] openedCards = {-1, -1};
     private int openCount = 0;
@@ -29,8 +29,8 @@ public class GameModel {
         //cardBack = new ImageIcon(new ImageIcon("icons/back2.png").getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
         //cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
         for (int i = 0; i < 32; i++) {
-            //ImageIcon image = new ImageIcon(new ImageIcon("icons/sport" + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
-            ImageIcon image = new ImageIcon("MemoryGame/icons/"+ themes[theme] + (i + 1) + ".png");
+            ImageIcon image = new ImageIcon(new ImageIcon("MemoryGame/icons/"+ themes[2] + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
+            //ImageIcon image = new ImageIcon("MemoryGame/icons/"+ themes[theme] + (i + 1) + ".png");
             images.add(image);
             images.add(image);
         }
