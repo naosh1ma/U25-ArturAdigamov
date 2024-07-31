@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+	  <module fileurl="file://$PROJECT_DIR$/U25-ArturAdigamov.iml" filepath="$PROJECT_DIR$/U25-ArturAdigamov.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/_Snippets/_Snippets.iml" filepath="$PROJECT_DIR$/_Snippets/_Snippets.iml" />
+      <module fileurl="file://$PROJECT_DIR$/Casino/Casino.iml" filepath="$PROJECT_DIR$/Casino/Casino.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/CryptographySkytala/CryptographySkytala.iml" filepath="$PROJECT_DIR$/CryptographySkytala/CryptographySkytala.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/Hangman/Hangman.iml" filepath="$PROJECT_DIR$/Hangman/Hangman.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/Kino/Kino.iml" filepath="$PROJECT_DIR$/Kino/Kino.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/Lotto/Lotto.iml" filepath="$PROJECT_DIR$/Lotto/Lotto.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/MemoryGame/MemoryGame.iml" filepath="$PROJECT_DIR$/MemoryGame/MemoryGame.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/NumberGuessingGame/NumberGuessingGame.iml" filepath="$PROJECT_DIR$/NumberGuessingGame/NumberGuessingGame.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/RomanArabicConverter/RomanArabicConverter.iml" filepath="$PROJECT_DIR$/RomanArabicConverter/RomanArabicConverter.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/SnakeGame/SnakeGame.iml" filepath="$PROJECT_DIR$/SnakeGame/SnakeGame.iml" />
+	  <module fileurl="file://$PROJECT_DIR$/WordCounter/WordCounter.iml" filepath="$PROJECT_DIR$/WordCounter/WordCounter.iml" />
+    </modules>
+  </component>
+</project>
