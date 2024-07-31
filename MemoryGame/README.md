@@ -21,4 +21,4 @@ This is a simple implementation of a Memory Game in Java using Swing. The game f
 
 
 ## Screenshots
-![image]([https://github.com/naosh1ma/U25-ArturAdigamov/MemoryGame/screenshots/screenshot.jpg](https://github.com/naosh1ma/U25-ArturAdigamov/issues/1#issue-2439814782))
+![image]([[https://github.com/naosh1ma/U25-ArturAdigamov/MemoryGame/screenshots/screenshot.jpg](https://github.com/naosh1ma/U25-ArturAdigamov/issues/1#issue-2439814782)](https://github.com/user-attachments/assets/47e8ef06-4e7b-4d4a-b87f-eb2514e5ce8c))
