@@ -1,1 +1,1 @@
-Here you can see projects that i did during my educattion
+Casino app in CUI
