@@ -2,6 +2,7 @@
 <project version="4">
   <component name="ProjectModuleManager">
     <modules>
+      <module fileurl="file://$PROJECT_DIR$/Casino/Casino.iml" filepath="$PROJECT_DIR$/Casino/Casino.iml" />
       <module fileurl="file://$PROJECT_DIR$/U25-ArturAdigamov.iml" filepath="$PROJECT_DIR$/U25-ArturAdigamov.iml" />
     </modules>
   </component>
