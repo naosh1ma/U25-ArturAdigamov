@@ -4,7 +4,7 @@
     <modules>
 	  <module fileurl="file://$PROJECT_DIR$/U25-ArturAdigamov.iml" filepath="$PROJECT_DIR$/U25-ArturAdigamov.iml" />
 	  <module fileurl="file://$PROJECT_DIR$/_Snippets/_Snippets.iml" filepath="$PROJECT_DIR$/_Snippets/_Snippets.iml" />
-      <module fileurl="file://$PROJECT_DIR$/Casino/Casino.iml" filepath="$PROJECT_DIR$/Casino/Casino.iml" />
+          <module fileurl="file://$PROJECT_DIR$/Casino/Casino.iml" filepath="$PROJECT_DIR$/Casino/Casino.iml" />
 	  <module fileurl="file://$PROJECT_DIR$/CryptographySkytala/CryptographySkytala.iml" filepath="$PROJECT_DIR$/CryptographySkytala/CryptographySkytala.iml" />
 	  <module fileurl="file://$PROJECT_DIR$/Hangman/Hangman.iml" filepath="$PROJECT_DIR$/Hangman/Hangman.iml" />
 	  <module fileurl="file://$PROJECT_DIR$/Kino/Kino.iml" filepath="$PROJECT_DIR$/Kino/Kino.iml" />
