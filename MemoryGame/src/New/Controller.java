@@ -1,11 +1,15 @@
 package New;
 
-public class Controller {
+public class Controller{
     Model model;
-    View view;
+    Frame frame;
 
-    public Controller(Model model, View view) {
+    Controller(Model model, Frame frame){
         this.model = model;
-        this.view = view;
+        this.frame = frame;
     }
+
+
+
+
 }
