@@ -42,20 +42,27 @@ public class PanelGame extends JPanel {
         this.add(lblTry);
     }
 
-    // Methoden
-    public JLabel getLblScore() {return lblScore;}
-    public JButton getButton(int index) {return buttonsGame.get(index);}
-    public int getButtonIndex(JButton button) {return buttonsGame.indexOf(button);}
-    public void setScore(int score) {lblScore.setText("Score: " + score);}
-    public void setButtonIcon(int index, ImageIcon icon) {buttonsGame.get(index).setIcon(icon);}
+    // Getter und Setter Methoden
+    public JLabel getLblScore() {
+        return lblScore;}
+    public JButton getButton(int index) {
+        return buttonsGame.get(index);}
+    public int getButtonIndex(JButton button) {
+        return buttonsGame.indexOf(button);}
+    public void setScore(int score) {
+        lblScore.setText("Score: " + score);}
+    public void setButtonIcon(int index, ImageIcon icon) {
+        buttonsGame.get(index).setIcon(icon);}
 
-    public void addGameEndListener(ActionListener listener) {btnGameEnd.addActionListener(listener);}
-    public void addGameNewStartListener(ActionListener listener) {btnGameNewStart.addActionListener(listener);}
+    // Sonstige Methoden
+    public void addGameEndListener(ActionListener listener) {
+        btnGameEnd.addActionListener(listener);}
+    public void addGameNewStartListener(ActionListener listener) {
+        btnGameNewStart.addActionListener(listener);}
     public void addGameFieldButtonsListener(ActionListener listener) {
         for (JButton button : buttonsGame) {
             button.addActionListener(listener);
-        }
-    }
+        }}
     private void createGameField(int row_size, int col_size) {
         buttonsGame = new ArrayList<>();
         panelGameField = new JPanel();
@@ -70,8 +77,7 @@ public class PanelGame extends JPanel {
             button.setBackground(new Color(205, 255, 255));
             buttonsGame.add(button);
             panelGameField.add(buttonsGame.get(i));
-        }
-    }
+        }}
     public void disableButton(int index) {
         buttonsGame.get(index).setEnabled(false);
     }
