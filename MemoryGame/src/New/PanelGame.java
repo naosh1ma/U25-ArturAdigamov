@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PanelGame extends JPanel {
-    private Model model;
+
     private JPanel panelGameField;
     private JButton btnGameNewStart;
     private JButton btnGameEnd;
@@ -15,17 +15,10 @@ public class PanelGame extends JPanel {
     private JLabel lblScore;
     private JLabel lblTry;
 
-    boolean running = false;
-
-    PanelGame(int row_size, int col_size) {
-
-        //model.initGame(row_size, col_size);
-        buttonsGame = new ArrayList<>();
+    PanelGame() {
         this.setLayout(null);
         this.setPreferredSize(new Dimension(734, 600));
-        model = new Model(row_size,col_size);
-        panelGameField = new JPanel();
-        panelGameField.setLayout(new GridLayout(row_size, col_size));
+        this.setBounds(0, 0, 734, 561);
 
         btnGameEnd = new JButton("Beenden");
         btnGameNewStart = new JButton("Neustarten");
@@ -37,89 +30,36 @@ public class PanelGame extends JPanel {
         lblScore.setFont(new Font("Arial", Font.PLAIN, 15));
         lblTry.setFont(new Font("Arial", Font.PLAIN, 15));
 
-        this.setBounds(0, 0, 734, 561);
-        panelGameField.setBounds(0, 1, 734, 503);
         btnGameEnd.setBounds(607, 515, 105, 35);
         btnGameNewStart.setBounds(479, 515, 105, 35);
         lblScore.setBounds(25, 520, 105, 25);
         lblTry.setBounds(180, 520, 105, 25);
 
-        btnGameEnd.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-
-            }
-        });
-
-        btnGameNewStart.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) {
-                //gamePanel(row_size, col_size);
-            }
-        });
-
-        addButtons(row_size, col_size);
-        this.add(panelGameField);
         this.add(btnGameEnd);
         this.add(btnGameNewStart);
         this.add(lblScore);
         this.add(lblTry);
-        //updatePanel(panelGame);
+    }
+
+    private void createGameField(int row_size, int col_size) {
+        buttonsGame = new ArrayList<>();
+        panelGameField = new JPanel();
+        panelGameField.setLayout(new GridLayout(row_size, col_size));
+        panelGameField.setBounds(0, 1, 734, 503);
+        addButtons(row_size, col_size);
+        this.add(panelGameField);
     }
 
     private void addButtons(int row_size, int col_size) {
         for (int i = 0; i < row_size * col_size; i++) {
             JButton button = new JButton();
             button.setBackground(new Color(205, 255, 255));
-            button.addActionListener(new ButtonListener());
             buttonsGame.add(button);
             panelGameField.add(buttonsGame.get(i));
         }
     }
 
-
-
-    public class ButtonListener implements ActionListener{
-
-    @Override
-    public void actionPerformed(ActionEvent e) {
-        JButton button = (JButton) e.getSource();
-        int index = getButtonIndex(button);
-
-        if (button.getIcon() == null) {
-            //model.setOpenCard(index);
-            //setButtonIcon(index, model.getIcon(index));
-
-            if (model.areBothCardsOpen()) {
-                Timer timer = new Timer(1000, new ActionListener() {
-                    @Override
-                    public void actionPerformed(ActionEvent e) {
-                        checkForMatch();
-                    }
-                });
-                timer.setRepeats(false);
-                timer.start();
-            }
-        }
-        repaint();
-    }
-
-}
-
-    private void checkForMatch() {
-        int[] openedCards = model.getOpenedCards();
-        if (model.checkMatch()) {
-            disableButton(openedCards[0]);
-            disableButton(openedCards[1]);
-            if (model.isPairFound()) {
-                showGameOverMessage();
-            }
-        } else {
-            resetButtonIcon(openedCards[0]);
-            resetButtonIcon(openedCards[1]);
-        }
-        model.resetOpenedCards();
-    }
-
-    public void setActionListener(ActionListener listener) {
+    public void setGameFieldButtonsListener(ActionListener listener) {
         for (JButton button : buttonsGame) {
             button.addActionListener(listener);
         }
@@ -150,9 +90,10 @@ public class PanelGame extends JPanel {
     }
 
 
-    public JLabel getLblScore( ) {
+    public JLabel getLblScore() {
         return lblScore;
     }
+
     public void setScore(int score) {
         lblScore.setText("Score: " + score);
     }

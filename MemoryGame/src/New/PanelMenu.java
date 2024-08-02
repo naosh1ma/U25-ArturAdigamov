@@ -7,8 +7,6 @@ import java.awt.event.ActionListener;
 
 public class PanelMenu extends JPanel{
 
-    private Model model;
-
     private JLabel lblWelcome;
     private JButton btnGameEasy;
     private JButton btnGameNorm;

@@ -8,60 +8,51 @@ import java.util.Collections;
 public class Model {
     private int rows = 0, cols = 0, diff = 0;
     private int score = 0;
-    private int[] openedCards = {-1, -1};
     private int openCount = 0;
     private int pairsFound = 0;
     private int theme = 0;
+
+    private int[] openedCards = {-1, -1};
     private String[] themes = {"cars", "sport", "flag"};
 
     private ImageIcon cardBack;
     private ArrayList<ImageIcon> cards;
 
-    public Model(int rows, int cols) {
+
+
+    private boolean running = false;
+
+    public void createGame(int rows, int cols) {
+        this.running  = true;
         this.rows = rows;
         this.cols = cols;
-        this.diff = rows * cols;
-        loadIcons();
-    }
-
-    public void loadIcons() {
         cards = new ArrayList<>();
         //cardBack = new ImageIcon(getClass().getResource("icons/back.png"));
-        //cardBack = new ImageIcon("icons/back.png");
         //cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize() + (getBackSize() * 0.2)), getBackSize(), Image.SCALE_SMOOTH));
         cardBack = new ImageIcon(new ImageIcon("icons/back.png").getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
-        //cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize()+(getBackSize()*0.2)),getBackSize(), Image.SCALE_SMOOTH));
+
         for (int i = 0; i < getDiff()/2; i++) {
-            ImageIcon image = new ImageIcon(new ImageIcon("icons/"+ themes[theme] + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
-            //ImageIcon image = new ImageIcon("icons/"+ themes[theme] + (i + 1) + ".png");
+            ImageIcon image = new ImageIcon(new ImageIcon("icons/"+ themes[theme] +
+                    (i + 1) + ".png").getImage().getScaledInstance(getFrontWidth(), getFrontHeight(), Image.SCALE_SMOOTH));
             cards.add(image);
             cards.add(image);
         }
         Collections.shuffle(cards);
     }
 
-//    public void initGame(int rows, int cols) {
-//        this.rows = rows;
-//        this.cols = cols;
-//        this.diff = rows * cols;
-//        loadIcons();
-//        cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize() + (getBackSize() * 0.2)), getBackSize(), Image.SCALE_SMOOTH));
-//        int i = 0;
-//        for (ImageIcon card : cards) {
-//            //card = new ImageIcon(card.getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
-//            card = new ImageIcon(new ImageIcon("icons/" + themes[theme] + (i + 1) + ".png").getImage().getScaledInstance(getFrontSize(), getFrontSize(), Image.SCALE_SMOOTH));
-//            i++;
-//        }
-//        cards.subList(0, getDiff());
-//        Collections.shuffle(cards);
-//    }
+    public void initGame(int rows, int cols) {
+
+        cardBack = new ImageIcon(cardBack.getImage().getScaledInstance((int) (getBackSize() + (getBackSize() * 0.2)), getBackSize(), Image.SCALE_SMOOTH));
+        int i = 0;
+        for (ImageIcon card : cards) {
+            card = new ImageIcon(new ImageIcon("icons/" + themes[theme] + (i + 1) + ".png").getImage().getScaledInstance(getFrontWidth(), getFrontHeight(), Image.SCALE_SMOOTH));
+            i++;
+        }
+
+    }
 
     public ImageIcon getIcon(int index) {
         return cards.get(index);
-    }
-
-    public void setTheme(int theme) {
-        this.theme = theme;
     }
 
     public void setOpenCard(int index) {
@@ -102,7 +93,7 @@ public class Model {
         return diff;
     }
 
-    public int getFrontSize() {
+    public int getFrontWidth() {
         int size = 0;
         if (this.diff == 20) {
             size = 100;
@@ -114,6 +105,19 @@ public class Model {
         return size;
     }
 
+    public int getFrontHeight(){
+        int size = 0;
+        if (this.diff == 20) {
+            size = 100;
+        } else if (this.diff == 36) {
+            size = 80;
+        } else if (this.diff == 64) {
+            size = 60;
+        }
+        return size;
+    }
+
+
     public int getBackSize() {
         int size = 0;
         if (this.diff == 20) {
@@ -124,5 +128,8 @@ public class Model {
             size = 70;
         }
         return size;
+    }
+    public boolean isRunning() {
+        return running;
     }
 }
