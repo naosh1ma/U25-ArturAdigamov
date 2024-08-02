@@ -3,6 +3,7 @@ package New;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.util.ArrayList;
 
 public class PanelSettings extends JPanel {
     JLabel lblSettings;
@@ -17,6 +18,7 @@ public class PanelSettings extends JPanel {
     JButton btnStart;
     JButton btnBack;
 
+    ArrayList<Boolean> checkBoxes;
 
     PanelSettings() {
 
@@ -32,10 +34,12 @@ public class PanelSettings extends JPanel {
         chckbxTheme3 = new JCheckBox("Flaggen");
         chckbxTheme4 = new JCheckBox("Tiere");
         chckbxTheme5 = new JCheckBox("Flugzeuge");
-        comboBoxPlayer = new JComboBox(new DefaultComboBoxModel(new String[] { "Singleplayer", "1 vs Bot", "1 vs 1" }));
         btnStart = new JButton("Start");
         btnBack = new JButton("Zurück");
+        comboBoxPlayer = new JComboBox();
 
+        comboBoxPlayer.setModel(new DefaultComboBoxModel(new String[] { "Singleplayer", "1 vs Bot", "1 vs 1" }));
+        comboBoxPlayer.setSelectedIndex(0);
 
         lblSettings.setFont(new Font("Arial", Font.PLAIN, 30));
         lblPlayers.setFont(new Font("Arial", Font.PLAIN, 25));
@@ -46,20 +50,20 @@ public class PanelSettings extends JPanel {
         chckbxTheme4.setFont(new Font("Arial", Font.PLAIN, 20));
         chckbxTheme5.setFont(new Font("Arial", Font.PLAIN, 20));
         comboBoxPlayer.setFont(new Font("Arial", Font.PLAIN, 20));
-        btnStart.setFont(new Font("Arial", Font.PLAIN, 25));
-        btnBack.setFont(new Font("Arial", Font.PLAIN, 25));
+        btnStart.setFont(new Font("Arial", Font.PLAIN, 20));
+        btnBack.setFont(new Font("Arial", Font.PLAIN, 20));
 
-        lblSettings.setBounds(275, 75, 250, 60);
-        lblPlayers.setBounds(120, 200, 150, 60);
-        lblThemes.setBounds(480, 200, 150, 60);
-        chckbxTheme1.setBounds(480, 270, 110, 30);
-        chckbxTheme2.setBounds(480, 320, 110, 30);
-        chckbxTheme3.setBounds(480, 370, 110, 30);
-        chckbxTheme4.setBounds(480, 420, 110, 30);
-        chckbxTheme5.setBounds(480, 470, 120, 30);
-        comboBoxPlayer.setBounds(120, 270, 150, 30);
-        btnStart.setBounds(250, 445, 120, 50);
-        btnBack.setBounds(120, 445, 120, 50);
+        lblSettings.setBounds(275, 50, 250, 60);
+        lblPlayers.setBounds(160, 150, 150, 60);
+        lblThemes.setBounds(480, 150, 150, 60);
+        chckbxTheme1.setBounds(480, 220, 110, 30);
+        chckbxTheme2.setBounds(480, 260, 110, 30);
+        chckbxTheme3.setBounds(480, 300, 110, 30);
+        chckbxTheme4.setBounds(480, 340, 110, 30);
+        chckbxTheme5.setBounds(480, 380, 120, 30);
+        comboBoxPlayer.setBounds(130, 220, 150, 30);
+        btnStart.setBounds(490, 500, 120, 40);
+        btnBack.setBounds(125, 500, 120, 40);
 
         this.add(lblSettings);
         this.add(lblPlayers);
@@ -72,8 +76,30 @@ public class PanelSettings extends JPanel {
         this.add(comboBoxPlayer);
         this.add(btnStart);
         this.add(btnBack);
+
+
+
+
+
+
     }
 
+    public ArrayList<Boolean> getCheckBoxes(){
+
+        return checkBoxes;
+    }
+
+
+
+
+    //        for (Component child: this.getComponents()) {
+//            if (child instanceof JCheckBox) {
+//                JCheckBox checkBox = (JCheckBox) child;
+//                if (checkBox.isSelected()) {
+//                    System.out.println(checkBox.getAction().getValue(Action.NAME));
+//                }
+//            }
+//        }
 
 
 }
