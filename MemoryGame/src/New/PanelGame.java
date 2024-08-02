@@ -7,7 +7,7 @@ import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PanelGame extends JPanel {
-
+    // Attributen
     private JPanel panelGameField;
     private JButton btnGameNewStart;
     private JButton btnGameEnd;
@@ -15,6 +15,7 @@ public class PanelGame extends JPanel {
     private JLabel lblScore;
     private JLabel lblTry;
 
+    // Konstruktoren
     PanelGame() {
         this.setLayout(null);
         this.setPreferredSize(new Dimension(734, 600));
@@ -41,6 +42,20 @@ public class PanelGame extends JPanel {
         this.add(lblTry);
     }
 
+    // Methoden
+    public JLabel getLblScore() {return lblScore;}
+    public JButton getButton(int index) {return buttonsGame.get(index);}
+    public int getButtonIndex(JButton button) {return buttonsGame.indexOf(button);}
+    public void setScore(int score) {lblScore.setText("Score: " + score);}
+    public void setButtonIcon(int index, ImageIcon icon) {buttonsGame.get(index).setIcon(icon);}
+
+    public void addGameEndListener(ActionListener listener) {btnGameEnd.addActionListener(listener);}
+    public void addGameNewStartListener(ActionListener listener) {btnGameNewStart.addActionListener(listener);}
+    public void addGameFieldButtonsListener(ActionListener listener) {
+        for (JButton button : buttonsGame) {
+            button.addActionListener(listener);
+        }
+    }
     private void createGameField(int row_size, int col_size) {
         buttonsGame = new ArrayList<>();
         panelGameField = new JPanel();
@@ -49,7 +64,6 @@ public class PanelGame extends JPanel {
         addButtons(row_size, col_size);
         this.add(panelGameField);
     }
-
     private void addButtons(int row_size, int col_size) {
         for (int i = 0; i < row_size * col_size; i++) {
             JButton button = new JButton();
@@ -58,43 +72,13 @@ public class PanelGame extends JPanel {
             panelGameField.add(buttonsGame.get(i));
         }
     }
-
-    public void setGameFieldButtonsListener(ActionListener listener) {
-        for (JButton button : buttonsGame) {
-            button.addActionListener(listener);
-        }
-    }
-
-    public JButton getButton(int index) {
-        return buttonsGame.get(index);
-    }
-
-    public int getButtonIndex(JButton button) {
-        return buttonsGame.indexOf(button);
-    }
-
     public void disableButton(int index) {
         buttonsGame.get(index).setEnabled(false);
     }
-
     public void resetButtonIcon(int index) {
         buttonsGame.get(index).setIcon(null);
     }
-
-    public void setButtonIcon(int index, ImageIcon icon) {
-        buttonsGame.get(index).setIcon(icon);
-    }
-
     public void showGameOverMessage() {
         JOptionPane.showMessageDialog(this, "Du hast alle Paaren gefunden!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-    }
-
-
-    public JLabel getLblScore() {
-        return lblScore;
-    }
-
-    public void setScore(int score) {
-        lblScore.setText("Score: " + score);
     }
 }

@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5c68a906-6130-47a7-b527-553ef3b4b362" name="Changes" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/PanelGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/PanelGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/PanelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/PanelMenu.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,10 +28,9 @@
     &quot;accountId&quot;: &quot;e205f04d-4f1d-4faf-9e63-e89a280c2c88&quot;
   }
 }</component>
-  <component name="ProjectColorInfo">{
-  &quot;customColor&quot;: &quot;ff0000ff&quot;,
-  &quot;associatedIndex&quot;: 4
-}</component>
+  <component name="ProjectColorInfo"><![CDATA[{
+  "associatedIndex": 6
+}]]></component>
   <component name="ProjectId" id="2k6Br8BcxDLbuB1ZbADY0y5lcJd" />
   <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
   <component name="ProjectViewState">
@@ -97,7 +90,8 @@
       <workItem from="1722595356432" duration="121000" />
       <workItem from="1722595520364" duration="170000" />
       <workItem from="1722599602814" duration="2885000" />
-      <workItem from="1722602510708" duration="1320000" />
+      <workItem from="1722602510708" duration="1831000" />
+      <workItem from="1722604377250" duration="22000" />
     </task>
     <task id="LOCAL-00002" summary="-">
       <option name="closed" value="true" />
@@ -107,7 +101,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722595377947</updated>
     </task>
-    <option name="localTasksCounter" value="3" />
+    <task id="LOCAL-00003" summary="-">
+      <option name="closed" value="true" />
+      <created>1722604329174</created>
+      <option name="number" value="00003" />
+      <option name="presentableId" value="LOCAL-00003" />
+      <option name="project" value="LOCAL" />
+      <updated>1722604329174</updated>
+    </task>
+    <option name="localTasksCounter" value="4" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
