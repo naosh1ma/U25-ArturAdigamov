@@ -5,207 +5,7 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="5c68a906-6130-47a7-b527-553ef3b4b362" name="Changes" comment="-">
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/27.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/28.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/31.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Autos/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/27.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/28.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/31.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Flaggen/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/1.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/10.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/11.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/12.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/13.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/14.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/15.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/16.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/17.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/18.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/19.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/2.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/20.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/21.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/22.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/23.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/24.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/25.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/26.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/27.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/28.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/29.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/3.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/30.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/31.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/32.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/4.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/5.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/6.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/7.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/8.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/icons/Sport/9.png" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/src/New/PanelLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/MemoryGame/src/New/WeatherAPI.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/cars9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/flag9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport1.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport10.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport11.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport12.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport13.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport14.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport15.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport16.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport17.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport18.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport19.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport2.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport20.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport21.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport22.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport23.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport24.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport25.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport26.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport27.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport28.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport29.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport3.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport30.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport31.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport32.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport4.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport5.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport6.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport7.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport8.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/icons/sport9.png" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/Frame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/PanelGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/PanelGame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/PanelMenu.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/PanelMenu.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/New/PanelSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/New/PanelSettings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -329,7 +129,7 @@
       <workItem from="1722611980202" duration="94000" />
       <workItem from="1722612084182" duration="767000" />
       <workItem from="1722624757064" duration="10003000" />
-      <workItem from="1722674991215" duration="12049000" />
+      <workItem from="1722674991215" duration="13702000" />
     </task>
     <task id="LOCAL-00002" summary="-">
       <option name="closed" value="true" />
@@ -371,7 +171,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722605892329</updated>
     </task>
-    <option name="localTasksCounter" value="7" />
+    <task id="LOCAL-00007" summary="-">
+      <option name="closed" value="true" />
+      <created>1722700358864</created>
+      <option name="number" value="00007" />
+      <option name="presentableId" value="LOCAL-00007" />
+      <option name="project" value="LOCAL" />
+      <updated>1722700358864</updated>
+    </task>
+    <option name="localTasksCounter" value="8" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">

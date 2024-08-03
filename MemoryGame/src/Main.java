@@ -1,9 +1,7 @@
 public class Main {
-
     public static void main(String[] args) {
-        GameModel model = new GameModel();
-        GameView view = new GameView(model,null);
-        GameController controller = new GameController(model, view);
-        view.setActionListener(controller);
+        Model model = new Model();
+        Frame frame = new Frame();
+        Controller controller = new Controller(model, frame);
     }
 }

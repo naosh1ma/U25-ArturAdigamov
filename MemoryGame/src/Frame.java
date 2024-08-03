@@ -1,5 +1,3 @@
-package New;
-
 import javax.swing.*;
 
 // Restart Game Button
