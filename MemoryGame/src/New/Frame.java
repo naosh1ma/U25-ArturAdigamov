@@ -2,6 +2,11 @@ package New;
 
 import javax.swing.*;
 
+// Restart Game Button
+//
+
+
+
 public class Frame extends JFrame{
     // Attributen
 
@@ -18,7 +23,7 @@ public class Frame extends JFrame{
         panelGame = new PanelGame();
 
 
-        this.add(new PanelSettings());
+        this.add(panelMenu);
         this.setBounds(100, 100, 750, 600);
         this.setTitle("Memory");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -3,6 +3,7 @@ package New;
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
+import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
 public class PanelSettings extends JPanel {
@@ -77,18 +78,24 @@ public class PanelSettings extends JPanel {
         this.add(btnStart);
         this.add(btnBack);
 
-
-
-
-
-
     }
 
     public ArrayList<Boolean> getCheckBoxes(){
-
         return checkBoxes;
     }
-
+    public void addSettingsBackListener(ActionListener listener){
+        btnBack.addActionListener(listener);
+    }
+    public void addSettingsStartListener(ActionListener listener){
+        btnStart.addActionListener(listener);
+    }
+    public void addSettingsThemeListener(ActionListener listener){
+        chckbxTheme1.addActionListener(listener);
+        chckbxTheme2.addActionListener(listener);
+        chckbxTheme3.addActionListener(listener);
+        chckbxTheme4.addActionListener(listener);
+        chckbxTheme5.addActionListener(listener);
+    }
 
 
 
