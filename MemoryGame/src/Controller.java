@@ -24,18 +24,18 @@ public class Controller {
             JButton button = (JButton) e.getSource();
             switch (button.getText()) {
                 case "4 x 5":
-                    System.out.println("4 x 5");
+                    System.out.println("4 x 5 Button pressed");
                     openSettings();
                     model.createGame(4,5);
 
                     break;
                 case "6 x 6":
-                    System.out.println("6 x 6");
+                    System.out.println("6 x 6 Button pressed");
                     openSettings();
                     model.createGame(6,6);
                     break;
                 case "8 x 8":
-                    System.out.println("8 x 8");
+                    System.out.println("8 x 8 Button pressed");
                     openSettings();
                     model.createGame(8,8);
                     break;
@@ -66,11 +66,13 @@ public class Controller {
                 model.setThemes(checkBox.getText());
             }
 
+
         }
     }
     public class StartGameListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            System.out.println("GameStartButton pressed");
             model.createCards();
             frame.getPanelSettings().setVisible(false);
             frame.add(frame.getPanelGame());
@@ -78,7 +80,6 @@ public class Controller {
             frame.getPanelGame().setBackIcon(model.getCardsBack());
             frame.getPanelGame().setVisible(true);
             frame.getPanelGame().addGameFieldButtonsListener(new ButtonListener());
-            System.out.println("Game started");
         }
     }
     public class NewStartGameListener implements ActionListener {
