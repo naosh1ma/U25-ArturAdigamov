@@ -55,25 +55,37 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
             JCheckBox checkBox = (JCheckBox) e.getSource();
 
-            System.out.println(checkBox.getText());
             if (checkBox.isSelected() && checkBox.getText().equals("Autos")) {
+                System.out.println(checkBox.getText() + " has added");
                 model.setThemes(checkBox.getText());
+            }
+            else if (!checkBox.isSelected() && checkBox.getText().equals("Autos")) {
+                System.out.println(checkBox.getText() + " has removed");
+                model.deleteTheme(checkBox.getText());
             }
             if (checkBox.isSelected() && checkBox.getText().equals("Flaggen")) {
+                System.out.println(checkBox.getText() + " has added");
                 model.setThemes(checkBox.getText());
+            }
+            else if (!checkBox.isSelected() && checkBox.getText().equals("Flaggen")) {
+                System.out.println(checkBox.getText() + " has removed");
+                model.deleteTheme(checkBox.getText());
             }
             if (checkBox.isSelected() && checkBox.getText().equals("Sport")) {
+                System.out.println(checkBox.getText() + " has added");
                 model.setThemes(checkBox.getText());
             }
-
-
+            else if (!checkBox.isSelected() && checkBox.getText().equals("Sport")) {
+                System.out.println(checkBox.getText() + " has removed");
+                model.deleteTheme(checkBox.getText());
+            }
         }
     }
     public class StartGameListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.out.println("GameStartButton pressed");
-            model.createCards();
+            model.initGame();
             frame.getPanelSettings().setVisible(false);
             frame.add(frame.getPanelGame());
             frame.getPanelGame().createGameField(model.getRows(),model.getCols());
@@ -83,17 +95,23 @@ public class Controller {
         }
     }
     public class NewStartGameListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
-            model.createCards();
-            frame.removeAll();
+            model.initGame();
+            model.resetOpenedCards();
+            frame.newPanelGame();
             frame.add(frame.getPanelGame());
             frame.getPanelGame().createGameField(model.getRows(),model.getCols());
             frame.getPanelGame().setBackIcon(model.getCardsBack());
             frame.getPanelGame().addGameFieldButtonsListener(new ButtonListener());
             frame.revalidate();
             frame.repaint();
+        }
+    }
+    public class EndGameListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
         }
     }
 

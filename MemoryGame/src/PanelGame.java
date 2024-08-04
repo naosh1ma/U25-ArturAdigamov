@@ -58,6 +58,12 @@ public class PanelGame extends JPanel {
         }
     }
 
+    public void resetGameField(){
+        this.buttonsGame = null;
+        panelGameField = null;
+
+    }
+
     public void createGameField(int row_size, int col_size) {
         buttonsGame = new ArrayList<>();
         panelGameField = new JPanel();

@@ -7,6 +7,10 @@
     <list default="true" id="5c68a906-6130-47a7-b527-553ef3b4b362" name="Changes" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/MemoryGame/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/Controller.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MemoryGame/src/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/Frame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MemoryGame/src/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MemoryGame/src/PanelGame.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/PanelGame.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/MemoryGame/src/PanelSettings.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/PanelSettings.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -70,26 +74,6 @@
       <recent name="C:\Users\ArturAdigamov\IdeaProjects\U25-ArturAdigamov\.idea" />
     </key>
   </component>
-  <component name="RunManager">
-    <configuration name="Main" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
-      <option name="MAIN_CLASS_NAME" value="Main" />
-      <module name="MemoryGame" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value=".*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <recent_temporary>
-      <list>
-        <item itemvalue="Application.Main" />
-      </list>
-    </recent_temporary>
-  </component>
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
@@ -130,7 +114,8 @@
       <workItem from="1722611980202" duration="94000" />
       <workItem from="1722612084182" duration="767000" />
       <workItem from="1722624757064" duration="10003000" />
-      <workItem from="1722674991215" duration="14399000" />
+      <workItem from="1722674991215" duration="21847000" />
+      <workItem from="1722748631779" duration="5766000" />
     </task>
     <task id="LOCAL-00002" summary="-">
       <option name="closed" value="true" />
@@ -188,7 +173,15 @@
       <option name="project" value="LOCAL" />
       <updated>1722705206228</updated>
     </task>
-    <option name="localTasksCounter" value="9" />
+    <task id="LOCAL-00009" summary="-">
+      <option name="closed" value="true" />
+      <created>1722706578451</created>
+      <option name="number" value="00009" />
+      <option name="presentableId" value="LOCAL-00009" />
+      <option name="project" value="LOCAL" />
+      <updated>1722706578451</updated>
+    </task>
+    <option name="localTasksCounter" value="10" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
