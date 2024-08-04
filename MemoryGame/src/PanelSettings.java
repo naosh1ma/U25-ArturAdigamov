@@ -81,7 +81,7 @@ public class PanelSettings extends JPanel {
     public ArrayList<Boolean> getCheckBoxes(){return checkBoxes;}
 
     public void addSettingsBackListener(ActionListener listener){btnBack.addActionListener(listener);}
-    public void addSettingsStartListener(ActionListener listener){btnStart.addActionListener(listener);}
+    public void addSettingsStartGameListener(ActionListener listener){btnStart.addActionListener(listener);}
     public void addSettingsThemeListener(ActionListener listener){
         chckbxTheme1.addActionListener(listener);
         chckbxTheme2.addActionListener(listener);

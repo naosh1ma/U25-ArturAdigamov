@@ -14,8 +14,9 @@ public class Controller {
         frame.getPanelMenu().addGameNormListener(new DifficultyListener());
         frame.getPanelMenu().addGameHardListener(new DifficultyListener());
         frame.getPanelSettings().addSettingsThemeListener(new ThemeListener());
-        frame.getPanelSettings().addSettingsStartListener(new StartGameListener());
+        frame.getPanelSettings().addSettingsStartGameListener(new StartGameListener());
         frame.getPanelGame().addGameNewStartListener(new StartGameListener());
+        frame.getPanelGame().addGameEndListener(new EndGameListener());
     }
 
     class DifficultyListener implements ActionListener {
@@ -94,6 +95,7 @@ public class Controller {
             frame.getPanelGame().addGameFieldButtonsListener(new ButtonListener());
         }
     }
+    // Not working
     public class NewStartGameListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
@@ -101,6 +103,7 @@ public class Controller {
             model.resetOpenedCards();
             frame.newPanelGame();
             frame.add(frame.getPanelGame());
+            frame.setVisible(true);
             frame.getPanelGame().createGameField(model.getRows(),model.getCols());
             frame.getPanelGame().setBackIcon(model.getCardsBack());
             frame.getPanelGame().addGameFieldButtonsListener(new ButtonListener());
@@ -108,15 +111,19 @@ public class Controller {
             frame.repaint();
         }
     }
+    // Not working
     public class EndGameListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-
+            frame.removeAll();
+            frame.add(frame.getPanelMenu());
+            frame.setVisible(true);
+            frame.revalidate();
+            frame.repaint();
         }
     }
 
     public class ButtonListener implements ActionListener {
-
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton button = (JButton) e.getSource();
@@ -140,13 +147,16 @@ public class Controller {
                 frame.getPanelGame().disableButton(openedCards[0]);
                 frame.getPanelGame().disableButton(openedCards[1]);
                 if (model.isPairFound()) {
-                    frame.getPanelGame().showGameOverMessage();
+                    showGameOverMessage();
                 }
             } else {
                 frame.getPanelGame().resetButtonIcon(openedCards[0],model.getCardsBack());
                 frame.getPanelGame().resetButtonIcon(openedCards[1],model.getCardsBack());
             }
             model.resetOpenedCards();
+        }
+        public void showGameOverMessage() {
+            JOptionPane.showMessageDialog(frame, "Du hast alle Paaren gefunden!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
         }
 
     }

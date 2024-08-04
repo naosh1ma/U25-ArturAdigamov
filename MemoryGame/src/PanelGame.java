@@ -40,9 +40,7 @@ public class PanelGame extends JPanel {
     }
 
     // Methoden
-    public JPanel getPanelGameField() {
-        return panelGameField;
-    }
+    public JPanel getPanelGameField() {return panelGameField;}
     public JLabel getLblScore() {return lblScore;}
     public JButton getButton(int index) {return buttonsGame.get(index);}
     public int getButtonIndex(JButton button) {return buttonsGame.indexOf(button);}
@@ -61,7 +59,6 @@ public class PanelGame extends JPanel {
     public void resetGameField(){
         this.buttonsGame = null;
         panelGameField = null;
-
     }
 
     public void createGameField(int row_size, int col_size) {
@@ -89,8 +86,4 @@ public class PanelGame extends JPanel {
     }
     public void disableButton(int index) {buttonsGame.get(index).setEnabled(false);}
     public void resetButtonIcon(int index, ImageIcon icon) {buttonsGame.get(index).setIcon(icon);}
-
-    public void showGameOverMessage() {
-        JOptionPane.showMessageDialog(this, "Du hast alle Paaren gefunden!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-    }
 }
