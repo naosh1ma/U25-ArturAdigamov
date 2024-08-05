@@ -115,11 +115,13 @@ public class Controller {
         frame.getPanelGame().revalidate();
         frame.getPanelGame().repaint();
     }
-
+// do not work correctly
     private void endGame() {
         model.initGame();
         frame.getPanelGame().setVisible(false);
         frame.getPanelMenu().setVisible(true);
+        frame.getPanelGame().resetButtons();
+        frame.remove(frame.getPanelGame().getPanelGameField());
         frame.remove(frame.getPanelGame());
         frame.revalidate();
         frame.repaint();
