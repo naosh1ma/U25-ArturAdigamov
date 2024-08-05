@@ -89,14 +89,11 @@ public class Controller {
                     JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                     options, options[0]);
             if (input == JOptionPane.YES_OPTION) {
-                model.newStart();
-                frame.getPanelGame().setBackIcon(model.getCardsBack());
-                frame.getPanelGame().enableButtons();
-                frame.getPanelGame().revalidate();
-                frame.getPanelGame().repaint();
+                restartGame();
             }
         }
     }
+
 
     public class EndGameListener implements ActionListener {
         @Override
@@ -106,14 +103,26 @@ public class Controller {
                     JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
                     options, options[0]);
             if (input == JOptionPane.YES_OPTION) {
-                model.initGame();
-                frame.getPanelGame().setVisible(false);
-                frame.getPanelMenu().setVisible(true);
-                frame.remove(frame.getPanelGame());
-                frame.revalidate();
-                frame.repaint();
+                endGame();
             }
         }
+    }
+
+    private void restartGame() {
+        model.newStart();
+        frame.getPanelGame().setBackIcon(model.getCardsBack());
+        frame.getPanelGame().enableButtons();
+        frame.getPanelGame().revalidate();
+        frame.getPanelGame().repaint();
+    }
+
+    private void endGame() {
+        model.initGame();
+        frame.getPanelGame().setVisible(false);
+        frame.getPanelMenu().setVisible(true);
+        frame.remove(frame.getPanelGame());
+        frame.revalidate();
+        frame.repaint();
     }
 
     public class ButtonListener implements ActionListener {
@@ -126,15 +135,25 @@ public class Controller {
                 frame.getPanelGame().setButtonIcon(index, model.getIcon(index));
                 if (model.areBothCardsOpen()) {
                     model.decreaseScore();
+                    frame.getPanelGame().setScore(model.getScore());
+                    if (model.getScore() == 0) {
+                        Object[] options = {"Ja", "Nein"};
+                        int input = JOptionPane.showOptionDialog(null, "                        Du hast verloren!\n" +
+                                        "                     Willst du neustarten?", "Game Over",
+                                JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+                                options, options[0]);
+                        if (input == JOptionPane.YES_OPTION) {
+                            restartGame();
+                        } else if (input == JOptionPane.NO_OPTION) {
+                            endGame();
+                        }
+                    }
                     Timer timer = new Timer(1000, e1 -> checkForMatch());
                     timer.setRepeats(false);
                     timer.start();
                 }
             }
-            if (model.getScore() == 0) {
-                System.exit(0);
-            }
-            frame.getPanelGame().setScore(model.getScore());
+
             frame.repaint();
         }
 
@@ -144,7 +163,16 @@ public class Controller {
                 frame.getPanelGame().disableButton(openedCards[0]);
                 frame.getPanelGame().disableButton(openedCards[1]);
                 if (model.isPairFound()) {
-                    showGameOverMessage();
+                    Object[] options = {"Ja", "Nein"};
+                    int input = JOptionPane.showOptionDialog(null, "                      Du hast gewonnen!\n" +
+                                    "                     Willst du neustarten?", "Game Over",
+                            JOptionPane.DEFAULT_OPTION, JOptionPane.PLAIN_MESSAGE, null,
+                            options, options[0]);
+                    if (input == JOptionPane.YES_OPTION) {
+                        restartGame();
+                    } else if (input == JOptionPane.NO_OPTION) {
+                        endGame();
+                    }
                 }
             } else {
                 frame.getPanelGame().resetButtonIcon(openedCards[0], model.getCardsBack());
@@ -152,11 +180,6 @@ public class Controller {
             }
             model.resetOpenedCards();
         }
-
-        public void showGameOverMessage() {
-            JOptionPane.showMessageDialog(frame, "Du hast alle Paaren gefunden!", "Game Over", JOptionPane.INFORMATION_MESSAGE);
-        }
-
     }
 
 
