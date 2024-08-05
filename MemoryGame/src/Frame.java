@@ -33,9 +33,4 @@ public class Frame extends JFrame{
     public PanelGame getPanelGame() {return panelGame;}
     public PanelSettings getPanelSettings() {return panelSettings;}
     public PanelMenu getPanelMenu() {return panelMenu;}
-
-    public void newPanelGame(){
-        this.panelGame = null;
-        this.panelGame = new PanelGame();
-    }
 }

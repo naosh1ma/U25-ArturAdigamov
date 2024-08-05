@@ -30,6 +30,7 @@ public class Model {
     public int getCols() {return cols;}
     public int getRows() {return rows;}
     public int getDiff() {return diff;}
+    public int getScore() {return score;}
 
     public void createGame(int rows, int cols) {
         System.out.println("game created");
@@ -67,12 +68,28 @@ public class Model {
         themes.remove(theme);
     }
 
+    public void shuffleCards(){
+        Collections.shuffle(cardsFront);
+    }
 
     public void setOpenCard(int index) {
         if (openCount < 2) {
             openedCards[openCount] = index;
             openCount++;
         }
+    }
+
+    public void decreaseScore() {
+        if (getDiff() == 20) {
+            score = score - 5;
+        }
+        if (getDiff() == 36) {
+            score = score - 3;
+        }
+        if (getDiff() == 64) {
+            score = score - 1;
+        }
+
     }
 
     public boolean checkMatch() {return cardsFront.get(openedCards[0]).equals(cardsFront.get(openedCards[1]));}

@@ -15,7 +15,7 @@ public class Controller {
         frame.getPanelMenu().addGameHardListener(new DifficultyListener());
         frame.getPanelSettings().addSettingsThemeListener(new ThemeListener());
         frame.getPanelSettings().addSettingsStartGameListener(new StartGameListener());
-        frame.getPanelGame().addGameNewStartListener(new StartGameListener());
+        frame.getPanelGame().addGameNewStartListener(new NewStartGameListener());
         frame.getPanelGame().addGameEndListener(new EndGameListener());
     }
 
@@ -99,25 +99,22 @@ public class Controller {
     public class NewStartGameListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            model.initGame();
-            model.resetOpenedCards();
-            frame.newPanelGame();
-            frame.add(frame.getPanelGame());
-            frame.setVisible(true);
+            model.shuffleCards();
+            frame.getPanelGame().getPanelGameField().removeAll();
+            frame.getPanelGame().resetButtons();
             frame.getPanelGame().createGameField(model.getRows(),model.getCols());
-            frame.getPanelGame().setBackIcon(model.getCardsBack());
+            frame.getPanelGame().getPanelGameField().setVisible(true);
             frame.getPanelGame().addGameFieldButtonsListener(new ButtonListener());
-            frame.revalidate();
-            frame.repaint();
+            frame.getPanelGame().revalidate();
+            frame.getPanelGame().repaint();
         }
     }
     // Not working
     public class EndGameListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
-            frame.removeAll();
-            frame.add(frame.getPanelMenu());
-            frame.setVisible(true);
+            frame.getPanelGame().setVisible(false);
+            frame.getPanelMenu().setVisible(true);
             frame.revalidate();
             frame.repaint();
         }
@@ -126,6 +123,7 @@ public class Controller {
     public class ButtonListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+
             JButton button = (JButton) e.getSource();
             int index = frame.getPanelGame().getButtonIndex(button);
 
@@ -134,12 +132,18 @@ public class Controller {
                 frame.getPanelGame().setButtonIcon(index, model.getIcon(index));
 
                 if (model.areBothCardsOpen()) {
+                    model.decreaseScore();
                     Timer timer = new Timer(1000, e1 -> checkForMatch());
                     timer.setRepeats(false);
                     timer.start();
                 }
             }
+            if(model.getScore() == 0){
+                System.exit(0);
+            }
+            frame.getPanelGame().setScore(model.getScore());
             frame.repaint();
+
         }
         private void checkForMatch() {
             int[] openedCards = model.getOpenedCards();
