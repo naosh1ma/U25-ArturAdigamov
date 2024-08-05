@@ -82,6 +82,12 @@ public class PanelGame extends JPanel {
             button.setIcon(icon);
         }
     }
+
+    public void enableButtons(){
+        for (JButton button : buttonsGame) {
+            button.setEnabled(true);
+        }
+    }
     public void disableButton(int index) {buttonsGame.get(index).setEnabled(false);}
     public void resetButtonIcon(int index, ImageIcon icon) {buttonsGame.get(index).setIcon(icon);}
 }

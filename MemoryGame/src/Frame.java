@@ -13,7 +13,6 @@ public class Frame extends JFrame{
     PanelGame panelGame;
 
     // Konstruktor
-
     Frame(){
 
         panelMenu = new PanelMenu();

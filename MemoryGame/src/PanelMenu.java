@@ -27,9 +27,9 @@ public class PanelMenu extends JPanel{
         btnAdmin = new JButton("");
 
         lblWelcome.setFont(new Font("Arial", Font.PLAIN, 30));
-        btnGameEasy.setFont(new Font("Arial", Font.PLAIN, 30));
-        btnGameNorm.setFont(new Font("Arial", Font.PLAIN, 30));
-        btnGameHard.setFont(new Font("Arial", Font.PLAIN, 30));
+        btnGameEasy.setFont(new Font("Arial", Font.PLAIN, 20));
+        btnGameNorm.setFont(new Font("Arial", Font.PLAIN, 20));
+        btnGameHard.setFont(new Font("Arial", Font.PLAIN, 20));
         btnRangList.setFont(new Font("Arial", Font.PLAIN, 20));
 
         lblWelcome.setBounds(180, 75, 400, 80);
