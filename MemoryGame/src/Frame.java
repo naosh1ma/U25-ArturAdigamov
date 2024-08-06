@@ -16,10 +16,8 @@ public class Frame extends JFrame{
 
     // Konstruktor
     Frame(){
-        //panelMenu = new PanelMenu();
         panelLogin = new PanelLogin();
         this.add(panelLogin);
-        //this.add(panelMenu);
         this.setBounds(100, 100, 430, 330);
         this.setTitle("Memory");
         this.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);

@@ -50,7 +50,7 @@ public class PanelMenu extends JPanel{
         this.add(btnAdmin);
     }
 
-    public void addGameDifficultyListener(ActionListener listener){
+    public void addDifficultyListener(ActionListener listener){
         btnGameEasy.addActionListener(listener);
         btnGameNorm.addActionListener(listener);
         btnGameHard.addActionListener(listener);

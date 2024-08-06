@@ -10,7 +10,7 @@ public class Controller {
         this.model = model;
         this.frame = frame;
 
-        frame.getPanelLogin().addLoginListener(new LoginListener());
+        frame.getPanelLogin().addLoginListener(new LoginNextListener());
         frame.getPanelLogin().addCancelListener(new LoginCancelListener());
     }
 
@@ -31,8 +31,9 @@ public class Controller {
 
     private void openSettings() {
         frame.setPanelSettings();
-        frame.getPanelSettings().addSettingsThemeListener(new ThemeListener());
-        frame.getPanelSettings().addSettingsStartGameListener(new StartGameListener());
+        frame.getPanelSettings().addThemesListener(new SettingsThemeListener());
+        frame.getPanelSettings().addStartGameListener(new SettingsStartGameListener());
+        frame.getPanelSettings().addBackListener(new SettingsBackListener());
         frame.getPanelMenu().setVisible(false);
         frame.add(frame.getPanelSettings());
         frame.getPanelSettings().setVisible(true);
@@ -62,7 +63,7 @@ public class Controller {
         model.resetOpenedCards();
     }
 
-    public class LoginListener implements ActionListener {
+    public class LoginNextListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             frame.setFrameGameBounds();
@@ -70,20 +71,20 @@ public class Controller {
             frame.add(frame.getPanelMenu());
             frame.getPanelLogin().setVisible(false);
             frame.setLocationRelativeTo(null);
-            frame.getPanelMenu().addGameDifficultyListener(new DifficultyListener());
+            frame.getPanelMenu().addDifficultyListener(new MenuDifficultyListener());
             frame.getPanelMenu().addRangListListener(null);
             frame.getPanelMenu().addAdminListener(null);
         }
     }
 
-    public class LoginCancelListener implements ActionListener {
+    public static class LoginCancelListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             System.exit(0);
         }
     }
 
-    public class DifficultyListener implements ActionListener {
+    public class MenuDifficultyListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton button = (JButton) e.getSource();
@@ -102,14 +103,14 @@ public class Controller {
         }
     }
 
-    public class RangListListener implements ActionListener {
+    public class MenuRangListListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
 
         }
     }
 
-    public class AdminListener implements ActionListener {
+    public class MenuAdminListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
 
@@ -117,7 +118,7 @@ public class Controller {
     }
 
 
-    public class ThemeListener implements ActionListener {
+    public class SettingsThemeListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             JCheckBox checkBox = (JCheckBox) e.getSource();
@@ -129,12 +130,12 @@ public class Controller {
         }
     }
 
-    public class StartGameListener implements ActionListener {
+    public class SettingsStartGameListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             frame.setPanelGame();
-            frame.getPanelGame().addGameNewStartListener(new NewStartGameListener());
-            frame.getPanelGame().addGameEndListener(new EndGameListener());
+            frame.getPanelGame().addNewStartListener(new GameNewStartListener());
+            frame.getPanelGame().addEndGameListener(new GameEndListener());
             try {
                 model.initGame();
                 model.createIcons();
@@ -143,14 +144,24 @@ public class Controller {
                 frame.getPanelGame().createGameField(model.getRows(), model.getCols());
                 frame.getPanelGame().setBackIcon(model.getCardsBack());
                 frame.getPanelGame().setVisible(true);
-                frame.getPanelGame().addGameFieldButtonsListener(new ButtonListener());
+                frame.getPanelGame().addButtonsGameListener(new GameCardsListener());
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(frame, "Es wurde noch keine Themen ausgew\u00E4hlt!");
             }
         }
     }
 
-    public class NewStartGameListener implements ActionListener {
+    public class SettingsBackListener implements ActionListener {
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            frame.getPanelSettings().setVisible(false);
+            frame.getPanelMenu().setVisible(true);
+            frame.revalidate();
+            frame.repaint();
+        }
+    }
+
+    public class GameNewStartListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Object[] options = {"Ja", "Nein"};
@@ -164,7 +175,7 @@ public class Controller {
     }
 
 
-    public class EndGameListener implements ActionListener {
+    public class GameEndListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             Object[] options = {"Ja", "Nein"};
@@ -177,7 +188,7 @@ public class Controller {
         }
     }
 
-    public class ButtonListener implements ActionListener {
+    public class GameCardsListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton button = (JButton) e.getSource();
