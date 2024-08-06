@@ -1,5 +1,6 @@
 import javax.swing.*;
 import java.awt.*;
+import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -15,8 +16,6 @@ public class PanelGame extends JPanel {
     // Konstruktoren
     PanelGame() {
         this.setLayout(null);
-        this.setPreferredSize(new Dimension(734, 600));
-        this.setBounds(0, 0, 734, 561);
 
         btnGameEnd = new JButton("Beenden");
         btnGameNewStart = new JButton("Neustarten");
@@ -71,12 +70,13 @@ public class PanelGame extends JPanel {
     private void addButtons(int row_size, int col_size) {
         for (int i = 0; i < row_size * col_size; i++) {
             JButton button = new JButton();
-            button.setBackground(new Color(205, 255, 255));
+            //button.setBackground(new Color(205, 255, 255));
             button.setEnabled(true);
             buttonsGame.add(button);
             panelGameField.add(buttonsGame.get(i));
         }
     }
+
     public void setBackIcon(ImageIcon icon){
         for (JButton button : buttonsGame) {
             button.setIcon(icon);
@@ -87,6 +87,16 @@ public class PanelGame extends JPanel {
         for (JButton button : buttonsGame) {
             button.setEnabled(true);
         }
+    }
+
+    public void setButtonBackground(int index, int player){
+        if (player == 1){
+            buttonsGame.get(index).setBackground(new Color(0,255,127));
+        }
+        else if (player == 2){
+            buttonsGame.get(index).setBackground(new Color(238,130,238));
+        }
+
     }
     public void disableButton(int index) {buttonsGame.get(index).setEnabled(false);}
     public void resetButtonIcon(int index, ImageIcon icon) {buttonsGame.get(index).setIcon(icon);}

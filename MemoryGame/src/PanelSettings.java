@@ -23,7 +23,6 @@ public class PanelSettings extends JPanel {
 
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setLayout(null);
-        this.setBounds(0, 0, 734, 561);
 
         lblSettings = new JLabel("Einstellungen");
         lblPlayers = new JLabel("Modus:");

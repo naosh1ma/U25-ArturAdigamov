@@ -13,11 +13,10 @@ public class PanelMenu extends JPanel{
     private JButton btnAdmin;
 
     PanelMenu() {
-
-        //this.setPreferredSize(new Dimension(734, 600));
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setLayout(null);
-        this.setBounds(0, 0, 734, 561);
+        this.setPreferredSize(new Dimension(900, 650));
+        //this.setBounds(0, 0, 734, 561);
 
         lblWelcome = new JLabel("Willkommen zu Memory");
         btnGameEasy = new JButton("4 x 5");
@@ -33,10 +32,10 @@ public class PanelMenu extends JPanel{
         btnRangList.setFont(new Font("Arial", Font.PLAIN, 20));
 
         lblWelcome.setBounds(180, 75, 400, 80);
-        btnGameEasy.setBounds(125, 250, 120, 40);
-        btnGameNorm.setBounds(125, 350, 120, 40);
-        btnGameHard.setBounds(125, 500, 120, 40);
-        btnRangList.setBounds(270, 450, 120, 40);
+        btnGameEasy.setBounds(125, 300, 120, 40);
+        btnGameNorm.setBounds(125, 370, 120, 40);
+        btnGameHard.setBounds(125, 440, 120, 40);
+        btnRangList.setBounds(300, 480, 120, 40);
         btnAdmin.setBounds(620,10,100,60);
 
         // make button invisible but clickable
@@ -51,20 +50,14 @@ public class PanelMenu extends JPanel{
         this.add(btnRangList);
         this.add(btnAdmin);
     }
-    public void addGameEasyListener(ActionListener listener){
+
+    public void addGameDifficultyListener(ActionListener listener){
         btnGameEasy.addActionListener(listener);
-    }
-    public void addGameNormListener(ActionListener listener){
         btnGameNorm.addActionListener(listener);
-    }
-    public void addGameHardListener(ActionListener listener){
         btnGameHard.addActionListener(listener);
     }
-    public void addRangListListener(ActionListener listener){
-        btnRangList.addActionListener(listener);
-    }
-    public void addAdminListener(ActionListener listener){
-        btnAdmin.addActionListener(listener);
-    }
+
+    public void addRangListListener(ActionListener listener){btnRangList.addActionListener(listener);}
+    public void addAdminListener(ActionListener listener){btnAdmin.addActionListener(listener);}
 
 }

@@ -9,51 +9,69 @@ public class Controller {
     Controller(Model model, Frame frame) {
         this.model = model;
         this.frame = frame;
-        frame.getPanelMenu().addGameEasyListener(new DifficultyListener());
-        frame.getPanelMenu().addGameNormListener(new DifficultyListener());
-        frame.getPanelMenu().addGameHardListener(new DifficultyListener());
-        frame.getPanelSettings().addSettingsThemeListener(new ThemeListener());
-        frame.getPanelSettings().addSettingsStartGameListener(new StartGameListener());
-        frame.getPanelGame().addGameNewStartListener(new NewStartGameListener());
-        frame.getPanelGame().addGameEndListener(new EndGameListener());
+
+        frame.getPanelLogin().addLoginListener(new LoginListener());
     }
 
-    class DifficultyListener implements ActionListener {
+    public class LoginListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+            frame.setFrameGameBounds();
+            frame.setPanelMenu();
+            frame.add(frame.getPanelMenu());
+            frame.getPanelLogin().setVisible(false);
+            frame.setLocationRelativeTo(null);
+            frame.getPanelMenu().addGameDifficultyListener(new DifficultyListener());
+            frame.getPanelMenu().addRangListListener(null);
+            frame.getPanelMenu().addAdminListener(null);
+        }
+    }
+
+    public class DifficultyListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             JButton button = (JButton) e.getSource();
+            openSettings();
             switch (button.getText()) {
                 case "4 x 5":
-                    openSettings();
                     model.createGame(4, 5);
                     break;
                 case "6 x 6":
-                    openSettings();
                     model.createGame(6, 6);
                     break;
                 case "8 x 8":
-                    openSettings();
                     model.createGame(8, 8);
                     break;
             }
         }
 
         private void openSettings() {
+            frame.setPanelSettings();
+            frame.getPanelSettings().addSettingsThemeListener(new ThemeListener());
+            frame.getPanelSettings().addSettingsStartGameListener(new StartGameListener());
             frame.getPanelMenu().setVisible(false);
             frame.add(frame.getPanelSettings());
             frame.getPanelSettings().setVisible(true);
         }
     }
 
+    public class RangListListener implements ActionListener {
+
+        @Override
+        public void actionPerformed(ActionEvent e) {
+
+        }
+    }
+
+
     public class ThemeListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
             JCheckBox checkBox = (JCheckBox) e.getSource();
             if (checkBox.isSelected()) {
-                System.out.println(checkBox.getText() + " is added");
                 model.setThemes(checkBox.getText());
             } else {
-                System.out.println(checkBox.getText() + " is removed");
                 model.deleteTheme(checkBox.getText());
             }
         }
@@ -62,10 +80,10 @@ public class Controller {
     public class StartGameListener implements ActionListener {
         @Override
         public void actionPerformed(ActionEvent e) {
+            frame.setPanelGame();
+            frame.getPanelGame().addGameNewStartListener(new NewStartGameListener());
+            frame.getPanelGame().addGameEndListener(new EndGameListener());
             try {
-                if (model.getThemes() == null) {
-                    JOptionPane.showMessageDialog(frame, "There are no themes available");
-                } else {
                     model.initGame();
                     model.createIcons();
                     frame.getPanelSettings().setVisible(false);
@@ -74,7 +92,6 @@ public class Controller {
                     frame.getPanelGame().setBackIcon(model.getCardsBack());
                     frame.getPanelGame().setVisible(true);
                     frame.getPanelGame().addGameFieldButtonsListener(new ButtonListener());
-                }
             } catch (Exception ex) {
                 JOptionPane.showMessageDialog(frame, "Es wurde noch keine Themen ausgew\u00E4hlt!");
             }
@@ -115,14 +132,9 @@ public class Controller {
         frame.getPanelGame().revalidate();
         frame.getPanelGame().repaint();
     }
-// do not work correctly
     private void endGame() {
-        model.initGame();
-        frame.getPanelGame().setVisible(false);
-        frame.getPanelMenu().setVisible(true);
-        frame.getPanelGame().resetButtons();
-        frame.remove(frame.getPanelGame().getPanelGameField());
         frame.remove(frame.getPanelGame());
+        frame.getPanelMenu().setVisible(true);
         frame.revalidate();
         frame.repaint();
     }
@@ -134,6 +146,7 @@ public class Controller {
             int index = frame.getPanelGame().getButtonIndex(button);
             if (button.getIcon() == model.getCardsBack()) {
                 model.setOpenCard(index);
+                frame.getPanelGame().setButtonBackground(index, 2);
                 frame.getPanelGame().setButtonIcon(index, model.getIcon(index));
                 if (model.areBothCardsOpen()) {
                     model.decreaseScore();
@@ -155,7 +168,6 @@ public class Controller {
                     timer.start();
                 }
             }
-
             frame.repaint();
         }
 
