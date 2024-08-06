@@ -1,7 +1,6 @@
 import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
-import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.ArrayList;
 
@@ -43,17 +42,15 @@ public class PanelGame extends JPanel {
     }
 
     // Methoden
-    public JPanel getPanelGameField() {return panelGameField;}
-    public JLabel getLblScore() {return lblScore;}
-    public JButton getButton(int index) {return buttonsGame.get(index);}
     public int getButtonIndex(JButton button) {return buttonsGame.indexOf(button);}
     public void setScore(int score) {lblScore.setText("Score: " + score);}
     public void setButtonIcon(int index, ImageIcon icon) {buttonsGame.get(index).setIcon(icon);}
-    public void addGameEndListener(ActionListener listener) {btnGameEnd.addActionListener(listener);}
-    public void addGameNewStartListener(ActionListener listener) {btnGameNewStart.addActionListener(listener);}
+    public void addEndGameListener(ActionListener listener) {btnGameEnd.addActionListener(listener);}
+    public void addNewStartListener(ActionListener listener) {btnGameNewStart.addActionListener(listener);}
+    public void disableButton(int index) {buttonsGame.get(index).setEnabled(false);}
+    public void resetButtonIcon(int index, ImageIcon icon) {buttonsGame.get(index).setIcon(icon);}
 
-    public void addGameFieldButtonsListener(ActionListener listener) {
-        System.out.println("Listener added");
+    public void addButtonsGameListener(ActionListener listener) {
         for (JButton button : buttonsGame) {
             button.addActionListener(listener);
         }
@@ -67,14 +64,10 @@ public class PanelGame extends JPanel {
         addButtons(row_size, col_size);
         this.add(panelGameField,0);
     }
-    public void resetButtons(){
-        buttonsGame.clear();
-    }
 
     private void addButtons(int row_size, int col_size) {
         for (int i = 0; i < row_size * col_size; i++) {
             JButton button = new JButton();
-            //button.setBackground(new Color(205, 255, 255));
             button.setEnabled(true);
             buttonsGame.add(button);
             panelGameField.add(buttonsGame.get(i));
@@ -102,6 +95,5 @@ public class PanelGame extends JPanel {
         }
 
     }
-    public void disableButton(int index) {buttonsGame.get(index).setEnabled(false);}
-    public void resetButtonIcon(int index, ImageIcon icon) {buttonsGame.get(index).setIcon(icon);}
+
 }

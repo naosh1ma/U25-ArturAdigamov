@@ -2,7 +2,6 @@ import javax.swing.*;
 import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionListener;
-import java.util.ArrayList;
 
 public class PanelSettings extends JPanel {
     JLabel lblSettings;
@@ -16,8 +15,6 @@ public class PanelSettings extends JPanel {
     JComboBox comboBoxPlayer;
     JButton btnStart;
     JButton btnBack;
-
-    ArrayList<Boolean> checkBoxes;
 
     PanelSettings() {
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
@@ -78,10 +75,9 @@ public class PanelSettings extends JPanel {
 
     }
 
-    public ArrayList<Boolean> getCheckBoxes(){return checkBoxes;}
-    public void addSettingsBackListener(ActionListener listener){btnBack.addActionListener(listener);}
-    public void addSettingsStartGameListener(ActionListener listener){btnStart.addActionListener(listener);}
-    public void addSettingsThemeListener(ActionListener listener){
+    public void addBackListener(ActionListener listener){btnBack.addActionListener(listener);}
+    public void addStartGameListener(ActionListener listener){btnStart.addActionListener(listener);}
+    public void addThemesListener(ActionListener listener){
         chckbxTheme1.addActionListener(listener);
         chckbxTheme2.addActionListener(listener);
         chckbxTheme3.addActionListener(listener);
