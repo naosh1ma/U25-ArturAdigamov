@@ -1,4 +1,5 @@
 import javax.swing.*;
+import javax.swing.border.EmptyBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
@@ -15,7 +16,10 @@ public class PanelGame extends JPanel {
 
     // Konstruktoren
     PanelGame() {
+        this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setLayout(null);
+        this.setBounds(0, 0, 734, 561);
+
 
         btnGameEnd = new JButton("Beenden");
         btnGameNewStart = new JButton("Neustarten");

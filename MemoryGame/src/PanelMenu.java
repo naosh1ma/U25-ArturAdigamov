@@ -15,8 +15,7 @@ public class PanelMenu extends JPanel{
     PanelMenu() {
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setLayout(null);
-        this.setPreferredSize(new Dimension(900, 650));
-        //this.setBounds(0, 0, 734, 561);
+        this.setBounds(0, 0, 734, 561);
 
         lblWelcome = new JLabel("Willkommen zu Memory");
         btnGameEasy = new JButton("4 x 5");

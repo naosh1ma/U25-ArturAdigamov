@@ -49,8 +49,7 @@ public class PanelLogin extends JPanel {
         add(btnCancel);
     }
 
-    public void addLoginListener(ActionListener listener){
-        btnLogin.addActionListener(listener);
-    }
+    public void addLoginListener(ActionListener listener){btnLogin.addActionListener(listener);}
+    public void addCancelListener(ActionListener listener){btnCancel.addActionListener(listener);}
 
 }

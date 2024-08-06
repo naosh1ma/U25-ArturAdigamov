@@ -11,13 +11,13 @@ public class Model {
     private int rows;
     private int cols;
     private int diff;
-    private int score;
+    private int scoreSingle;
+    private int scoreMulti_1;
+    private int scoreMulti_2;
     private int openCount;
     private int pairsFound;
-
     private int[] openedCards = {-1, -1};
     private ImageIcon cardsBack;
-
     private ArrayList<String> themes;
     private ArrayList<ImageIcon> cardsFront;
 
@@ -31,7 +31,7 @@ public class Model {
 
     public void initGame() {
         random = new Random();
-        score = 100;
+        scoreSingle = 100;
         openCount = 0;
         pairsFound = 0;
         cardsBack = new ImageIcon(new ImageIcon(
@@ -52,7 +52,7 @@ public class Model {
     }
 
     public void newStart() {
-        this.score = 100;
+        this.scoreSingle = 100;
         Collections.shuffle(cardsFront);
     }
 
@@ -75,9 +75,12 @@ public class Model {
     }
 
     public void decreaseScore() {
-        if (getDiff() == 20) {score = score - 5;}
-        if (getDiff() == 36) {score = score - 3;}
-        if (getDiff() == 64) {score = score - 1;}
+        if (getDiff() == 20) {
+            scoreSingle = scoreSingle - 5;}
+        if (getDiff() == 36) {
+            scoreSingle = scoreSingle - 3;}
+        if (getDiff() == 64) {
+            scoreSingle = scoreSingle - 1;}
     }
 
     public int getFrontWidth() {
@@ -118,8 +121,7 @@ public class Model {
     public int getCols() {return cols;}
     public int getRows() {return rows;}
     public int getDiff() {return diff;}
-    public int getScore() {return score;}
-    public ArrayList<String> getThemes() {return themes;}
+    public int getScoreSingle() {return scoreSingle;}
     public int[] getOpenedCards() {return openedCards;}
     public void deleteTheme(String theme) {themes.remove(theme);}
     public boolean checkMatch() {return cardsFront.get(openedCards[0]).equals(cardsFront.get(openedCards[1]));}

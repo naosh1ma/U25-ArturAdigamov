@@ -20,9 +20,10 @@ public class PanelSettings extends JPanel {
     ArrayList<Boolean> checkBoxes;
 
     PanelSettings() {
-
         this.setBorder(new EmptyBorder(5, 5, 5, 5));
         this.setLayout(null);
+        this.setBounds(0, 0, 734, 561);
+
 
         lblSettings = new JLabel("Einstellungen");
         lblPlayers = new JLabel("Modus:");
@@ -78,7 +79,6 @@ public class PanelSettings extends JPanel {
     }
 
     public ArrayList<Boolean> getCheckBoxes(){return checkBoxes;}
-
     public void addSettingsBackListener(ActionListener listener){btnBack.addActionListener(listener);}
     public void addSettingsStartGameListener(ActionListener listener){btnStart.addActionListener(listener);}
     public void addSettingsThemeListener(ActionListener listener){
@@ -88,17 +88,4 @@ public class PanelSettings extends JPanel {
         chckbxTheme4.addActionListener(listener);
         chckbxTheme5.addActionListener(listener);
     }
-
-
-
-    //        for (Component child: this.getComponents()) {
-//            if (child instanceof JCheckBox) {
-//                JCheckBox checkBox = (JCheckBox) child;
-//                if (checkBox.isSelected()) {
-//                    System.out.println(checkBox.getAction().getValue(Action.NAME));
-//                }
-//            }
-//        }
-
-
 }
