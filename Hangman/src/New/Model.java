@@ -8,12 +8,25 @@ import java.util.Random;
 import java.util.Scanner;
 
 public class Model {
+
+    Random random;
+    Scanner scanner;
+    Scanner inputFile;
+
+    List<String> woerter;
+    List<Character> userVermutung;
+
+
     Model() {
 
-        Scanner scanner = new Scanner(System.in);
-        Random random = new Random();
+        scanner = new Scanner(System.in);
+        random = new Random();
+
+    }
+
+    public void initGame() {
+
         // File input mit Scanner Klasse
-        Scanner inputFile = null;
         try {
             inputFile = new Scanner(new File("Hangman/wortliste.txt"));
         } catch (FileNotFoundException e) {
@@ -21,9 +34,9 @@ public class Model {
         }
 
         // Arraylist fuer woerter von unserem File
-        List<String> woerter = new ArrayList<>();
+        woerter = new ArrayList<>();
         // ArrayList fuer Benutzervermutungen
-        List<Character> userVermutung = new ArrayList<>();
+        userVermutung = new ArrayList<>();
 
         // ArrayList mit woerter von wottliste.txt befuellen
         while (inputFile.hasNext()) {
@@ -34,20 +47,21 @@ public class Model {
         String wort = woerter.get(random.nextInt(woerter.size()));
         wort = wort.toLowerCase();
 
-        // Counter falschen Vermutungen
+        // Zaehler fuer falschen Vermutungen
         int falsch = 0;
 
         do {
             if (wortErraten(wort, userVermutung)) {
+
                 System.out.println("Du hast gewonnen!");
                 break;
             }
             if (!eingabeVermutung(userVermutung, scanner, wort)) {
                 falsch++;
             }
-            // Liefer falschCounter als index fuer Ausgabe von Hangman
+            // Liefer falschZaehler als index fuer Ausgabe von Hangman
             printHangman(falsch);
-            if(falsch == 6){
+            if (falsch == 6) {
                 System.out.println("Du hast veloren!");
                 break;
             }
@@ -56,7 +70,7 @@ public class Model {
 
     }
 
-    private static boolean eingabeVermutung(List<Character> userVermutung, Scanner scanner, String wort) {
+    private boolean eingabeVermutung(List<Character> userVermutung, Scanner scanner, String wort) {
         System.out.print("Buchstabe eingeben: ");
         // Speichen Eingabe in einen String
         String buchstabe = scanner.nextLine();
@@ -66,8 +80,8 @@ public class Model {
         return wort.contains(buchstabe);
     }
 
-    private static boolean wortErraten(String wort, List<Character> userVermutung) {
-        // Counter richtigen Vermutungen
+    private boolean wortErraten(String wort, List<Character> userVermutung) {
+        // Zaehler fuer richtigen Vermutungen
         int richtig = 0;
         for (int i = 0; i < wort.length(); i++) {
             if (userVermutung.contains(wort.charAt(i))) {
@@ -82,7 +96,7 @@ public class Model {
         return richtig == wort.length();
     }
 
-    private static void printHangman(int index) {
+    private void printHangman(int index) {
         // Erstellen List mit Hangman
         List<String> hangman = List.of(
                 """
