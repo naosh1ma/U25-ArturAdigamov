@@ -21,6 +21,9 @@ public class Model {
     private ArrayList<String> themes;
     private ArrayList<ImageIcon> cardsFront;
 
+    private final String BACK_PATH = "MemoryGame/icons/back.png";
+    private final String FRONT_PATH = "MemoryGame/icons/";
+
     public void createGame(int rows, int cols) {
         themes = new ArrayList<>();
         this.rows = rows;
@@ -34,15 +37,14 @@ public class Model {
         scoreSingle = 100;
         openCount = 0;
         pairsFound = 0;
-        cardsBack = new ImageIcon(new ImageIcon(
-                "MemoryGame/icons/back.png").getImage().getScaledInstance(
+        cardsBack = new ImageIcon(new ImageIcon(BACK_PATH).getImage().getScaledInstance(
                 getBackWidth(), getBackHeight(), Image.SCALE_SMOOTH));
     }
 
     public void createIcons() {
         cardsFront = new ArrayList<>();
         for (int i = 0; i < getDiff() / 2; i++) {
-            ImageIcon image = new ImageIcon(new ImageIcon("MemoryGame/icons/" +
+            ImageIcon image = new ImageIcon(new ImageIcon(FRONT_PATH +
                     themes.get(random.nextInt(themes.size())) + "/" + (i + 1) + ".png")
                     .getImage().getScaledInstance(getFrontWidth(), getFrontHeight(), Image.SCALE_SMOOTH));
             cardsFront.add(image);
@@ -50,6 +52,9 @@ public class Model {
         }
         Collections.shuffle(cardsFront);
     }
+
+
+
 
     public void newStart() {
         this.scoreSingle = 100;

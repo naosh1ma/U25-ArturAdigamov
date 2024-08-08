@@ -194,6 +194,7 @@ public class Controller {
             JButton button = (JButton) e.getSource();
             int index = frame.getPanelGame().getButtonIndex(button);
             if (button.getIcon() == model.getCardsBack()) {
+                frame.getPanelGame().setScore(model.getScoreSingle());
                 model.setOpenCard(index);
                 frame.getPanelGame().setButtonBackground(index, 2);
                 frame.getPanelGame().setButtonIcon(index, model.getIcon(index));
