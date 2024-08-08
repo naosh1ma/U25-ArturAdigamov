@@ -1,4 +1,4 @@
-package NumberGuessingGameGUI;
+package GUI;
 
 import java.util.Scanner;
 
@@ -28,7 +28,7 @@ public class Main {
     }
 
     private static void useCui(){
-        Zahlenraten game = new Zahlenraten();
+        Model game = new Model();
         Scanner scanner = new Scanner(System.in);
         game.setOutput(new Output(Output.CONSOLE));
         // Eingabe der Intervallgrenzen

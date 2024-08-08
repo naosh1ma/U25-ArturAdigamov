@@ -1,9 +1,9 @@
-package NumberGuessingGameGUI;
+package GUI;
 
 import java.util.Random;
 import java.util.Scanner;
 
-public class Zahlenraten {
+public class Model {
     // Variablen
     private final Random random;   // Zufallzahlen Generator
     private final Scanner scanner; // Eingabe Objekt
@@ -14,13 +14,13 @@ public class Zahlenraten {
     private int minZ, maxZ;        // Hilfsvariablen
 
     // Konstruktoren
-    public Zahlenraten() {
+    public Model() {
         this.random = new Random();
         this.scanner = new Scanner(System.in);
         this.output = new Output(Output.CONSOLE);
     }
 
-    public Zahlenraten(int min, int max) {
+    public Model(int min, int max) {
         this();
         this.minZahl = min;
         this.maxZahl = max;

@@ -1,4 +1,4 @@
-package NumberGuessingGameGUI;
+package GUI;
 
 import javax.swing.*;
 

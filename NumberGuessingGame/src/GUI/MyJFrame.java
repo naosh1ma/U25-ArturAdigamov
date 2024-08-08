@@ -1,17 +1,17 @@
-package NumberGuessingGameGUI;
+package GUI;
 
 import javax.swing.*;
 
 public class MyJFrame extends JFrame {
 
-    private Zahlenraten game;
+    private Model game;
 
     /**
      * Creates new form NewJFrame
      */
     public MyJFrame() {
         initComponents();
-        game = new Zahlenraten();
+        game = new Model();
         game.setOutput(new Output(Output.TEXTAREA));     // TextArea als Ausgabe verwenden
         game.getOutput().setOutputDevice(textAreaAusgabe); // TextArea Objekt der Gui uebergeben
     }

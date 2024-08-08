@@ -50,7 +50,7 @@ public class View extends JFrame {
 
     public void createInterface() {
 
-        lblHangman = new JLabel("this is a \nMultiline Text");
+        lblHangman = new JLabel();
         lblWord = new JLabel("ROT");
         btnRestart = new JButton("Neustart");
         btnEnd = new JButton("Beenden");
@@ -60,16 +60,16 @@ public class View extends JFrame {
         btnRestart.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btnEnd.setFont(new Font("Tahoma", Font.PLAIN, 15));
 
-        lblHangman.setHorizontalAlignment(SwingConstants.CENTER);
-        lblWord.setHorizontalAlignment(SwingConstants.CENTER);
-
-        lblHangman.setVerticalAlignment(SwingConstants.TOP);
-
-        lblHangman.setForeground(Color.RED);
-        lblWord.setForeground(Color.BLACK);
-
-        lblHangman.setBackground(Color.PINK);
-        lblWord.setBackground(Color.PINK);
+//        lblHangman.setHorizontalAlignment(SwingConstants.CENTER);
+//        lblWord.setHorizontalAlignment(SwingConstants.CENTER);
+//
+//        lblHangman.setVerticalAlignment(SwingConstants.TOP);
+//
+//        lblHangman.setForeground(Color.RED);
+//        lblWord.setForeground(Color.BLACK);
+//
+//        lblHangman.setBackground(Color.PINK);
+//        lblWord.setBackground(Color.PINK);
 
         lblHangman.setBounds(120,10,300,300);
         lblWord.setBounds(150,180,330,100);
