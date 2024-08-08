@@ -43,7 +43,7 @@ public class Main {
             }
             // Liefer falschCounter als index fuer Ausgabe von Hangman
             printHangman(falsch);
-            if(falsch == 6){
+            if(falsch == 7){
                 System.out.println("Du hast veloren!");
                 break;
             }
@@ -83,7 +83,7 @@ public class Main {
         List<String> hangman = List.of(
                 """
                           +---+
-                          |   |
+                              |
                               |
                               |
                               |
@@ -91,7 +91,7 @@ public class Main {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                               |
                               |
@@ -99,7 +99,7 @@ public class Main {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                           |   |
                               |
@@ -107,7 +107,7 @@ public class Main {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                          /|   |
                               |
@@ -115,7 +115,7 @@ public class Main {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                          /|\\  |
                               |
@@ -123,10 +123,18 @@ public class Main {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                          /|\\  |
                          /    |
+                              |
+                        =========""",
+                """
+                          +---+
+                              |
+                          O   |
+                         /|\\  |
+                         / \\  |
                               |
                         =========""",
                 """

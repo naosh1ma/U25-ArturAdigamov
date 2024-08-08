@@ -13,15 +13,12 @@ public class Model {
     Scanner scanner;
     Scanner inputFile;
 
-    List<String> woerter;
-    List<Character> userVermutung;
+    List<String> words;
+    List<Character> userGuess;
 
 
     Model() {
-
-        scanner = new Scanner(System.in);
         random = new Random();
-
     }
 
     public void initGame() {
@@ -34,29 +31,29 @@ public class Model {
         }
 
         // Arraylist fuer woerter von unserem File
-        woerter = new ArrayList<>();
+        words = new ArrayList<>();
         // ArrayList fuer Benutzervermutungen
-        userVermutung = new ArrayList<>();
+        userGuess = new ArrayList<>();
 
         // ArrayList mit woerter von wottliste.txt befuellen
         while (inputFile.hasNext()) {
-            woerter.add(inputFile.nextLine());
+            words.add(inputFile.nextLine());
         }
         // Bekommen ein Element von Woerter ArrayList mit Random Index
         // und speichern in String
-        String wort = woerter.get(random.nextInt(woerter.size()));
-        wort = wort.toLowerCase();
+        String word = words.get(random.nextInt(words.size()));
+        word     = word.toLowerCase();
 
         // Zaehler fuer falschen Vermutungen
         int falsch = 0;
 
         do {
-            if (wortErraten(wort, userVermutung)) {
+            if (wortErraten(word, userGuess)) {
 
                 System.out.println("Du hast gewonnen!");
                 break;
             }
-            if (!eingabeVermutung(userVermutung, scanner, wort)) {
+            if (!eingabeVermutung(userGuess, scanner, word)) {
                 falsch++;
             }
             // Liefer falschZaehler als index fuer Ausgabe von Hangman
@@ -66,7 +63,7 @@ public class Model {
                 break;
             }
             System.out.println();
-        } while (!userVermutung.contains(wort));
+        } while (!userGuess.contains(word));
 
     }
 
@@ -96,12 +93,12 @@ public class Model {
         return richtig == wort.length();
     }
 
-    private void printHangman(int index) {
+    private String printHangman(int index) {
         // Erstellen List mit Hangman
         List<String> hangman = List.of(
                 """
                           +---+
-                          |   |
+                              |
                               |
                               |
                               |
@@ -109,7 +106,7 @@ public class Model {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                               |
                               |
@@ -117,7 +114,7 @@ public class Model {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                           |   |
                               |
@@ -125,7 +122,7 @@ public class Model {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                          /|   |
                               |
@@ -133,7 +130,7 @@ public class Model {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                          /|\\  |
                               |
@@ -141,10 +138,18 @@ public class Model {
                         =========""",
                 """
                           +---+
-                          |   |
+                              |
                           O   |
                          /|\\  |
                          /    |
+                              |
+                        =========""",
+                """
+                          +---+
+                              |
+                          O   |
+                         /|\\  |
+                         / \\  |
                               |
                         =========""",
                 """
@@ -155,6 +160,6 @@ public class Model {
                          / \\  |
                               |
                         =========""");
-        System.out.println(hangman.get(index));
+        return hangman.get(index);
     }
 }
