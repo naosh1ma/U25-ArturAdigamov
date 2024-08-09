@@ -107940,7 +107940,7 @@ Nevers
 Neviges
 Neville
 new
-New
+GUI
 Newark
 Newcastle
 Newcomer
