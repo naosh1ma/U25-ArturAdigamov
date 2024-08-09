@@ -12,7 +12,6 @@ public class Main {
                 gui.setVisible(true);
             }
         });
-
 //        if(args.length==0){
 //            System.out.println("Bitte einen Startparameter angeben!");
 //            System.out.println("  /C : Konsolenausgabe");
