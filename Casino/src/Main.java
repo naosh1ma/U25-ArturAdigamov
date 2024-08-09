@@ -20,7 +20,6 @@ public class Main {
         if (alter < 18) {
             System.out.println("Du darfst nicht spielen. Bye");
         } else {
-
             spiel = "Ja";
             mal = 0;
             System.out.print("Dein Einsatz: ");
@@ -29,7 +28,6 @@ public class Main {
             while (spiel.equalsIgnoreCase("Ja")) {
 
                 System.out.println("Dreh Glucksrad");
-
                 rad = random.nextInt(1, 13);
                 System.out.println("Zahl ist " + rad + ".");
 
@@ -47,9 +45,7 @@ public class Main {
                         System.out.println("Du hast nicht verloren. Dein Einsatz bleibt " + ein + ".\n");
                         break;
                 }
-
                 mal++;
-
                 if (ein == 0) {
                     spiel = "Nein";
                     System.out.println(" Du hast kein Geld. Du kannst nicht weiter spielen.");
