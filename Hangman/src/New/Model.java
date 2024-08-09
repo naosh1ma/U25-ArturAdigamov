@@ -15,10 +15,16 @@ public class Model {
 
     List<String> words;
     List<Character> userGuess;
+    String word;
+
 
 
     Model() {
         random = new Random();
+        // Arraylist fuer woerter von unserem File
+        words = new ArrayList<>();
+        // ArrayList fuer Benutzervermutungen
+        userGuess = new ArrayList<>();
     }
 
     public void initGame() {
@@ -30,19 +36,14 @@ public class Model {
             throw new RuntimeException(e);
         }
 
-        // Arraylist fuer woerter von unserem File
-        words = new ArrayList<>();
-        // ArrayList fuer Benutzervermutungen
-        userGuess = new ArrayList<>();
-
         // ArrayList mit woerter von wottliste.txt befuellen
         while (inputFile.hasNext()) {
             words.add(inputFile.nextLine());
         }
         // Bekommen ein Element von Woerter ArrayList mit Random Index
         // und speichern in String
-        String word = words.get(random.nextInt(words.size()));
-        word     = word.toLowerCase();
+        word = words.get(random.nextInt(words.size()));
+        word = word.toLowerCase();
 
         // Zaehler fuer falschen Vermutungen
         int falsch = 0;

@@ -31,7 +31,7 @@ public class View extends JFrame {
 
     public void createKeyboard() {
         buttons = new ArrayList<>();
-        int x = 65;
+        int x = 70;
         int y = 280;
         String letter = "QWERTYUIOPASDFGHJKLZXCVBNM";
 
@@ -40,8 +40,8 @@ public class View extends JFrame {
             btn.setText(Character.toString(letter.charAt(i)));
             btn.setFont(new Font("Tahoma", Font.PLAIN, 10));
             btn.setBounds(x , y, 45, 45);
-            if(i == 9) {y = 331; x = 35;}
-            if(i == 18) {y = 382; x = 75;}
+            if(i == 9) {y = 331; x = 40;}
+            if(i == 18) {y = 382; x = 85;}
             x = x + 50;
             panel.add(btn);
             buttons.add(btn);
@@ -51,7 +51,7 @@ public class View extends JFrame {
     public void createInterface() {
 
         lblHangman = new JLabel();
-        lblWord = new JLabel("ROT");
+        lblWord = new JLabel("---");
         btnRestart = new JButton("Neustart");
         btnEnd = new JButton("Beenden");
 
@@ -60,11 +60,11 @@ public class View extends JFrame {
         btnRestart.setFont(new Font("Tahoma", Font.PLAIN, 15));
         btnEnd.setFont(new Font("Tahoma", Font.PLAIN, 15));
 
-//        lblHangman.setHorizontalAlignment(SwingConstants.CENTER);
-//        lblWord.setHorizontalAlignment(SwingConstants.CENTER);
-//
-//        lblHangman.setVerticalAlignment(SwingConstants.TOP);
-//
+        lblHangman.setHorizontalAlignment(SwingConstants.CENTER);
+        lblWord.setHorizontalAlignment(SwingConstants.CENTER);
+
+
+
 //        lblHangman.setForeground(Color.RED);
 //        lblWord.setForeground(Color.BLACK);
 //
@@ -72,7 +72,7 @@ public class View extends JFrame {
 //        lblWord.setBackground(Color.PINK);
 
         lblHangman.setBounds(120,10,300,300);
-        lblWord.setBounds(150,180,330,100);
+        lblWord.setBounds(10,180,615,100);
         btnRestart.setBounds(150,450, 120,40);
         btnEnd.setBounds(360,450, 120,40);
 
