@@ -6,15 +6,8 @@
   <component name="ChangeListManager">
     <list default="true" id="5c68a906-6130-47a7-b527-553ef3b4b362" name="Changes" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Hangman/src/New/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/New/Model.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hangman/src/New/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/New/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/README.md" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/README.md" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NumberGuessingGame/src/NumberGuessingGame/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/NumberGuessingGame/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NumberGuessingGame/src/NumberGuessingGameGUI/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/NumberGuessingGame/src/GUI/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NumberGuessingGame/src/NumberGuessingGameGUI/MyJFrame.java" beforeDir="false" afterPath="$PROJECT_DIR$/NumberGuessingGame/src/GUI/MyJFrame.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NumberGuessingGame/src/NumberGuessingGameGUI/Output.java" beforeDir="false" afterPath="$PROJECT_DIR$/NumberGuessingGame/src/GUI/Output.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/NumberGuessingGame/src/NumberGuessingGameGUI/Zahlenraten.java" beforeDir="false" afterPath="$PROJECT_DIR$/NumberGuessingGame/src/GUI/Model.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
