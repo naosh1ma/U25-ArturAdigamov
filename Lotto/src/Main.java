@@ -25,7 +25,6 @@ public class Main {
         System.out.print(CS.GREEN_BRIGHT + "Wieviel Spielfelder wollen Sie?: ");
         spielFeld = scanner.nextInt();
         System.out.println();
-
         switch (spielTyp) {
             case 1:
                 arrayZiehung(arrayScannerStd(spielFeld));
@@ -38,7 +37,6 @@ public class Main {
     }
 
     public static int[][] arrayScannerStd(int spielFeld) { // fuer standardspiel
-
         Scanner scanner = new Scanner(System.in);
         int temp;
         boolean zahlGleich = true;
