@@ -16,7 +16,6 @@ public class Main {
         int anzahlKunden = scanner.nextInt();
         System.out.println();
 
-
         for (int i = 0; i < platzKunde.length; i++) {
             if (i > 8) {
                 System.out.print((i + 1) + " ");
