@@ -77,8 +77,8 @@ public class Main {
         int z = 0;
         char[] arr_zahl = {'1', '2', '3', '4', '5', '6', '7', '8', '9', '0'}; // array mit gesuchten buchstaben erstellen
         for (int i = 0; i < str.length(); i++) {
-            for (int j = 0; j < arr_zahl.length; j++) {
-                if (str.charAt(i) == arr_zahl[j]) {
+            for (char c : arr_zahl) {
+                if (str.charAt(i) == c) {
                     z++;
                     break;
                 }
@@ -91,8 +91,8 @@ public class Main {
         int z = 0;
         char[] arr_zeich = {',', '.', '-', '\'', '"', ';', ':', '+', '=', '?', '!', '@', '#', '$', '&', '*', '%'}; // array mit gesuchten buchstaben erstellen
         for (int i = 0; i < str.length(); i++) {
-            for (int j = 0; j < arr_zeich.length; j++) {
-                if (str.charAt(i) == arr_zeich[j]) {
+            for (char arrZeich : arr_zeich) {
+                if (str.charAt(i) == arrZeich) {
                     z++;
                     break;
                 }
@@ -116,8 +116,8 @@ public class Main {
         int z = 0;
         char[] arr_vok = {'A', 'a', 'E', 'e', 'I', 'i', 'O', 'o', 'U', 'u'}; // array mit gesuchten buchstaben erstellen
         for (int i = 0; i < str.length(); i++) {
-            for (int j = 0; j < arr_vok.length; j++) {
-                if (str.charAt(i) == arr_vok[j]) { // array von gesuchten buchstaben mit array von buchstaben des strings vergleichen
+            for (char c : arr_vok) {
+                if (str.charAt(i) == c) { // array von gesuchten buchstaben mit array von buchstaben des strings vergleichen
                     z++;
                     break;
                 }
