@@ -42,6 +42,7 @@ public class MyFrame extends JFrame {
         main = new Main();
         frame = this;
 
+        setTitle("Skytala");
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         setBounds(100, 100, 550, 420);
         contentPane = new JPanel();
