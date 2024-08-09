@@ -28,7 +28,6 @@ public class Main {
         }
         while (!wahl.equals("x"));
     }
-
     /**
      * Die Methode arabRoem liefert fuer den uebergebenen Dezimalwert die entsprechende roemische Zahl
      *
