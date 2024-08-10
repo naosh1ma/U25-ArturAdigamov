@@ -15,51 +15,90 @@ public class Model {
 
     List<String> words;
     List<Character> userGuess;
-    String word;
+    String word = "";
+    String hiddenWord;
 
+    int wrongGuess;
 
 
     Model() {
+        scanner = new Scanner(System.in);
         random = new Random();
-        // Arraylist fuer woerter von unserem File
         words = new ArrayList<>();
-        // ArrayList fuer Benutzervermutungen
         userGuess = new ArrayList<>();
+        loadWords();
+        setWord();
     }
 
-    public void initGame() {
+    public void setWord() {
+        userGuess.clear();
+        hiddenWord = "";
+        word = words.get(random.nextInt(words.size()));
+        word = word.toLowerCase();
+        for (int i = 0; i < word.length(); i++) {
+            hiddenWord += "-";
+        }
+    }
 
-        // File input mit Scanner Klasse
+
+    public boolean makeGuess(String letter) {
+        userGuess.add(letter.toLowerCase().charAt(0));
+        return word.contains(letter);
+    }
+
+    public String getWord() {
+        return hiddenWord;
+    }
+
+    public List<Character> getGuesses() {
+        return userGuess;
+    }
+
+    private boolean enterGuess() {
+        System.out.print("Buchstabe eingeben: ");
+        String letter = scanner.nextLine();
+        userGuess.add(letter.charAt(0));
+        return word.contains(letter);
+    }
+
+
+    public boolean wordGuess() {
+        int rightGuess = 0;
+
+        for (int i = 0; i < word.length(); i++) {
+            if (userGuess.contains(word.charAt(i))) {
+                rightGuess++;
+            }
+        }
+        return rightGuess == word.length();
+    }
+
+
+    private void loadWords() {
         try {
             inputFile = new Scanner(new File("Hangman/wortliste.txt"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
-
-        // ArrayList mit woerter von wottliste.txt befuellen
         while (inputFile.hasNext()) {
             words.add(inputFile.nextLine());
         }
-        // Bekommen ein Element von Woerter ArrayList mit Random Index
-        // und speichern in String
-        word = words.get(random.nextInt(words.size()));
-        word = word.toLowerCase();
+    }
 
-        // Zaehler fuer falschen Vermutungen
-        int falsch = 0;
+    public void initGame() {
+        setWord();
+        wrongGuess = 0;
 
         do {
-            if (wortErraten(word, userGuess)) {
-
+            if (wordGuess()) {
                 System.out.println("Du hast gewonnen!");
                 break;
             }
-            if (!eingabeVermutung(userGuess, scanner, word)) {
-                falsch++;
+            if (!enterGuess()) {
+                wrongGuess++;
             }
-            // Liefer falschZaehler als index fuer Ausgabe von Hangman
-            printHangman(falsch);
-            if (falsch == 6) {
+            printHangman(wrongGuess);
+            if (wrongGuess == 6) {
                 System.out.println("Du hast veloren!");
                 break;
             }
@@ -68,34 +107,9 @@ public class Model {
 
     }
 
-    private boolean eingabeVermutung(List<Character> userVermutung, Scanner scanner, String wort) {
-        System.out.print("Buchstabe eingeben: ");
-        // Speichen Eingabe in einen String
-        String buchstabe = scanner.nextLine();
-        // Speichern erte Charakter unser String in ArrayList
-        userVermutung.add(buchstabe.charAt(0));
-        // Liefern true zurueck, wenn Vermutung richtig war und false, wenn nicht
-        return wort.contains(buchstabe);
-    }
 
-    private boolean wortErraten(String wort, List<Character> userVermutung) {
-        // Zaehler fuer richtigen Vermutungen
-        int richtig = 0;
-        for (int i = 0; i < wort.length(); i++) {
-            if (userVermutung.contains(wort.charAt(i))) {
-                System.out.print(wort.charAt(i));
-                richtig++;
-            } else {
-                System.out.print("-");
-            }
-        }
-        System.out.println();
-        // Liefern true zurueck, wenn wir alle Buchstaben richtig vermuten haben
-        return richtig == wort.length();
-    }
+    public String printHangman(int index) {
 
-    private String printHangman(int index) {
-        // Erstellen List mit Hangman
         List<String> hangman = List.of(
                 """
                           +---+

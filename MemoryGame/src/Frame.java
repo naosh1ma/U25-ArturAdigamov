@@ -1,10 +1,5 @@
 import javax.swing.*;
 
-// Restart Game Button
-//
-
-
-
 public class Frame extends JFrame{
     // Attributen
 
