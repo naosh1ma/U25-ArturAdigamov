@@ -8,8 +8,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hangman/src/GUI/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/GUI/Controller.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/Hangman/src/GUI/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/GUI/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hangman/src/GUI/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/GUI/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/Frame.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/Frame.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -65,7 +63,7 @@
     &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
     &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
     &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
-    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.editor&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.updates&quot;,
     &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
 }</component>
@@ -97,8 +95,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18034.62" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18034.62" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19072.14" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19072.14" />
       </set>
     </attachedChunks>
   </component>
@@ -139,7 +137,10 @@
       <workItem from="1722862828937" duration="2386000" />
       <workItem from="1723098548510" duration="3566000" />
       <workItem from="1723104615850" duration="7547000" />
-      <workItem from="1723280193055" duration="6458000" />
+      <workItem from="1723280193055" duration="6719000" />
+      <workItem from="1723398477739" duration="3763000" />
+      <workItem from="1723459651709" duration="124000" />
+      <workItem from="1723459886373" duration="12000" />
     </task>
     <task id="LOCAL-00002" summary="-">
       <option name="closed" value="true" />
@@ -389,7 +390,23 @@
       <option name="project" value="LOCAL" />
       <updated>1723193383192</updated>
     </task>
-    <option name="localTasksCounter" value="33" />
+    <task id="LOCAL-00033" summary="v0.6">
+      <option name="closed" value="true" />
+      <created>1723292059654</created>
+      <option name="number" value="00033" />
+      <option name="presentableId" value="LOCAL-00033" />
+      <option name="project" value="LOCAL" />
+      <updated>1723292059654</updated>
+    </task>
+    <task id="LOCAL-00034" summary="-">
+      <option name="closed" value="true" />
+      <created>1723292072525</created>
+      <option name="number" value="00034" />
+      <option name="presentableId" value="LOCAL-00034" />
+      <option name="project" value="LOCAL" />
+      <updated>1723292072525</updated>
+    </task>
+    <option name="localTasksCounter" value="35" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -410,13 +427,13 @@
     <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <MESSAGE value="v0.9" />
     <MESSAGE value="v1.1" />
-    <MESSAGE value="-" />
-    <MESSAGE value="v0.6" />
     <MESSAGE value="v0.8" />
     <MESSAGE value="v1.0" />
     <MESSAGE value="v0.1" />
     <MESSAGE value="v0.5" />
-    <option name="LAST_COMMIT_MESSAGE" value="v0.5" />
+    <MESSAGE value="v0.6" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
