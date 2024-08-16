@@ -10,13 +10,11 @@ public class Controller {
 
     int wrongGuess = 0;
 
-
     Controller(Model model, View view){
         this.model = model;
         this.view = view;
 
         view.setWordLabel(model.getWord());
-
         view.addListener(new KeyboardListener());
         view.addRestartListener(new RestartButtonListener());
         view.addEndListener(new EndButtonListener());
@@ -27,10 +25,17 @@ public class Controller {
         public void actionPerformed(ActionEvent e) {
             JButton button = (JButton) e.getSource();
             int index = view.getButtonIndex(button);
-            String letter = button.getText();
+
             view.disableButtons(index);
             view.setWordLabel(model.getWord());
+
+            String letter = button.getText();
             model.makeGuess(letter);
+
+
+//            if (model.userGuess.contains(model.word.charAt(i))) {
+//                model.incrementWrongGuess();
+//            }
 
         }
     }

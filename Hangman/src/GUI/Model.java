@@ -22,7 +22,6 @@ public class Model {
 
 
     Model() {
-        scanner = new Scanner(System.in);
         random = new Random();
         words = new ArrayList<>();
         userGuess = new ArrayList<>();
@@ -30,13 +29,26 @@ public class Model {
         setWord();
     }
 
+    private void loadWords() {
+        try {
+            inputFile = new Scanner(new File("Hangman/wortliste.txt"));
+        } catch (FileNotFoundException e) {
+            throw new RuntimeException(e);
+        }
+        while (inputFile.hasNext()) {
+            words.add(inputFile.nextLine());
+        }
+    }
+
     public void setWord() {
         userGuess.clear();
+        wrongGuess = 0;
+
         hiddenWord = "";
         word = words.get(random.nextInt(words.size()));
         word = word.toLowerCase();
         for (int i = 0; i < word.length(); i++) {
-            hiddenWord += "-";
+            hiddenWord += "- ";
         }
     }
 
@@ -54,12 +66,6 @@ public class Model {
         return userGuess;
     }
 
-    private boolean enterGuess() {
-        System.out.print("Buchstabe eingeben: ");
-        String letter = scanner.nextLine();
-        userGuess.add(letter.charAt(0));
-        return word.contains(letter);
-    }
 
 
     public boolean wordGuess() {
@@ -73,28 +79,21 @@ public class Model {
         return rightGuess == word.length();
     }
 
-
-    private void loadWords() {
-        try {
-            inputFile = new Scanner(new File("Hangman/wortliste.txt"));
-        } catch (FileNotFoundException e) {
-            throw new RuntimeException(e);
-        }
-        while (inputFile.hasNext()) {
-            words.add(inputFile.nextLine());
-        }
+    public void incrementWrongGuess(){
+        wrongGuess++;
     }
+
+
 
     public void initGame() {
         setWord();
         wrongGuess = 0;
-
         do {
             if (wordGuess()) {
                 System.out.println("Du hast gewonnen!");
                 break;
             }
-            if (!enterGuess()) {
+            if (!makeGuess("ds")) {
                 wrongGuess++;
             }
             printHangman(wrongGuess);
