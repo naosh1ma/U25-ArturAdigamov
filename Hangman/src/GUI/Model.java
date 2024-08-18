@@ -10,7 +10,6 @@ import java.util.Scanner;
 public class Model {
 
     Random random;
-    Scanner scanner;
     Scanner inputFile;
 
     List<String> words;
@@ -31,13 +30,14 @@ public class Model {
 
     private void loadWords() {
         try {
-            inputFile = new Scanner(new File("Hangman/wortliste.txt"));
+            inputFile = new Scanner(new File("Hangman/wordlist.txt"));
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
         while (inputFile.hasNext()) {
             words.add(inputFile.nextLine());
         }
+        inputFile.close();
     }
 
     public void setWord() {
@@ -48,10 +48,9 @@ public class Model {
         word = words.get(random.nextInt(words.size()));
         word = word.toLowerCase();
         for (int i = 0; i < word.length(); i++) {
-            hiddenWord += "- ";
+            hiddenWord += "-";
         }
     }
-
 
     public boolean makeGuess(String letter) {
         userGuess.add(letter.toLowerCase().charAt(0));
@@ -66,13 +65,12 @@ public class Model {
         return userGuess;
     }
 
-
-
-    public boolean wordGuess() {
+    public boolean wordGuessed() {
         int rightGuess = 0;
 
         for (int i = 0; i < word.length(); i++) {
             if (userGuess.contains(word.charAt(i))) {
+                hiddenWord.replace((char) hiddenWord.indexOf(word.charAt(i)), word.charAt(i));
                 rightGuess++;
             }
         }
@@ -83,97 +81,7 @@ public class Model {
         wrongGuess++;
     }
 
-
-
-    public void initGame() {
-        setWord();
-        wrongGuess = 0;
-        do {
-            if (wordGuess()) {
-                System.out.println("Du hast gewonnen!");
-                break;
-            }
-            if (!makeGuess("ds")) {
-                wrongGuess++;
-            }
-            printHangman(wrongGuess);
-            if (wrongGuess == 6) {
-                System.out.println("Du hast veloren!");
-                break;
-            }
-            System.out.println();
-        } while (!userGuess.contains(word));
-
-    }
-
-
-    public String printHangman(int index) {
-
-        List<String> hangman = List.of(
-                """
-                          +---+
-                              |
-                              |
-                              |
-                              |
-                              |
-                        =========""",
-                """
-                          +---+
-                              |
-                          O   |
-                              |
-                              |
-                              |
-                        =========""",
-                """
-                          +---+
-                              |
-                          O   |
-                          |   |
-                              |
-                              |
-                        =========""",
-                """
-                          +---+
-                              |
-                          O   |
-                         /|   |
-                              |
-                              |
-                        =========""",
-                """
-                          +---+
-                              |
-                          O   |
-                         /|\\  |
-                              |
-                              |
-                        =========""",
-                """
-                          +---+
-                              |
-                          O   |
-                         /|\\  |
-                         /    |
-                              |
-                        =========""",
-                """
-                          +---+
-                              |
-                          O   |
-                         /|\\  |
-                         / \\  |
-                              |
-                        =========""",
-                """
-                          +---+
-                          |   |
-                          O   |
-                         /|\\  |
-                         / \\  |
-                              |
-                        =========""");
-        return hangman.get(index);
+    public int getWrongGuess(){
+        return wrongGuess;
     }
 }

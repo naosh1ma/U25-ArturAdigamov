@@ -11,7 +11,7 @@ public class Main {
         Scanner scanner = new Scanner(System.in);
         Random random = new Random();
         // File input mit Scanner Klasse
-        Scanner inputFile = new Scanner(new File("Hangman/wortliste.txt"));
+        Scanner inputFile = new Scanner(new File("Hangman/wordlist.txt"));
 
         // Arraylist fuer woerter von unserem File
         List<String> woerter = new ArrayList<>();

@@ -81,7 +81,7 @@ public class View extends JFrame {
         lblWord.setText(word);
     }
 
-    public void restartButtons(){
+    public void resetButtons(){
         for (JButton button : buttons) {
             button.setEnabled(true);
         }
