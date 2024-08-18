@@ -53,9 +53,6 @@ public class Model {
         Collections.shuffle(cardsFront);
     }
 
-
-
-
     public void newStart() {
         this.scoreSingle = 100;
         Collections.shuffle(cardsFront);
