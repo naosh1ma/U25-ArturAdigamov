@@ -16,9 +16,7 @@ public class Model {
     List<Character> userGuess;
     String word = "";
     String hiddenWord;
-
     int wrongGuess;
-
 
     Model() {
         random = new Random();
@@ -43,12 +41,11 @@ public class Model {
     public void setWord() {
         userGuess.clear();
         wrongGuess = 0;
-
         hiddenWord = "";
         word = words.get(random.nextInt(words.size()));
         word = word.toLowerCase();
         for (int i = 0; i < word.length(); i++) {
-            hiddenWord += "-";
+            hiddenWord = hiddenWord + "-";
         }
     }
 
@@ -67,10 +64,9 @@ public class Model {
 
     public boolean wordGuessed() {
         int rightGuess = 0;
-
         for (int i = 0; i < word.length(); i++) {
             if (userGuess.contains(word.charAt(i))) {
-                hiddenWord.replace((char) hiddenWord.indexOf(word.charAt(i)), word.charAt(i));
+                hiddenWord = hiddenWord.replace((char) hiddenWord.indexOf(word.charAt(i)), word.charAt(i));
                 rightGuess++;
             }
         }
