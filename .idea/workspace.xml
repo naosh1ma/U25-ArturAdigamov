@@ -6,12 +6,6 @@
   <component name="ChangeListManager">
     <list default="true" id="5c68a906-6130-47a7-b527-553ef3b4b362" name="Changes" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hangman/src/GUI/Controller.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/GUI/Controller.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hangman/src/GUI/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/GUI/Model.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hangman/src/GUI/View.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/GUI/View.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hangman/src/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hangman/wortliste.txt" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/wordlist.txt" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/MemoryGame/src/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/MemoryGame/src/Model.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -79,8 +73,8 @@
   <component name="SharedIndexes">
     <attachedChunks>
       <set>
-        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.19072.14" />
-        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.19072.14" />
+        <option value="bundled-jdk-9f38398b9061-39b83d9b5494-intellij.indexing.shared.core-IU-241.18968.26" />
+        <option value="bundled-js-predefined-1d06a55b98c1-0b3e54e931b4-JavaScript-IU-241.18968.26" />
       </set>
     </attachedChunks>
   </component>
@@ -128,6 +122,10 @@
       <workItem from="1723818542680" duration="3089000" />
       <workItem from="1723872105441" duration="13304000" />
       <workItem from="1723994854321" duration="696000" />
+      <workItem from="1724070299388" duration="25000" />
+      <workItem from="1724221097271" duration="388000" />
+      <workItem from="1724222974409" duration="14000" />
+      <workItem from="1724244138329" duration="27000" />
     </task>
     <task id="LOCAL-00002" summary="-">
       <option name="closed" value="true" />
