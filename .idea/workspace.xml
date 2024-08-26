@@ -4,9 +4,12 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="5c68a906-6130-47a7-b527-553ef3b4b362" name="Changes" comment="v1.1">
+    <list default="true" id="5c68a906-6130-47a7-b527-553ef3b4b362" name="Changes" comment="-">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/Hangman/src/GUI/Model.java" beforeDir="false" afterPath="$PROJECT_DIR$/Hangman/src/GUI/Model.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Garage/src/Etage.java" beforeDir="false" afterPath="$PROJECT_DIR$/Garage/src/Etage.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Garage/src/Fahrzeug.java" beforeDir="false" afterPath="$PROJECT_DIR$/Garage/src/Fahrzeug.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Garage/src/GUI.java" beforeDir="false" afterPath="$PROJECT_DIR$/Garage/src/GUI.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/Garage/src/Parkhaus.java" beforeDir="false" afterPath="$PROJECT_DIR$/Garage/src/Parkhaus.java" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -47,25 +50,25 @@
     <option name="hideEmptyMiddlePackages" value="true" />
     <option name="showLibraryContents" value="true" />
   </component>
-  <component name="PropertiesComponent"><![CDATA[{
-  "keyToString": {
-    "ASKED_ADD_EXTERNAL_FILES": "true",
-    "Application.Main.executor": "Run",
-    "RunOnceActivity.ShowReadmeOnStart": "true",
-    "extract.method.default.visibility": "private",
-    "git-widget-placeholder": "main",
-    "ignore.virus.scanning.warn.message": "true",
-    "kotlin-language-version-configured": "true",
-    "last_opened_file_path": "C:/Users/ArturAdigamov/IdeaProjects/U25-ArturAdigamov/MemoryGame",
-    "node.js.detected.package.eslint": "true",
-    "node.js.detected.package.tslint": "true",
-    "node.js.selected.package.eslint": "(autodetect)",
-    "node.js.selected.package.tslint": "(autodetect)",
-    "nodejs_package_manager_path": "npm",
-    "settings.editor.selected.configurable": "preferences.lookFeel",
-    "vue.rearranger.settings.migration": "true"
+  <component name="PropertiesComponent">{
+  &quot;keyToString&quot;: {
+    &quot;ASKED_ADD_EXTERNAL_FILES&quot;: &quot;true&quot;,
+    &quot;Application.Main.executor&quot;: &quot;Run&quot;,
+    &quot;RunOnceActivity.ShowReadmeOnStart&quot;: &quot;true&quot;,
+    &quot;extract.method.default.visibility&quot;: &quot;private&quot;,
+    &quot;git-widget-placeholder&quot;: &quot;main&quot;,
+    &quot;ignore.virus.scanning.warn.message&quot;: &quot;true&quot;,
+    &quot;kotlin-language-version-configured&quot;: &quot;true&quot;,
+    &quot;last_opened_file_path&quot;: &quot;C:/Users/ArturAdigamov/IdeaProjects/U25-ArturAdigamov/MemoryGame&quot;,
+    &quot;node.js.detected.package.eslint&quot;: &quot;true&quot;,
+    &quot;node.js.detected.package.tslint&quot;: &quot;true&quot;,
+    &quot;node.js.selected.package.eslint&quot;: &quot;(autodetect)&quot;,
+    &quot;node.js.selected.package.tslint&quot;: &quot;(autodetect)&quot;,
+    &quot;nodejs_package_manager_path&quot;: &quot;npm&quot;,
+    &quot;settings.editor.selected.configurable&quot;: &quot;preferences.lookFeel&quot;,
+    &quot;vue.rearranger.settings.migration&quot;: &quot;true&quot;
   }
-}]]></component>
+}</component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\ArturAdigamov\IdeaProjects\U25-ArturAdigamov\MemoryGame" />
@@ -136,7 +139,8 @@
       <workItem from="1724395287849" duration="137000" />
       <workItem from="1724395510743" duration="170000" />
       <workItem from="1724396410975" duration="4979000" />
-      <workItem from="1724407724737" duration="3828000" />
+      <workItem from="1724407724737" duration="3894000" />
+      <workItem from="1724654099532" duration="4380000" />
     </task>
     <task id="LOCAL-00002" summary="-">
       <option name="closed" value="true" />
@@ -466,7 +470,23 @@
       <option name="project" value="LOCAL" />
       <updated>1724402665533</updated>
     </task>
-    <option name="localTasksCounter" value="43" />
+    <task id="LOCAL-00043" summary="v0.7">
+      <option name="closed" value="true" />
+      <created>1724417111413</created>
+      <option name="number" value="00043" />
+      <option name="presentableId" value="LOCAL-00043" />
+      <option name="project" value="LOCAL" />
+      <updated>1724417111413</updated>
+    </task>
+    <task id="LOCAL-00044" summary="-">
+      <option name="closed" value="true" />
+      <created>1724417144590</created>
+      <option name="number" value="00044" />
+      <option name="presentableId" value="LOCAL-00044" />
+      <option name="project" value="LOCAL" />
+      <updated>1724417144590</updated>
+    </task>
+    <option name="localTasksCounter" value="45" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -489,12 +509,12 @@
     <MESSAGE value="v1.0" />
     <MESSAGE value="v0.1" />
     <MESSAGE value="v0.6" />
-    <MESSAGE value="v0.7" />
     <MESSAGE value="v0.8" />
     <MESSAGE value="v0.5" />
-    <MESSAGE value="-" />
     <MESSAGE value="v1.1" />
-    <option name="LAST_COMMIT_MESSAGE" value="v1.1" />
+    <MESSAGE value="v0.7" />
+    <MESSAGE value="-" />
+    <option name="LAST_COMMIT_MESSAGE" value="-" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
