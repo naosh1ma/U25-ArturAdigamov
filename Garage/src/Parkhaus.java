@@ -84,10 +84,10 @@ public class Parkhaus {
     public void verlassen(Fahrzeug kfz) {
         if (kfz != null) {
             // 1. KFZ suchen und Platz freigeben
-            kfz.getPlatz().setBesetzt(false);
+            kfz.getPlatzID().setBesetzt(false);
             // 2. Etage freigben
-            if (kfz.getPlatz().geteID().isEVoll()) {
-                kfz.getPlatz().geteID().setEVoll(false);
+            if (kfz.getPlatzID().geteID().isEVoll()) {
+                kfz.getPlatzID().geteID().setEVoll(false);
             }
             // 3. KFZ aus Array fahrzeuge entfernen
             this.fahrzeugen = kfz.del(fahrzeugen);
@@ -123,9 +123,9 @@ public class Parkhaus {
         // 2. kfz auf Existenz pruefen
         if (kfz != null) {
             // 3. Parkplatznummer ermitteln und in retVal uebernehmen
-            retVal = " Etage: " + kfz.getPlatz().geteID().getName();
+            retVal = " Etage: " + kfz.getPlatzID().geteID().getName();
             // 4. Etagennummer ermitteln und in retVal uebernehmen
-            retVal += " Parkplatz: " + kfz.getPlatz().getNummer();
+            retVal += " Parkplatz: " + kfz.getPlatzID().getNummer();
         }
         return retVal;
     }
@@ -147,7 +147,7 @@ public class Parkhaus {
         return retVal;
     }
 
-    private Fahrzeug sucheKfz(String kfzID) {
+    public Fahrzeug sucheKfz(String kfzID) {
         Fahrzeug retVal = null;
         if (fahrzeugen != null) {
             for (Fahrzeug fahrzeug : this.fahrzeugen) {

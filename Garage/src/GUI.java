@@ -10,8 +10,8 @@ public class GUI extends JFrame {
 
     public GUI(Parkhaus p) {
         this();
-        this.garage = p;
-        p.setGUI(this);
+        this.garage = p; // Parkhaus Objekt in GUI registrieren
+        p.setGUI(this); // Gui Objekt an Parkhaus uebergeben
         lblFreiePlaetze.setText("" + garage.freiePlaetze());
     }
 
@@ -23,8 +23,8 @@ public class GUI extends JFrame {
         lblFreiePlaetze = new JLabel();
         lblKennzeichen = new JLabel();
         lblTyp = new JLabel();
-        boxTyp = new JComboBox<>();
-        fieldKfz = new JTextField();
+        cbTyp = new JComboBox<>();
+        cbKfz = new JComboBox<>();
         btnIn = new JButton();
         btnOut = new JButton();
         btnSearch = new JButton();
@@ -40,8 +40,8 @@ public class GUI extends JFrame {
         lblFreiePlaetze.setFont(new Font("Arial", Font.PLAIN, 20));
         lblKennzeichen.setFont(new Font("Arial", Font.PLAIN, 20));
         lblTyp.setFont(new Font("Arial", Font.PLAIN, 20));
-        boxTyp.setFont(new Font("Arial", Font.PLAIN, 16));
-        fieldKfz.setFont(new Font("Arial", Font.PLAIN, 16));
+        cbTyp.setFont(new Font("Arial", Font.PLAIN, 16));
+        cbKfz.setFont(new Font("Arial", Font.PLAIN, 16));
         btnIn.setFont(new Font("Arial", Font.PLAIN, 17));
         btnOut.setFont(new Font("Arial", Font.PLAIN, 17));
         btnSearch.setFont(new Font("Arial", Font.PLAIN, 17));
@@ -62,8 +62,8 @@ public class GUI extends JFrame {
         lblFreiePlaetze.setBounds(200, 150, 50, 30);
         lblKennzeichen.setBounds(30, 230, 160, 29);
         lblTyp.setBounds(200, 230, 100, 30);
-        boxTyp.setBounds(200, 280, 70, 28);
-        fieldKfz.setBounds(30, 280, 140, 30);
+        cbTyp.setBounds(200, 280, 70, 28);
+        cbKfz.setBounds(30, 280, 140, 30);
         btnIn.setBounds(330, 280, 120, 30);
         btnOut.setBounds(330, 340, 120, 30);
         btnSearch.setBounds(40, 340, 120, 30);
@@ -74,10 +74,9 @@ public class GUI extends JFrame {
         lblFreiePlaetze.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
         lblStatus.setBorder(BorderFactory.createLineBorder(new Color(0, 0, 0)));
 
-        boxTyp.setModel(new DefaultComboBoxModel<>(new String[]{"Auto", "Motorrad"}));
+        cbTyp.setModel(new DefaultComboBoxModel<>(new String[]{"Auto", "Motorrad"}));
 
-        boxTyp.addActionListener(evt -> boxTypActionPerformed(evt));
-        fieldKfz.addActionListener(evt -> fieldKfzActionPerformed(evt));
+        cbTyp.addActionListener(evt -> boxTypActionPerformed(evt));
         btnIn.addActionListener(evt -> btnInActionPerformed(evt));
         btnOut.addActionListener(evt -> btnOutActionPerformed(evt));
         btnSearch.addActionListener(evt -> btnSearchActionPerformed(evt));
@@ -88,8 +87,8 @@ public class GUI extends JFrame {
         getContentPane().add(lblFreiePlaetze);
         getContentPane().add(lblKennzeichen);
         getContentPane().add(lblTyp);
-        getContentPane().add(boxTyp);
-        getContentPane().add(fieldKfz);
+        getContentPane().add(cbTyp);
+        getContentPane().add(cbKfz);
         getContentPane().add(btnIn);
         getContentPane().add(btnOut);
         getContentPane().add(btnSearch);
@@ -97,32 +96,51 @@ public class GUI extends JFrame {
         getContentPane().add(btnExit);
     }
 
-    private void fieldKfzActionPerformed(ActionEvent evt) {
-        // TODO add your handling code here:
-    }
-
     private void btnInActionPerformed(ActionEvent evt) {
-        String kfz = fieldKfz.getText();
-        if (Fahrzeug.checkSign(kfz)) {
-            String typ = (String) boxTyp.getSelectedItem();
+        Fahrzeug kfz = null;
+        String kfzId = null;
+        kfzId = this.getKfzId(this.cbKfz.getSelectedItem());
+        // Ueberpruefung auf korrektes Kennzeichen
+        if (Fahrzeug.checkSign(kfzId)) {
+            // Fahrzeugtype bestimmen
+            String type = (String) this.cbTyp.getSelectedItem();
+            // freien Parkplatz suchen
             Parkplatz platz = garage.zuweisen();
             if (platz == null) {
-                this.lblStatus.setText(" Kein Platz verfuegbar");
+                this.lblStatus.setText("Kein Platz verfügbar!");
             } else {
                 this.lblStatus.setText("");
-                this.garage.einfahren(kfz, typ, platz);
+                // neues Fahrzeuge Objekt erzeugen
+                kfz = new Fahrzeug(kfzId, type, platz);
+                // Fahrzeug in Auswahlliste eintragen
+                if(garage.sucheKfz(kfzId)== null) changeCbKfz(kfz);
+                // Fahrzeug im Parkhaus abstellen
+                this.garage.einfahren(kfz);
             }
-            this.lblFreiePlaetze.setText("" + garage.freiePlaetze());
+            this.lfFree.setText("" + garage.freiePlaetze());
         } else {
-            this.lblStatus.setText(" Falsche Kennzeichen: " + kfz);
+            this.lfStatus.setText("Falsches Kennzeichen " + kfzId);
         }
-        this.boxTyp.setSelectedIndex(0);
+        // Restet der Combobox
+        this.cbType.setSelectedIndex(0);
     }
 
     private void btnOutActionPerformed(ActionEvent evt) {
-        String kfz = fieldKfz.getText();
-        this.garage.verlassen(kfz);
+        String kfzID = null;
+
+        // ComboBox Kennzeichen auslesen
+        Object obj = this.cbKfz.getSelectedItem();
+        // Kennzeichen bestimmen
+        kfzID = this.getKfzId(obj);
+        // Objekt-Typ bestimmen (Fahrzeuge oder String)
+        if(obj.getClass().toString().equals("class java.lang.String"))
+            obj = garage.sucheKfz(kfzID);// korrektes Fahrzeuge Objekt ermitteln
+        // Fahrzeug aus Parkhaus entfernen
+        this.lblStatus.setText("");
+        this.garage.verlassen(kfzID);
         this.lblFreiePlaetze.setText("" + garage.freiePlaetze());
+        this.cbKfz.removeItem(obj);
+        this.cbKfz.setSelectedItem("");
     }
 
     private void btnExitActionPerformed(ActionEvent evt) {
@@ -130,7 +148,9 @@ public class GUI extends JFrame {
     }
 
     private void btnSearchActionPerformed(ActionEvent evt) {
-        this.lblStatus.setText(garage.getPosKfz(this.fieldKfz.getText()));
+        String kfzId = null;
+        kfzId = this.getKfzId(this.cbKfz.getSelectedItem());
+        this.lblStatus.setText(garage.getPosKfz(kfzId));
     }
 
     private void boxTypActionPerformed(ActionEvent evt) {
@@ -141,14 +161,31 @@ public class GUI extends JFrame {
         lblStatus.setText(text);
     }
 
+    private String getKfzId(Object obj) {
+        String retVal = null;
+        try {
+            retVal = (String) this.cbKfz.getSelectedItem();
+        } catch (ClassCastException ccEx) {
+            retVal = ((Fahrzeug) this.cbKfz.getSelectedItem()).toString();
+        }
+        return retVal;
+    }
+
+    private void changeCbKfz(Fahrzeug kfz) {
+        this.cbKfz.addItem(kfz);
+        this.cbKfz.setSelectedItem("");
+    }
+
+
+
     // Variablen
     private Parkhaus garage;
-    private JComboBox<String> boxTyp;
+    private JComboBox<String> cbTyp;
+    private JComboBox<Fahrzeug> cbKfz;
     private JButton btnExit;
     private JButton btnIn;
     private JButton btnOut;
     private JButton btnSearch;
-    private JTextField fieldKfz;
     private JLabel lblFreiePlaetze;
     private JLabel lblKennzeichen;
     private JLabel lblParkhaus;

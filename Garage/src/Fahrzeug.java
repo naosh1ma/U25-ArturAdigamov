@@ -7,13 +7,13 @@ public class Fahrzeug {
     // Attributen
     private String typ;
     private String kfzID;
-    private Parkplatz platz;
+    private Parkplatz platzID;
 
     // Konstruktoren
     public Fahrzeug(String kfzID, String typ, Parkplatz platz) {
         this.kfzID = kfzID;
         this.typ = typ;
-        this.platz = platz;
+        this.platzID = platz;
     }
 
     public Fahrzeug(String kfzID, String typ) {
@@ -25,7 +25,7 @@ public class Fahrzeug {
     }
 
 
-    // methoden
+    // Methoden
     public Fahrzeug[] add(Fahrzeug[] arr) {
         int i;
         Fahrzeug[] retVal;
@@ -54,11 +54,11 @@ public class Fahrzeug {
             retVal = new Fahrzeug[arr.length - 1];
             while (i < arr.length) {
                 if (arr[i] != this) {
-                    retVal[j] = arr[i];
-                    i++;
-                    j++;
+                    retVal[j] = arr[i]; // alten Arrayinhalt kopieren
+                    i++; // Zaehler fuer altes Array erhoehen
+                    j++; // Zaehler fuer neues Aray uebernehmen
                 } else {
-                    i++;
+                    i++; // alten Feld i ueberspringen
                 }
             }
         }
@@ -66,10 +66,15 @@ public class Fahrzeug {
     }
 
     public static boolean checkSign(String sign) {
-        boolean retVal = false;
-        Pattern p = Pattern.compile("[A-Z]{1,3}-[A-Z]{1,2}\\s[1-9][0-9]{0,3}");
-        Matcher m = p.matcher(sign.toUpperCase());
-        retVal = m.matches();
+        boolean retVal = true;
+        try{
+            Pattern p = Pattern.compile("[A-Z]{1,3}-[A-Z]{1,2}\\s[1-9][0-9]{0,3}");
+            Matcher m = p.matcher(sign.toUpperCase());
+            retVal = m.matches();
+        }
+        catch(Exception ex){
+            retVal = false;
+        }
         return retVal;
     }
 
@@ -90,11 +95,11 @@ public class Fahrzeug {
         this.kfzID = kfzID;
     }
 
-    public Parkplatz getPlatz() {
-        return platz;
+    public Parkplatz getPlatzID() {
+        return platzID;
     }
 
-    public void setPlatz(Parkplatz platz) {
-        this.platz = platz;
+    public void setPlatzID(Parkplatz platzID) {
+        this.platzID = platzID;
     }
 }

@@ -34,10 +34,10 @@ public class Etage {
             }
         }
         // Array kopieren
-        for (i = 0; i < arr.length - 1; i++) {
+        for (i = 0; i < retVal.length - 1; i++) {
             retVal[i] = arr[i]; // Alten Arrayinhalte kopieren
         }
-        retVal[i] = this;
+        retVal[i] = this; // neues Element an neues Array anfuegen
         return retVal;
     }
 
