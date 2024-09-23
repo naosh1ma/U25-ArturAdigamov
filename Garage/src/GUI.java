@@ -115,14 +115,14 @@ public class GUI extends JFrame {
                 // Fahrzeug in Auswahlliste eintragen
                 if(garage.sucheKfz(kfzId)== null) changeCbKfz(kfz);
                 // Fahrzeug im Parkhaus abstellen
-                this.garage.einfahren(kfz);
+                // TODO this.garage.einfahren(kfz);
             }
-            this.lfFree.setText("" + garage.freiePlaetze());
+            this.lblFreiePlaetze.setText("" + garage.freiePlaetze());
         } else {
-            this.lfStatus.setText("Falsches Kennzeichen " + kfzId);
+            this.lblStatus.setText("Falsches Kennzeichen " + kfzId);
         }
         // Restet der Combobox
-        this.cbType.setSelectedIndex(0);
+        this.cbTyp.setSelectedIndex(0);
     }
 
     private void btnOutActionPerformed(ActionEvent evt) {
