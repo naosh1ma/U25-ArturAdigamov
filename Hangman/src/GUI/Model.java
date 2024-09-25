@@ -1,7 +1,11 @@
 package GUI;
 
+import javax.imageio.ImageIO;
+import java.awt.*;
+import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.io.IOException;
 import java.util.ArrayList;
 import java.util.List;
 import java.util.Random;
@@ -14,16 +18,33 @@ public class Model {
 
     List<String> words;
     List<Character> userGuess;
+    List<BufferedImage> images;
     String word = "";
     String hiddenWord;
     int wrongGuess;
+
+    final String PATH = "Hangman/images/";
+
 
     Model() {
         random = new Random();
         words = new ArrayList<>();
         userGuess = new ArrayList<>();
+        images = new ArrayList<>();
         loadWords();
         setWord();
+    }
+
+    private void loadImages() {
+        try {
+            for (int i = 0; i < 8; i++) {
+                BufferedImage image = ImageIO.read(new File(PATH + i + ".png"));
+                images.add(image);
+            }
+        } catch (IOException e) {
+            throw new RuntimeException(e);
+        }
+
     }
 
     private void loadWords() {
@@ -73,11 +94,11 @@ public class Model {
         return rightGuess == word.length();
     }
 
-    public void incrementWrongGuess(){
+    public void incrementWrongGuess() {
         wrongGuess++;
     }
 
-    public int getWrongGuess(){
+    public int getWrongGuess() {
         return wrongGuess;
     }
 }
